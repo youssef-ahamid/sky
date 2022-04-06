@@ -4,9 +4,9 @@ export let hero = options => {
   return [
     {
       classes:
-        '',
+        'w-full flex items-center justify-center flex-wrap md:flex-nowrap',
     },
-    { on: [options.fullHeight, true], classes: '' },
+    { on: [options.fullHeight, true], classes: 'min-h-screen' },
     { on: [options.reverse, true], classes: '' },
     { on: [options.reverse, false], classes: '' },
   ]

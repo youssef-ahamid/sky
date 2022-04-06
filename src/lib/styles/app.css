@@ -33,7 +33,7 @@
 
   /* base */
   html {
-    @apply bg-secondary selection:bg-primary selection:text-secondary selection:font-bold font-body scroll-smooth;
+    @apply bg-neutral-light text-neutral-dark selection:bg-primary selection:text-secondary selection:font-bold font-body scroll-smooth;
   }
   body {
     @apply overflow-x-hidden w-[100vw];

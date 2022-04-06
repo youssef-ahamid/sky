@@ -1,6 +1,11 @@
 <script>
   import Button from '$lib/components/Button/Button.svelte'
+  import Hero from '$lib/components/Hero/Hero.svelte'
 </script>
 
-<h1>hello from kenshi!</h1>
-<Button label="hamada" type="secondary" />
+<Hero fullHeight>
+  <Button label="hamada" type="primary" />
+</Hero>
+<Hero fullHeight className="bg-secondary">
+  <Button label="hamada" type="secondary" />
+</Hero>

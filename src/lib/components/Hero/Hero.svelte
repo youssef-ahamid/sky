@@ -5,7 +5,6 @@
   export let className = '' // *, custom wrapper classes
 
   import Go from '$lib/components/Go/Go.svelte'
-  import Logo from '$lib/logo.svelte'
 import Animateonenterview from '../Animate On Enter View/animate on enter view.svelte'
 
   /* styles */
@@ -13,9 +12,6 @@ import Animateonenterview from '../Animate On Enter View/animate on enter view.s
   $: classes = config({ fullHeight, reverse })
 </script>
 
-<Go to="/" className={classes.logoWrapper}>
-  <Logo className={classes.logo} innerCircle={classes.logoInner} outerCircle={classes.logoOuter}/>
-</Go>
 <div class={`${classes.hero} ${className}`}>
   {#if $$slots.cta}
     <div class={classes.cta}>
