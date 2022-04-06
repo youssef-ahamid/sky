@@ -1,6 +1,6 @@
 <script>
   /* components */
-  import Button from '$lib/components/Button/index.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
 
   /* props */
   export let inputs = [] // *, array of inputs

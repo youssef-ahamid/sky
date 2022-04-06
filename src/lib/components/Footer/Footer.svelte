@@ -5,10 +5,10 @@
     'Copyright forever and ever by Samurai Software House'
   export let className = '' // *, custom wrapper classes
 
-  import Section from '$lib/components/Section/index.svelte'
-  import List from '$lib/components/List/index.svelte'
-  import NavLink from '$lib/components/Nav Link/index.svelte'
-  import Go from '$lib/components/Go/index.svelte'
+  import Section from '$lib/components/Section/Section.svelte'
+  import List from '$lib/components/List/List.svelte'
+  import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
   import Logo from '$lib/logo.svelte'
 
   import { socialLinks } from '$lib/stores';

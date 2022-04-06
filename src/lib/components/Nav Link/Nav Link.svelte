@@ -7,8 +7,8 @@
   export let activeSub = 0
   export let links = []
 
-  import Go from '$lib/components/Go/index.svelte'
-  import List from '$lib/components/List/index.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
+  import List from '$lib/components/List/List.svelte'
 
   import { slide } from 'svelte/transition'
 

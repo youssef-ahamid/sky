@@ -5,10 +5,10 @@
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
 
-  import CarrouselItem from '$lib/components/Carrousel Item/index.svelte'
-  import List from '$lib/components/List/index.svelte'
-  import Stepper from '$lib/components/Stepper/index.svelte'
-  import Button from '$lib/components/Button/index.svelte'
+  import CarrouselItem from '$lib/components/Carrousel Item/Carrousel Item.svelte'
+  import List from '$lib/components/List/List.svelte'
+  import Stepper from '$lib/components/Stepper/Stepper.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
 
   /* events */
   import { createEventDispatcher, onMount } from 'svelte/internal'

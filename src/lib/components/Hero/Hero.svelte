@@ -4,7 +4,7 @@
   export let reverse = false // *, true
   export let className = '' // *, custom wrapper classes
 
-  import Go from '$lib/components/Go/index.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
   import Logo from '$lib/logo.svelte'
 import Animateonenterview from '../Animate On Enter View/animate on enter view.svelte'
 

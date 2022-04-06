@@ -11,9 +11,9 @@
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
 
-  import Go from '$lib/components/Go/index.svelte'
-  import Button from '$lib/components/Button/index.svelte'
-  import Image from '$lib/components/Image/index.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
+  import Image from '$lib/components/Image/Image.svelte'
   import Arrow from '$lib/icons/arrow.svelte'
 
   $: previewed = remaining === 0

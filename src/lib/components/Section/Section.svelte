@@ -6,9 +6,9 @@
   export let noContain = false
   export let animateIn = 'fade'
 
-  import Title from '$lib/components/Title/index.svelte'
-  import Go from '$lib/components/Go/index.svelte'
-  import Button from '$lib/components/Button/index.svelte'
+  import Title from '$lib/components/Title/Title.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
   import AnimateOnEnterView from '$lib/components/Animate On Enter View/animate on enter view.svelte'
 
   /* styles */

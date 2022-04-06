@@ -4,10 +4,10 @@
   export let zigzag = false
   export let className = '' // *, custom wrapper classes
 
-  import List from '$lib/components/List/index.svelte'
-  import Feature from '$lib/components/Feature/index.svelte'
-  import Button from '$lib/components/Button/index.svelte'
-  import Go from '$lib/components/Go/index.svelte'
+  import List from '$lib/components/List/List.svelte'
+  import Feature from '$lib/components/Feature/Feature.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
 
   /* styles */
   import { config } from './styles'

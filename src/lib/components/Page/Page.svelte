@@ -1,11 +1,11 @@
 <script>
   import { scroll } from '$lib/stores.js'
-  import Button from '$lib/components/Button/index.svelte'
-  import Nav from '$lib/components/Nav/index.svelte'
-  import Stepper from '$lib/components/Stepper/index.svelte'
-  import List from '$lib/components/List/index.svelte'
-  import SocialLink from '$lib/components/Social Link/index.svelte'
-  import ScrollControl from '$lib/components/Scroll Control/index.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
+  import Nav from '$lib/components/Nav/Nav.svelte'
+  import Stepper from '$lib/components/Stepper/Stepper.svelte'
+  import List from '$lib/components/List/List.svelte'
+  import SocialLink from '$lib/components/Social Link/Social Link.svelte'
+  import ScrollControl from '$lib/components/Scroll Control/Scroll Control.svelte'
   import { fade } from 'svelte/transition'
 
   /* props */

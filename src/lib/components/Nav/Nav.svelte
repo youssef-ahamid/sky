@@ -7,8 +7,8 @@
   export let icon = Burger
   export let className = '' // *, custom wrapper classes
 
-  import List from '$lib/components/List/index.svelte'
-  import NavLink from '$lib/components/Nav Link/index.svelte'
+  import List from '$lib/components/List/List.svelte'
+  import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
 
   import { clickOutside } from '$lib/actions'
 
