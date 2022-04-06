@@ -5,6 +5,10 @@ module.exports = {
       colors: {
         primary: '#000000',
         secondary: '#ffffff',
+        neutral: {
+          light: '#ffffff',
+          dark: '#000000',
+        },
         accent: '#f9f614',
         error: '#e86f68',
       },
