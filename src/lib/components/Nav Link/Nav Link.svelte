@@ -6,6 +6,7 @@
   export let active = false
   export let activeSub = 0
   export let links = []
+  export let styleOptions = {}
 
   import Go from '$lib/components/Go/Go.svelte'
   import List from '$lib/components/List/List.svelte'

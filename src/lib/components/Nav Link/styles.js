@@ -1,14 +1,30 @@
 export const navLinkWrapper = props => {
   return [
     {
-      classes: '',
+      classes: 'uppercase underline decoration-2 hover:decoration-current underline-offset-2 transiton duration-300',
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: 'text-primary',
+      styles: '',
+      on: props.type == 'primary'
+    },
+
+    {
+      classes: 'text-neutral-light',
+      styles: '',
+      on: props.type == 'secondary'
+    },
+    {
+      classes: 'decoration-current',
+      styles: '',
+      on: props.active
+    },
+    {
+      classes: 'decoration-transparent',
+      styles: '',
+      on: !props.active
     },
   ]
 }
@@ -20,10 +36,10 @@ export const navSublinkList = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary'
     },
   ]
 }
@@ -36,10 +52,10 @@ export const navSublink = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary'
     },
   ]
 }
@@ -51,10 +67,10 @@ export const navSublinkActive = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary'
     },
   ]
 }
@@ -66,10 +82,10 @@ export const navSublinkInactive = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary'
     },
   ]
 }
