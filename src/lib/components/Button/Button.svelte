@@ -14,8 +14,8 @@
   import { button, buttonLabel, buttonIcon } from './styles'
 
   $: wrapper = stylus(button({ type, active, shape, reverse, ...styleOptions }))
-  $: label = stylus(buttonLabel({ type, active, shape, reverse, ...styleOptions }))
-  $: icon = stylus(buttonIcon({ type, active, shape, reverse, ...styleOptions }))
+  $: name = stylus(buttonLabel({ type, active, shape, reverse, ...styleOptions }))
+  $: bIcon = stylus(buttonIcon({ type, active, shape, reverse, ...styleOptions }))
 </script>
 
 <button
@@ -25,10 +25,10 @@
   style={wrapper.styles}
   type="button"
 >
-  <h3 class={label.classes} style={label.styles}>
+  <h3 class={name.classes} style={name.styles}>
     {label}
   </h3>
   {#if !!icon}
-    <span class={icon.classes} style={icon.styles}><svelte:component this={icon} /></span>
+    <span class={bIcon.classes} style={bIcon.styles}><svelte:component this={icon} /></span>
   {/if}
 </button>
