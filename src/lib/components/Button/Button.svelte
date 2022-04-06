@@ -18,6 +18,7 @@
   $: bIcon = stylus(buttonIcon({ type, active, shape, reverse, ...styleOptions }))
 </script>
 
+<!-- svelte-ignore component-name-lowercase -->
 <button
   on:click
   on:dblclick
