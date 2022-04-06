@@ -45,7 +45,7 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'mt-12 md:mt-16',
+      classes: 'm-2',
     },
   ]
 }
@@ -53,8 +53,7 @@ export let link = options => {
 export let links = options => {
   return [
     {
-      classes:
-        'before:absolute before:top-16 before:-translate-y-1/2 before:left-0 before:w-[80%] md:before:w-96 before:h-0.5 md:before:h-1 before:bg-primary before:rounded-r-full pt-16 md:pl-16',
+      classes: 'flex justify-end',
     },
   ]
 }
@@ -62,8 +61,7 @@ export let links = options => {
 export let nav = options => {
   return [
     {
-      classes:
-        'md:top-0 fixed top-0 left-0 bottom-0 right-0 md:right-auto md:w-[520px] md:left-0 bg-secondary p-12 md:p-16 rounded-3xl drop-shadow-[5px_15px_25px_rgba(225,226,239,0.18)] z-[998] transition duration-500 ease-out',
+      classes: 'fixed top-0 left-0 right-0',
     },
     {
       on: [options.active, false],
@@ -72,6 +70,14 @@ export let nav = options => {
     {
       on: [options.active, true],
       classes: 'translate-x-0 opacity-100',
+    },
+    {
+      on: [options.type, 'primary'],
+      classes: 'bg-neutral-light',
+    },
+    {
+      on: [options.type, 'secondary'],
+      classes: 'bg-secondary',
     },
   ]
 }
