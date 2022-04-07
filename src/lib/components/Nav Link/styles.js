@@ -1,7 +1,7 @@
 export const navLinkWrapper = props => {
   return [
     {
-      classes: 'uppercase underline decoration-2 hover:decoration-current underline-offset-2 transiton duration-300',
+      classes: 'uppercase underline decoration-2 hover:decoration-current underline-offset-2 transiton duration-300 font-heading font-light text-[22px]',
       styles: '',
       on: true, // default
     },

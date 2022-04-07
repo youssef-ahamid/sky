@@ -40,9 +40,8 @@ p {
   @apply font-heading font-light text-[35px] leading-snug;
 }
 
-.Navlink {
-  @apply font-heading font-light text-[22px];
-}
+
+
 
 /* base */
 html {
