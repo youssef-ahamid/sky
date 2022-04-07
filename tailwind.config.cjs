@@ -14,7 +14,7 @@ module.exports = {
       },
       fontFamily: {
         heading: ['Montserrat', 'sans-serif'],
-        body: ['Helvetica', 'sans-serif'],
+        body: ['Montserrrat Subrayada', 'sans-serif'],
       },
       keyframes: {
         wiggle: {

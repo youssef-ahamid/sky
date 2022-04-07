@@ -23,6 +23,15 @@
   ]
 </script>
 
+<h1>heyeyey</h1>
+<h2>heyeye</h2>
+<h3>hehehyeye</h3>
+<h4>heyeyye</h4>
+<h5>ehyehye</h5>
+<h6>heyheyheyh</h6>
+<p>heyeheyeh</p>
+<body>heyeyehey</body>
+
 <Hero fullHeight>
   <NavLink
     text="Hamasa"
