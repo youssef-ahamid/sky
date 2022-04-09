@@ -1,6 +1,6 @@
 <script>
   /* props */
-  export let type = 'primary' // *, secondary
+  export let type = '' // *, secondary
   export let shape = 'default' // *, ghost, full,
   export let icon = null // *, icon component
   export let className = '' // *, custom wrapper classes
@@ -13,9 +13,15 @@
   import { stylus } from '$lib/helpers'
   import { button, buttonLabel, buttonIcon } from './styles'
 
-  $: wrapper = stylus(button({ type, active, shape, reverse, ...styleOptions }))
-  $: name = stylus(buttonLabel({ type, active, shape, reverse, ...styleOptions }))
-  $: bIcon = stylus(buttonIcon({ type, active, shape, reverse, ...styleOptions }))
+  $: wrapper = stylus(
+    button({ type, active, shape, reverse, ...styleOptions })
+  )
+  $: name = stylus(
+    buttonLabel({ type, active, shape, reverse, ...styleOptions })
+  )
+  $: bIcon = stylus(
+    buttonIcon({ type, active, shape, reverse, ...styleOptions })
+  )
 </script>
 
 <!-- svelte-ignore component-name-lowercase -->
@@ -26,10 +32,12 @@
   style={wrapper.styles}
   type="button"
 >
-  <h3 class={name.classes} style={name.styles}>
+  <p class={name.classes} style={name.styles}>
     {label}
-  </h3>
+  </p>
   {#if !!icon}
-    <span class={bIcon.classes} style={bIcon.styles}><svelte:component this={icon} /></span>
+    <span class={bIcon.classes} style={bIcon.styles}
+      ><svelte:component this={icon} /></span
+    >
   {/if}
 </button>

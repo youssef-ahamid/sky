@@ -1,17 +1,17 @@
 export const button = props => {
   return [
     {
-      classes: 'px-1.5 transition duration-300 ease-out',
+      classes: 'px-1.5 transition duration-300 ease-out hover:scale-105 active:scale-[95%]',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'bg-primary hover:bg-neutral-light hover:scale-105 active:scale-[95%]',
+      classes: 'bg-primary hover:bg-neutral-light',
       styles: '',
       on: props.type == 'primary'
     },
     {
-      classes: 'bg-neutral-light hover:bg-secondary hover:scale-105 active:scale-[95%]',
+      classes: 'bg-neutral-light hover:bg-secondary',
       styles: '',
       on: props.type == 'secondary'
     },
@@ -21,7 +21,7 @@ export const button = props => {
 export const buttonLabel = props => {
   return [
     {
-      classes: 'uppercase leading-none transition duration-300 ease-out',
+      classes: 'uppercase font-semibold select-none leading-none transition duration-300 ease-out',
       styles: '',
       on: true, // default
     },

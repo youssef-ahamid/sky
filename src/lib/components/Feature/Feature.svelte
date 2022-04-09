@@ -1,41 +1,40 @@
 <script>
+  import Image from '$lib/components/Image/Image.svelte'
+
   /* props */
   export let title = ''
   export let images = []
   export let reverse = false // *, true
+  export let active = false // *, true
   export let image = {}
   export let className = '' // *, custom wrapper classes
 
   /* styles */
   import { config } from './styles'
-  $: classes = config({ reverse })
+  $: classes = config({ reverse, active })
 </script>
 
 <div class={`${classes.feature} ${className}`}>
-  {#if !!image.data.src }
+  {#if !!image.src}
     <div class={classes.left}>
-      <svelte:component
-        this={image.component}
-        {...image.data}
-      />
+      <Image {...image} className={classes.image} />
     </div>
   {/if}
-  <div class={classes.right}>
+  <div class={classes.right} on:click>
     {#if images.length > 0}
       <div>
-        {#each images as image}
-          <img
-            class={classes.image}
-            src={image}
-            alt={`${title} | thumbnail image | Shereef Mostafa`}
-          />
+        {#each images as img}
+          <Image {...img} className={classes.otherImage} />
         {/each}
       </div>
     {/if}
-    <div class="mb-6 mt-1">
-      <h2>{title}</h2>
-      <slot />
+    <slot />
+    <div class={classes.content}>
+      <h4 class={classes.title}>{title}</h4>
+      <div class={classes.description}>
+        <slot name="description" />
+      </div>
+      <div class={classes.cta}><slot name="cta" /></div>
     </div>
-    <div class="ml-1"><slot name="cta" /></div>
   </div>
 </div>

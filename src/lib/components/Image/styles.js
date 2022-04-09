@@ -1,7 +1,7 @@
 export const imgWrapper = props => {
   return [
     {
-      classes: '',
+      classes: 'w-full h-full mx-auto block',
       on: true,
     },
     { classes: '', styles: '', on: props.type == 'custom' },
