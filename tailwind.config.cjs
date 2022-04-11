@@ -14,7 +14,7 @@ module.exports = {
       },
       fontFamily: {
         heading: ['Montserrat', 'sans-serif'],
-        body: ['Montserrrat Subrayada', 'sans-serif'],
+        body: ['Montserrat Subrayada', 'sans-serif'],
       },
       keyframes: {
         wiggle: {
@@ -32,5 +32,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 }

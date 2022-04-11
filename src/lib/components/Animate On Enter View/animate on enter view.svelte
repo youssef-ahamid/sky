@@ -1,5 +1,6 @@
 <script>
   export let type = 'fade'
+  export let className = ''
 
   let element
   let intersecting = false
@@ -27,10 +28,10 @@
 </script>
 
 <div
-  use:inView={{ bottom: 100 }}
+  use:inView={{ bottom: 20 }}
   on:enter={enter}
   on:exit={exit}
-  class={wrapper.classes}
+  class={`${wrapper.classes} ${className}`}
 >
   <slot />
 </div>

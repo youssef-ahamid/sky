@@ -4,37 +4,33 @@
   export let id = title
   export let cta = null
   export let noContain = false
-  export let animateIn = 'fade'
 
   import Title from '$lib/components/Title/Title.svelte'
   import Go from '$lib/components/Go/Go.svelte'
   import Button from '$lib/components/Button/Button.svelte'
-  import AnimateOnEnterView from '$lib/components/Animate On Enter View/animate on enter view.svelte'
 
   /* styles */
   import { config } from './styles'
   $: classes = config({ noContain })
 </script>
 
-<AnimateOnEnterView type={animateIn}>
-  <section class={`${classes.section} ${className}`} {id}>
-    <Title line={title.length > 0}>{title}</Title>
-    <div class={classes.content}>
-      <slot />
-      {#if cta}
-        <div class={classes.ctaContainer}>
-          <Go to={cta.link}>
-            <Button
-              label={cta.label}
-              type={cta.type}
-              shape={cta.shape}
-              icon={cta.icon}
-              reverse={cta.reverse}
-              className={cta.className}
-            />
-          </Go>
-        </div>
-      {/if}
-    </div>
-  </section>
-</AnimateOnEnterView>
+<section class={`${classes.section} ${className}`} {id}>
+  <Title line={title.length > 0}>{title}</Title>
+  <div class={classes.content}>
+    <slot />
+    {#if cta}
+      <div class={classes.ctaContainer}>
+        <Go to={cta.link}>
+          <Button
+            label={cta.label}
+            type={cta.type}
+            shape={cta.shape}
+            icon={cta.icon}
+            reverse={cta.reverse}
+            className={cta.className}
+          />
+        </Go>
+      </div>
+    {/if}
+  </div>
+</section>

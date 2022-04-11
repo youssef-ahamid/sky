@@ -12,7 +12,11 @@ export let content = options => {
   return [
     {
       on: [options.noContain, false],
-      classes: 'e',
+      classes: 'p-4 md:p-8 pt-10 md:pt-16 max-w-[80%] mx-auto',
+    },
+    {
+      on: [options.noContain, true],
+      classes: '',
     },
   ]
 }

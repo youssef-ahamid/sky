@@ -14,20 +14,18 @@
   $: classes = config({ reverse, active })
 </script>
 
-<div class={`${classes.feature} ${className}`}>
-  {#if !!image.src}
+<button class={`${classes.feature} ${className}`}>
+  {#if images.length > 0}
     <div class={classes.left}>
-      <Image {...image} className={classes.image} />
+      <Image {...images[0]} className={classes.image} />
+      {#each images as img, i}
+        {#if i > 0}
+          <Image {...img} className={classes.otherImage} />
+        {/if}
+      {/each}
     </div>
   {/if}
   <div class={classes.right} on:click>
-    {#if images.length > 0}
-      <div>
-        {#each images as img}
-          <Image {...img} className={classes.otherImage} />
-        {/each}
-      </div>
-    {/if}
     <slot />
     <div class={classes.content}>
       <h4 class={classes.title}>{title}</h4>
@@ -37,4 +35,4 @@
       <div class={classes.cta}><slot name="cta" /></div>
     </div>
   </div>
-</div>
+</button>

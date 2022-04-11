@@ -1,10 +1,52 @@
 <script>
   import Button from '$lib/components/Button/Button.svelte'
   import Hero from '$lib/components/Hero/Hero.svelte'
-  import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
-  import Nav from '$lib/components/Nav/Nav.svelte'
   import Feature from '$lib/components/Feature/Feature.svelte'
   import Go from '$lib/components/Go/Go.svelte'
+  import List from '$lib/components/List/List.svelte'
+
+  import { slugify } from '$lib/helpers'
+  import Section from '$lib/components/Section/Section.svelte'
+  import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
+
+  const features = [
+    {
+      title: 'il-monte galala',
+      images: [
+        {
+          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+        },
+        {
+          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+        },
+      ],
+      description: 'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
+    },
+    {
+      title: 'il-monte galala',
+      images: [
+        {
+          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+        },
+        {
+          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+        },
+      ],
+      description: 'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak',
+    },
+    {
+      title: 'il-monte galala',
+      images: [
+        {
+          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+        },
+        {
+          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+        },
+      ],
+      description: 'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
+    },
+  ]
 
   const links = [
     {
@@ -24,62 +66,66 @@
       text: 'hamada',
     },
   ]
-
-  let active = false
-  const toggleActive = () => {
-    active = !active
+  let activeFeatures = Array.from(
+    { length: features.length },
+    _ => false
+  )
+  const activate = i => {
+    if (!activeFeatures[i]) {
+      activeFeatures = activeFeatures.map(_ => false)
+      activeFeatures[i] = true
+    } else activeFeatures = activeFeatures.map(_ => false)
   }
 </script>
 
-<h1>heyeyey</h1>
-<h2>heyeye</h2>
-<h3>hehehyeye</h3>
-<h4>heyeyye</h4>
-<h5>ehyehye</h5>
-<h6>heyheyheyh</h6>
-<p>heyeheyeh</p>
-<p class="body-lg">hamada</p>
-<Hero fullHeight>
-  <NavLink
-    text="Hamasa"
-    to="ahmad"
-    styleOptions={{ type: 'primary' }}
-  />
-</Hero>
-<Hero fullHeight className="bg-secondary">
-  <Nav {links} activeLink={0} activeSub={0} />
-
-  <div class="mx-3">
+<Section id="projects" className="bg-secondary overflow-hidden pb-48">
+  <Animateonenterview>
+    <div class="py-16 md:py-48 flex justify-center">
+      <p
+        class="text-center text-neutral-light font-medium whitespace-pre-line"
+      >
+        Building the future of Building
+        Committed.
+      </p>
+    </div>
+  </Animateonenterview>
+  <Animateonenterview>
+    <h2 class="text-neutral-light md:mx-3 py-6">Featured projects</h2>
+  </Animateonenterview>
+  <List
+    items={features}
+    let:prop={feature}
+    let:index
+    className="flex justify-center md:justify-between flex-wrap mx-1"
+  >
+  <Animateonenterview type={index%2===0? "flyLeft":"flyRight"} className="overflow-visible">
     <Feature
-      on:click={toggleActive}
-      title="il-monte galala"
-      image={{
-        src: 'https://www.b2b-egy.com/backend/media/projects/39/2019/original.jpg',
+      on:click={() => {
+        activate(index)
       }}
-      images={[
-        {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
-        },
-      ]}
-      bind:active
+      {...feature}
+      bind:active={activeFeatures[index]}
+      className=""
     >
-      <p slot="description">khod description</p>
+      <p slot="description">{feature.description}</p>
 
       <div
-        class:-translate-x-44={active}
-        class="transition duration-700 w-[50%] md:w-[40%] inset-0 absolute  overflow-hidden"
+        class="transition duration-700 w-[50%] group-focus:-translate-x-24 group-focus:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
       >
         <div
           class=" h-96  bg-neutral-light rotate-[50deg] transform origin-top-right"
         />
       </div>
 
-      <Go to="/projects/hamada" slot="cta">
+      <div slot="cta">
+      <Go to="/projects/{slugify(feature.title)}" >
         <Button
           label="more"
           className="hover:bg-secondary hover:text-neutral-light text-secondary bg-neutral-light"
         />
       </Go>
+    </div>
     </Feature>
-  </div>
-</Hero>
+  </Animateonenterview>
+  </List>
+</Section>

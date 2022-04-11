@@ -14,9 +14,9 @@
   style={styles}
   on:scroll
 >
-  {#each items as item}
+  {#each items as item, i}
     <li class={classes.listItem}>
-      <slot prop={item} />
+      <slot prop={item} index={i} />
     </li>
   {/each}
 </ul>
