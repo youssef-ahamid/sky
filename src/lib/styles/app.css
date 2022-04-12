@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  @apply overflow-x-hidden w-[100vw];
+  @apply overflow-x-hidden w-[100vw] font-heading font-light text-lg sm:text-2xl leading-snug;
 }
 
 

@@ -93,7 +93,7 @@
 
   let overlay = null
 
-  const overlayProjects = (i) => {
+  const overlayProjects = i => {
     overlay = i
     console.log(overlay)
   }
@@ -103,9 +103,7 @@
 </script>
 
 <Section id="home">
-  <Hero fullHeight>
-  
-  </Hero>
+  <Hero fullHeight />
 </Section>
 
 <Section id="trust">
@@ -113,23 +111,27 @@
     <h2 class="md:mx-3 py-6">Trusted By</h2>
   </Animateonenterview>
 
-  <List items={logos} let:prop={logo} className="py-6 justify-around flex flex-wrap">
-    <Image {...logo} styleOptions={{ size: "sm" }} />
+  <List
+    items={logos}
+    let:prop={logo}
+    className="py-6 justify-around flex flex-wrap"
+  >
+    <Image {...logo} styleOptions={{ size: 'sm' }} />
   </List>
 
   <Animateonenterview>
     <div class="py-12 md:py-20 flex justify-center">
       <p
-        class="text-center text-neutral-light font-medium whitespace-pre-line"
+        class="text-center text-primary font-medium whitespace-pre-line"
       >
-        Building trust
+        Building trust 
         Reliable.
       </p>
     </div>
   </Animateonenterview>
 </Section>
 
-<Section id="projects" className="bg-secondary overflow-hidden pb-48">
+<Section id="projects" className="bg-secondary overflow-hidden pb-12 md:pb-32">
   <Animateonenterview>
     <div class="py-16 md:py-48 flex justify-center">
       <p
@@ -152,20 +154,24 @@
       let:index
       className="flex justify-center md:justify-between flex-wrap mx-auto relative"
     >
-    
       <Animateonenterview
         type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
-        className="overflow-visible relative w-full h-full {overlay == index? 'z-30':'z-0'}"
+        className="overflow-visible relative w-full h-full {overlay ==
+        index
+          ? 'z-30'
+          : 'z-0'}"
       >
-      {#if overlay != index && !!overlay}
-      <div
-        transition:fade={{ duration: 300 }}
-        class="absolute inset-0 bg-secondary transition duration-300 ease-out bg-opacity-80 z-30 pointer-events-none"
-      />
-    {/if}
+        {#if overlay != index && !!overlay}
+          <div
+            transition:fade={{ duration: 300 }}
+            class="absolute inset-0 bg-secondary transition duration-300 ease-out bg-opacity-80 z-30 pointer-events-none"
+          />
+        {/if}
         <Feature
           {...feature}
-          on:focus={() => { overlayProjects(index) }}
+          on:focus={() => {
+            overlayProjects(index)
+          }}
           on:blur={unOverlayProjects}
         >
           <p slot="description">{feature.description}</p>
@@ -190,19 +196,26 @@
   </div>
 </Section>
 
-
 <Section id="about">
-  <Hero>
-    <Animateonenterview slot="left" type="flyLeft" className="flex flex-col">
+  <Hero className="py-16 md:py-36">
+    <Animateonenterview
+      slot="left"
+      type="flyLeft"
+      className="flex flex-col"
+    >
       <h2>Who we are</h2>
-      <div>
-        <p class="inline-block">Learn</p>
-        <Button type="primary" label="more" className="inline-block" />
-        <p class="inline-block">about our team & founders</p>
+      <div class="md:w-[90%]">
+        Learn
+        <Button
+          type="primary"
+          label="more"
+          className="inline-block"
+        />
+        about our team & founders
       </div>
     </Animateonenterview>
 
-    <Animateonenterview slot="right" type="flyRight">
+    <Animateonenterview slot="right" type="flyRight" className="scale-[125%]">
       <Image {...aboutImage} />
     </Animateonenterview>
   </Hero>
