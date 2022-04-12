@@ -53,6 +53,10 @@
     },
   ]
 
+  const aboutImage = {
+    src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+  }
+
   const logos = [
     {
       src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
@@ -183,6 +187,23 @@
         </Feature>
       </Animateonenterview>
     </List>
-    
   </div>
+</Section>
+
+
+<Section id="about">
+  <Hero>
+    <Animateonenterview slot="left" type="flyLeft" className="flex flex-col">
+      <h2>Who we are</h2>
+      <div>
+        <p class="inline-block">Learn</p>
+        <Button type="primary" label="more" className="inline-block" />
+        <p class="inline-block">about our team & founders</p>
+      </div>
+    </Animateonenterview>
+
+    <Animateonenterview slot="right" type="flyRight">
+      <Image {...aboutImage} />
+    </Animateonenterview>
+  </Hero>
 </Section>
