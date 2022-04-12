@@ -6,7 +6,6 @@
   export let images = []
   export let reverse = false // *, true
   export let active = false // *, true
-  export let image = {}
   export let className = '' // *, custom wrapper classes
 
   /* styles */
@@ -14,7 +13,7 @@
   $: classes = config({ reverse, active })
 </script>
 
-<button class={`${classes.feature} ${className}`}>
+<button class={`${classes.feature} ${className}`} on:focus on:click on:blur>
   {#if images.length > 0}
     <div class={classes.left}>
       <Image {...images[0]} className={classes.image} />

@@ -8,6 +8,7 @@
   import { slugify } from '$lib/helpers'
   import Section from '$lib/components/Section/Section.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
+  import { fade, scale, slide } from 'svelte/transition'
 
   const features = [
     {
@@ -20,7 +21,8 @@
           src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
         },
       ],
-      description: 'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
+      description:
+        'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
     },
     {
       title: 'il-monte galala',
@@ -32,7 +34,8 @@
           src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
         },
       ],
-      description: 'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak',
+      description:
+        'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak',
     },
     {
       title: 'il-monte galala',
@@ -44,7 +47,8 @@
           src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
         },
       ],
-      description: 'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
+      description:
+        'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
     },
   ]
 
@@ -66,15 +70,15 @@
       text: 'hamada',
     },
   ]
-  let activeFeatures = Array.from(
-    { length: features.length },
-    _ => false
-  )
-  const activate = i => {
-    if (!activeFeatures[i]) {
-      activeFeatures = activeFeatures.map(_ => false)
-      activeFeatures[i] = true
-    } else activeFeatures = activeFeatures.map(_ => false)
+
+  let overlay = null
+
+  const overlayProjects = (i) => {
+    overlay = i
+    console.log(overlay)
+  }
+  const unOverlayProjects = () => {
+    overlay = null
   }
 </script>
 
@@ -89,43 +93,53 @@
       </p>
     </div>
   </Animateonenterview>
+
   <Animateonenterview>
     <h2 class="text-neutral-light md:mx-3 py-6">Featured projects</h2>
   </Animateonenterview>
-  <List
-    items={features}
-    let:prop={feature}
-    let:index
-    className="flex justify-center md:justify-between flex-wrap mx-1"
-  >
-  <Animateonenterview type={index%2===0? "flyLeft":"flyRight"} className="overflow-visible">
-    <Feature
-      on:click={() => {
-        activate(index)
-      }}
-      {...feature}
-      bind:active={activeFeatures[index]}
-      className=""
+
+  <div class="relative w-auto h-auto">
+    <List
+      items={features}
+      let:prop={feature}
+      let:index
+      className="flex justify-center md:justify-between flex-wrap mx-auto relative"
     >
-      <p slot="description">{feature.description}</p>
-
-      <div
-        class="transition duration-700 w-[50%] group-focus:-translate-x-24 group-focus:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
+    
+      <Animateonenterview
+        type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
+        className="overflow-visible relative w-full h-full {overlay == index? 'z-30':'z-0'}"
       >
-        <div
-          class=" h-96  bg-neutral-light rotate-[50deg] transform origin-top-right"
-        />
-      </div>
-
-      <div slot="cta">
-      <Go to="/projects/{slugify(feature.title)}" >
-        <Button
-          label="more"
-          className="hover:bg-secondary hover:text-neutral-light text-secondary bg-neutral-light"
-        />
-      </Go>
-    </div>
-    </Feature>
-  </Animateonenterview>
-  </List>
+      {#if overlay != index && !!overlay}
+      <div
+        transition:fade={{ duration: 300 }}
+        class="absolute inset-0 bg-secondary transition duration-300 ease-out bg-opacity-80 z-30 pointer-events-none"
+      />
+    {/if}
+        <Feature
+          {...feature}
+          on:focus={() => { overlayProjects(index) }}
+          on:blur={unOverlayProjects}
+        >
+          <p slot="description">{feature.description}</p>
+          <div
+            class="transition duration-700 w-[50%] group-focus:-translate-x-24 group-focus:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
+          >
+            <div
+              class=" h-96  bg-neutral-light rotate-[50deg] transform origin-top-right"
+            />
+          </div>
+          <div slot="cta">
+            <Go to="/projects/{slugify(feature.title)}">
+              <Button
+                label="more"
+                className="hover:bg-secondary hover:text-neutral-light text-secondary bg-neutral-light"
+              />
+            </Go>
+          </div>
+        </Feature>
+      </Animateonenterview>
+    </List>
+    
+  </div>
 </Section>

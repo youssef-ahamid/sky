@@ -4,7 +4,7 @@ export let feature = options => {
   return [
     {
       classes:
-        'relative w-80 md:w-[500px] z-0 focus:z-50 my-4 md:mx-4 md:my-20 mx-auto cursor-pointer group focus-visible:outline-none transition delay-500',
+        'relative w-80 md:w-[500px] z-0 focus-within:z-30 my-4 md:mx-4 md:my-16 mx-auto cursor-pointer group focus-visible:outline-none transition',
     },
   ]
 }
@@ -103,7 +103,7 @@ export let cta = options => {
 export let description = options => {
   return [
     {
-      classes: 'w-72 md:w-[400px] line-clamp-3 opacity-0 hidden group-focus-within:block group-focus-within:opacity-100',
+      classes: 'w-72 md:w-[400px] line-clamp-3 opacity-0 hidden group-focus-within:block group-focus-within:opacity-100 font-medium',
     },
   ]
 }
