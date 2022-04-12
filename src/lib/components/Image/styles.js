@@ -4,7 +4,7 @@ export const imgWrapper = props => {
       classes: 'w-full h-full mx-auto block',
       on: true,
     },
-    { classes: '', styles: '', on: props.type == 'custom' },
+    { classes: 'max-h-[100px] md:max-h-[150px]', styles: '', on: props.size == 'sm' },
   ]
 }
 

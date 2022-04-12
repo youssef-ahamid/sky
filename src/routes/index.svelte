@@ -4,6 +4,7 @@
   import Feature from '$lib/components/Feature/Feature.svelte'
   import Go from '$lib/components/Go/Go.svelte'
   import List from '$lib/components/List/List.svelte'
+  import Image from '$lib/components/Image/Image.svelte'
 
   import { slugify } from '$lib/helpers'
   import Section from '$lib/components/Section/Section.svelte'
@@ -52,6 +53,21 @@
     },
   ]
 
+  const logos = [
+    {
+      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+    },
+    {
+      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+    },
+    {
+      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+    },
+    {
+      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+    },
+  ]
+
   const links = [
     {
       to: '/hamada',
@@ -81,6 +97,33 @@
     overlay = null
   }
 </script>
+
+<Section id="home">
+  <Hero fullHeight>
+  
+  </Hero>
+</Section>
+
+<Section id="trust">
+  <Animateonenterview>
+    <h2 class="md:mx-3 py-6">Trusted By</h2>
+  </Animateonenterview>
+
+  <List items={logos} let:prop={logo} className="py-6 justify-around flex flex-wrap">
+    <Image {...logo} styleOptions={{ size: "sm" }} />
+  </List>
+
+  <Animateonenterview>
+    <div class="py-12 md:py-20 flex justify-center">
+      <p
+        class="text-center text-neutral-light font-medium whitespace-pre-line"
+      >
+        Building trust
+        Reliable.
+      </p>
+    </div>
+  </Animateonenterview>
+</Section>
 
 <Section id="projects" className="bg-secondary overflow-hidden pb-48">
   <Animateonenterview>
