@@ -11,87 +11,104 @@
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
   import { fade, scale, slide } from 'svelte/transition'
   import Nav from '$lib/components/Nav/Nav.svelte'
+import { description, image } from '$lib/components/Feature/styles';
 
   const features = [
     {
       title: 'il-monte galala',
       images: [
         {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+          src: 'https://i.ibb.co/7NLx6bW/image001-6-10.jpg',
         },
         {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+          src: 'https://i.ibb.co/0MKRvpv/Untitled-1-1024x577.jpg',
         },
       ],
       description:
-        'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
+        'Solorerferum ipit omnis earibus cipiciae volestia ipid mo occus doluptin experum quae que nosanim doles',
     },
     {
-      title: 'il-monte galala',
+      title: 'fouka-bay',
       images: [
         {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+          src: 'https://i.ibb.co/x3xwxsZ/015.jpg',
         },
         {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+          src: 'https://i.ibb.co/qsqKMJv/the-house-fouka-bay-4.jpg',
         },
       ],
       description:
-        'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak khod ahla description 3ala dmaghak',
+        'Solorerferum ipit omnis earibus cipiciae volestia ipid mo occus doluptin experum quae que nosanim doles',
     },
-    {
-      title: 'il-monte galala',
-      images: [
-        {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
-        },
-        {
-          src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
-        },
-      ],
-      description:
-        'khod ahla description 3ala dmaghak khod ahla description 3ala dmaghakkhod ahla description 3ala dmaghak',
-    },
+    
   ]
 
   const aboutImage = {
-    src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+    src: 'https://i.ibb.co/MG9r206/Screen-Shot-2022-04-03-at-1-59-16-PM.png',
   }
 
   const logos = [
     {
-      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+      src: 'https://i.ibb.co/VpRGQLQ/logo-57371358399.png',
     },
     {
-      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+      src: 'https://i.ibb.co/58DdS3d/HSBC-Symbol.png',
     },
     {
-      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+      src: 'https://i.ibb.co/3vCnScV/HHR-Logo-Color-HR.png',
     },
     {
-      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+      src: 'https://i.ibb.co/ZTQ5ck7/th.jpg',
     },
     {
-      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+      src: 'https://i.ibb.co/gPgRm3n/18056466-1563980143613615-208734119081921344-o.png',
     },
   ]
+  const services = [
+    {
+  title: 'Infrastructure Works',
+  image: '',
+  description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
 
+    },
+    {
+  title: 'Finishing Works',
+  image: '',
+  description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
+
+    }, {
+  title: 'Turnkey Projects',
+  image: '',
+  description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
+
+    }, {
+  title: 'MEP Works',
+  image: '',
+  description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
+
+    }, {
+  title: 'Trading',
+  image: '',
+  description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
+
+    },
+  ]
   const links = [
     {
-      to: '/hamada',
-    text: 'hamada',
+      to: '/projects',
+    text: 'projects',
     },
     {
-      to: '/hamada',
-      text: 'hamada',
+      to: '/services',
+      text: 'services',
     },
     {
-      to: '/hamada',
-      text: 'hamada',
+      to: '/about us',
+      text: 'about us',
     },
     {
-      to: '/hamada',
-      text: 'hamada',
+      to: '/careers',
+      text: 'careers',
     },
   ]
 
@@ -226,46 +243,46 @@
       <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), {services[0].image};" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">{services[0].title}</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">{services[0].description}</p>
       </button>
     </Animateonenterview>
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), {services[1].image};" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">{services[1].title}</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">{services[1].description}</p>
       </button>
     </Animateonenterview>
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), {services[2].image};" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">{services[2].title}</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">{services[2].description}</p>
       </button>
     </Animateonenterview>
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), {services[3].image};" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">{services[3].title}</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">{services[3].description}</p>
       </button>
     </Animateonenterview>
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), {services[4].image};" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">{services[4].title}</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">{services[4].description}</p>
       </button>
     </Animateonenterview> 
     </div>
