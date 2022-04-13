@@ -67,28 +67,28 @@ import { description, image } from '$lib/components/Feature/styles';
   const services = [
     {
   title: 'Infrastructure Works',
-  image: '',
+  image: 'https://i.ibb.co/FX3PbDT/Infrastructure.jpg',
   description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
 
     },
     {
   title: 'Finishing Works',
-  image: '',
+  image: 'https://i.ibb.co/zNr6KNc/shutterstock-670454113-scaled-e1611478996191.jpg',
   description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
 
     }, {
   title: 'Turnkey Projects',
-  image: '',
+  image: 'https://i.ibb.co/QYD0v0X/Screen-Shot-2022-04-03-at-12-50-08-PM.png',
   description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
 
     }, {
   title: 'MEP Works',
-  image: '',
+  image: 'https://i.ibb.co/3rJkrgQ/1638647450744.jpg',
   description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
 
     }, {
   title: 'Trading',
-  image: '',
+  image: 'https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg',
   description: 'Solorerferum ipit omnis earibus cipiciae volestia ',
 
     },
