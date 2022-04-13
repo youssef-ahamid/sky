@@ -193,7 +193,7 @@
         >
           <p slot="description">{feature.description}</p>
           <div
-            class="transition duration-700 w-[50%] group-focus:-translate-x-24 group-focus:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
+            class="transition duration-700 w-[50%] group-focus-within:-translate-x-24 group-focus-within:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
           >
             <div
               class=" h-96  bg-neutral-light rotate-[50deg] transform origin-top-right"
@@ -224,49 +224,49 @@
         </div>
       </Animateonenterview>
       <Animateonenterview>
-      <div class="w-full relative group z-0 hover:z-50">
-        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+      <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
-      </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </button>
     </Animateonenterview>
     <Animateonenterview>
-      <div class="w-full relative group z-0 hover:z-50">
-        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+      <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
-      </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </button>
     </Animateonenterview>
     <Animateonenterview>
-      <div class="w-full relative group z-0 hover:z-50">
-        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+      <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
-      </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </button>
     </Animateonenterview>
     <Animateonenterview>
-      <div class="w-full relative group z-0 hover:z-50">
-        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+      <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
-      </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </button>
     </Animateonenterview>
     <Animateonenterview>
-      <div class="w-full relative group z-0 hover:z-50">
-        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+      <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
-          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
-        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
-      </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </button>
     </Animateonenterview> 
     </div>
   </Hero>
