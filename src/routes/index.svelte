@@ -226,7 +226,7 @@
       <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
           <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
@@ -235,7 +235,7 @@
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
           <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
@@ -244,7 +244,7 @@
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
           <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
@@ -253,7 +253,7 @@
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
           <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
@@ -262,7 +262,7 @@
     <Animateonenterview>
       <button class="w-full text-left relative group z-0 hover:z-50 focus-visible:z-50 focus-visible:outline-none">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[3deg] translate-x-6 transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[180%] group-focus-visible:opacity-100 group-focus-visible:scale-[180%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
-        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+        <div style="background-image: linear-gradient(to bottom, #fff, rgb(0, 40, 79)), url('https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1');" class="m-4 p-4 h-40 z-10 bg-cover bg-center relative">
           <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-focus-visible:-translate-x-4 group-focus-visible:-translate-y-[130%] group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
