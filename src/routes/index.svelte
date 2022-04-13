@@ -216,11 +216,14 @@
 <Section id="services">
   <Hero fullHeight>
     <div class="md:grid md:grid-rows-2 md:grid-cols-3 md:place-items-center">
-      <div class="flex-col">
-        <h2>Our services</h2>
-        <p>lorem ipsum</p>
-        <Button label="more" type="primary" className="my-4 md:mt-12" />
-      </div>
+      <Animateonenterview type="flyLeft">
+        <div class="flex-col">
+          <h2>Our services</h2>
+          <p>lorem ipsum</p>
+          <Button label="more" type="primary" className="my-4 md:mt-12" />
+        </div>
+      </Animateonenterview>
+      <Animateonenterview>
       <div class="w-full relative group z-0 hover:z-50">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
@@ -228,6 +231,8 @@
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
       </div>
+    </Animateonenterview>
+    <Animateonenterview>
       <div class="w-full relative group z-0 hover:z-50">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
@@ -235,6 +240,8 @@
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
       </div>
+    </Animateonenterview>
+    <Animateonenterview>
       <div class="w-full relative group z-0 hover:z-50">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
@@ -242,6 +249,8 @@
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
       </div>
+    </Animateonenterview>
+    <Animateonenterview>
       <div class="w-full relative group z-0 hover:z-50">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
@@ -249,6 +258,8 @@
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
       </div>
+    </Animateonenterview>
+    <Animateonenterview>
       <div class="w-full relative group z-0 hover:z-50">
         <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
         <div class="m-4 p-4 h-40 bg-primary z-10 relative">
@@ -256,32 +267,32 @@
         </div>
         <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
       </div>
-      
+    </Animateonenterview> 
     </div>
   </Hero>
 </Section>
 
 <Hero fullHeight>
-  <div class="">
+  <div class="py-56 px-8 overflow-hidden md:overflow-visible text-center">
     <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[60deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
     </div>
     <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[45deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
     </div>
     <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[25deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
     </div>
     <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[10deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
     </div>
     <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative</p>
     </div>
   </div>
 </Hero>
