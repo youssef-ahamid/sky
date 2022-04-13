@@ -3,9 +3,10 @@
   /* props */
   export let links = [] // *, list items
   export let activeLink
-  export let activeSub
+  export let activeSub = 0
   export let icon = Burger
   export let className = '' // *, custom wrapper classes
+  export let styleOptions = {}
 
   import List from '$lib/components/List/List.svelte'
   import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
@@ -17,7 +18,7 @@
 
   /* styles */
   import { config } from './styles'
-  $: classes = config({ active })
+  $: classes = config({ active, ...styleOptions })
 </script>
 
 <div

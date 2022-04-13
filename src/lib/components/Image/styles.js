@@ -1,10 +1,10 @@
 export const imgWrapper = props => {
   return [
     {
-      classes: 'w-full h-full mx-auto block',
+      classes: 'w-full block',
       on: true,
     },
-    { classes: 'max-h-[100px] md:max-h-[150px]', styles: '', on: props.size == 'sm' },
+    { classes: 'p-3', styles: '', on: props.size == 'sm' },
   ]
 }
 
@@ -21,9 +21,10 @@ export const imgOverlay = props => {
 export const img = props => {
   return [
     {
-      classes: '',
+      classes: 'transition duration-300 ease-out',
       on: true,
     },
     { classes: '', styles: '', on: props.type == 'custom' },
+    { classes: 'max-h-[70px] md:max-h-[110px] hover:scale-110', styles: '', on: props.size == 'sm' },
   ]
 }

@@ -4,16 +4,17 @@ export let iconWrapper = options => {
   return [
     {
       classes:
-        'transition duration-200 w-12 h-12 md:h-16 scale-125 pl-1 flex rounded-full flex-col items-center justify-center text-center md:w-16 fixed md:absolute bg-secondary shadow-secondary/30 shadow-xl right-8 top-10 md:left-8 md:top-1/2 md:-translate-y-1/2 z-[999]',
+        'transition duration-300 ease-out delay-[400ms] bg-neutral-light text-primary w-12 h-12 scale-125 pl-1 flex rounded-full flex-col items-center justify-center text-center md:w-16 fixed md:hidden bg-secondary shadow-secondary/30 right-8 top-10 z-[999]',
     },
     {
       on: [options.active, true],
       classes:
-        'bg-transparent md:bg-primary md:bg-opacity-50 text-primary md:text-secondary',
+        'shadow-none',
     },
     {
       on: [options.active, false],
-      classes: 'bg-secondary bg-opacity-75 text-primary',
+      classes:
+        'shadow-lg',
     },
   ]
 }
@@ -21,7 +22,17 @@ export let iconWrapper = options => {
 export let icon = options => {
   return [
     {
-      classes: `scale-75 md:scale-100`,
+      classes: `transition duration-500 delay-100`,
+    },
+    {
+      on: [options.active, true],
+      classes:
+        'rotate-[270deg] scale-90',
+    },
+    {
+      on: [options.active, false],
+      classes:
+        'scale-75',
     },
   ]
 }
@@ -45,7 +56,7 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'm-2',
+      classes: 'm-2 text-primary',
     },
   ]
 }
@@ -53,7 +64,7 @@ export let link = options => {
 export let links = options => {
   return [
     {
-      classes: 'flex justify-end',
+      classes: 'max-w-7xl mx-auto flex flex-col md:flex-row justify-end py-12 md:py-4 md:px-2',
     },
   ]
 }
@@ -61,15 +72,7 @@ export let links = options => {
 export let nav = options => {
   return [
     {
-      classes: 'fixed top-0 left-0 right-0',
-    },
-    {
-      on: [options.active, false],
-      classes: '-translate-x-full opacity-25',
-    },
-    {
-      on: [options.active, true],
-      classes: 'translate-x-0 opacity-100',
+    classes: 'fixed ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
     },
     {
       on: [options.type, 'primary'],
@@ -78,6 +81,16 @@ export let nav = options => {
     {
       on: [options.type, 'secondary'],
       classes: 'bg-secondary',
+    },
+    ,
+    {
+      on: [options.active, true],
+      classes:
+        'translate-x-0',
+    },
+    {
+      on: [options.active, false],
+      classes: '-translate-x-full',
     },
   ]
 }

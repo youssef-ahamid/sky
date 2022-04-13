@@ -10,6 +10,7 @@
   import Section from '$lib/components/Section/Section.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
   import { fade, scale, slide } from 'svelte/transition'
+  import Nav from '$lib/components/Nav/Nav.svelte'
 
   const features = [
     {
@@ -70,12 +71,15 @@
     {
       src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
     },
+    {
+      src: 'https://th.bing.com/th/id/OIP.7kpLArQjJSADTpMpLb6YkAHaE_?pid=ImgDet&rs=1',
+    },
   ]
 
   const links = [
     {
       to: '/hamada',
-      text: 'hamada',
+    text: 'hamada',
     },
     {
       to: '/hamada',
@@ -95,28 +99,41 @@
 
   const overlayProjects = i => {
     overlay = i
-    console.log(overlay)
   }
   const unOverlayProjects = () => {
     overlay = null
   }
 </script>
 
-<Section id="home">
-  <Hero fullHeight />
+<Nav {links} styleOptions={{ type: 'primary' }}/>
+
+<Section id="home" className="bg-secondary">
+  <div class="absolute left-[12%] bottom-0 top-[40%] w-1 rounded-full bg-neutral-light bg-opacity-30 scale-y-150 origin-top"></div>
+  <Hero fullHeight>
+    <div class="flex-col text-neutral-light">
+      <p>SKY for Trading and Contracting</p>  
+      <h1 class="py-2 md:py-4 font-bold">You dream it, we <span class="bg-primary text-neutral-light">make</span> it</h1>
+      <div class="flex py-12">
+        <Button type="primary" label="contact us" />
+        <Button type="primary" label="more" className="mx-5" />
+      </div>
+    </div>
+    </Hero>
 </Section>
 
-<Section id="trust">
-  <Animateonenterview>
+<Section id="trust" noContain>
+  <Animateonenterview className="max-w-[90%] md:max-w-[80%] mx-auto">
     <h2 class="md:mx-3 py-6">Trusted By</h2>
   </Animateonenterview>
 
   <List
     items={logos}
     let:prop={logo}
-    className="py-6 justify-around flex flex-wrap"
+    className="py-6 justify-evenly flex flex-wrap"
   >
-    <Image {...logo} styleOptions={{ size: 'sm' }} />
+    <Animateonenterview>
+      <Image {...logo} styleOptions={{ size: 'sm' }} />
+    </Animateonenterview>
   </List>
 
   <Animateonenterview>
@@ -125,7 +142,7 @@
         class="text-center text-primary font-medium whitespace-pre-line"
       >
         Building trust 
-        Reliable.
+      Reliable.
       </p>
     </div>
   </Animateonenterview>
@@ -195,6 +212,79 @@
     </List>
   </div>
 </Section>
+
+<Section id="services">
+  <Hero fullHeight>
+    <div class="md:grid md:grid-rows-2 md:grid-cols-3 md:place-items-center">
+      <div class="flex-col">
+        <h2>Our services</h2>
+        <p>lorem ipsum</p>
+        <Button label="more" type="primary" className="my-4 md:mt-12" />
+      </div>
+      <div class="w-full relative group z-0 hover:z-50">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </div>
+      <div class="w-full relative group z-0 hover:z-50">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </div>
+      <div class="w-full relative group z-0 hover:z-50">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </div>
+      <div class="w-full relative group z-0 hover:z-50">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </div>
+      <div class="w-full relative group z-0 hover:z-50">
+        <div class="pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[15deg] transition duration-300 ease-out group-hover:opacity-100 group-hover:scale-[150%] top-0 bottom-0 right-0 w-0 h-0 border-l-[100px] border-r-[300px] border-t-[500px] border-l-transparent border-r-transparent border-t-secondary"></div>
+        <div class="m-4 p-4 h-40 bg-primary z-10 relative">
+          <h4 class="text-xl md:text-3xl text-neutral-light font-bold group-hover:-translate-x-4 group-hover:-translate-y-[130%] transition duration-300 ease-out">infrastructure planning</h4>
+        </div>
+        <p class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-full group-hover:opacity-100 transition duration-300 ease-out">helloooo from under the service</p>
+      </div>
+      
+    </div>
+  </Hero>
+</Section>
+
+<Hero fullHeight>
+  <div class="">
+    <div class="relative inline-block group z-0 hover:z-50">
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+    </div>
+    <div class="relative inline-block group z-0 hover:z-50">
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+    </div>
+    <div class="relative inline-block group z-0 hover:z-50">
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+    </div>
+    <div class="relative inline-block group z-0 hover:z-50">
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+    </div>
+    <div class="relative inline-block group z-0 hover:z-50">
+      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[200px] border-b-[120px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
+      <p class="body-lg font-bold text-primary group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
+    </div>
+  </div>
+</Hero>
 
 <Section id="about">
   <Hero className="py-16 md:py-36">

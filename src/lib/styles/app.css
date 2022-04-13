@@ -8,7 +8,7 @@
 
   /* typography */
   h1 {
-    @apply font-heading font-medium text-[81px] capitalize leading-loose;
+    @apply font-heading font-medium text-4xl md:text-[81px] capitalize;
   }
 
   h2 {
