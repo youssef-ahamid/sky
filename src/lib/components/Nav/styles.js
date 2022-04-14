@@ -56,7 +56,7 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'm-2 text-primary',
+      classes: 'm-3 text-primary',
     },
   ]
 }
@@ -64,7 +64,7 @@ export let link = options => {
 export let links = options => {
   return [
     {
-      classes: 'max-w-7xl mx-auto flex flex-col md:flex-row justify-end py-12 md:py-4 md:px-2',
+      classes: 'md:max-w-[80%] mx-auto flex flex-col md:flex-row justify-end py-12 md:py-4 md:px-2',
     },
   ]
 }
@@ -82,7 +82,6 @@ export let nav = options => {
       on: [options.type, 'secondary'],
       classes: 'bg-secondary',
     },
-    ,
     {
       on: [options.active, true],
       classes:

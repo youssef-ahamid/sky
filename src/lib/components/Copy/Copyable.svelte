@@ -2,7 +2,7 @@
   import { draw, fade } from 'svelte/transition'
 
   export let value = ''
-  export let id = ''
+  export let id = value
 
   let data
   let copied = false
@@ -30,12 +30,12 @@
   <div
     role="tooltip"
     class="{copied
-      ? 'bg-opacity-75'
-      : 'bg-opacity-50'} opacity-0 delay-50 translate-y-1 flex justify-center items-center scale-95 peer-hover:scale-100 peer-active:scale-95 left-1/2 -translate-x-1/2 peer-hover:opacity-100 peer-hover:translate-y-0 absolute z-10 bottom-full py-2 px-3 bg-primary rounded-lg shadow-sm transition duration-300"
+      ? 'bg-opacity-90'
+      : 'bg-opacity-75'} opacity-0 delay-100 translate-y-1 flex justify-center items-center scale-95 peer-hover:scale-100 peer-hover:opacity-100 peer-hover:translate-y-0  peer-active:scale-95 left-1/2 -translate-x-1/2 peer-focus-within:scale-100 peer-focus-within:opacity-100 peer-focus-within:translate-y-0 absolute z-10 bottom-full py-2 px-3 bg-primary rounded-lg shadow-sm transition duration-300"
   >
     {#if copied}
       <svg
-        class="stroke-current text-secondary inline-block rounded-xl w-6 -mt-2 mr-2"
+        class="stroke-current text-neutral-light inline-block rounded-xl w-6 -mt-2 mr-2"
         stroke-width="3"
         stroke-miterlimit="20"
         stroke-dashoffset="0"
@@ -48,13 +48,13 @@
         /></svg
       >
       <p
-        class="font-bold text-secondary leading-none whitespace-nowrap"
+        class="font-bold text-neutral-light leading-none whitespace-nowrap"
         in:fade={{ duration: 300 }}
       >
         copied to clipboard
       </p>
     {:else}
-      <p class="font-bold text-secondary leading-none">copy</p>
+      <p class="font-bold text-neutral-light leading-none">copy</p>
     {/if}
   </div>
 </div>

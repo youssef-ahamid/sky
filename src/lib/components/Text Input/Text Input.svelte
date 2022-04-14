@@ -16,17 +16,14 @@
   $: validation = assert(validations || [], value)
   $: value = trim ? value.trim() : value
   let clean = true
-  let error = ''
+  let err = ''
   export const validate = () => {
     clean = validation.success
-    error = clean ? '' : validation.failed.error
+    err = clean ? '' : validation.failed.error
     if (clean) valid()
     else invalid()
   }
 
-  /* styles */
-  import { config } from './styles'
-  $: classes = config({ type, clean, ...styleOptions })
   /* styles */
   import { stylus } from '$lib/helpers'
   import {
@@ -36,7 +33,7 @@
     textInputError,
   } from './styles'
 
-  $: label = stylus(textInputWrapper({ type, clean, ...styleOptions }))
+  $: lbl = stylus(textInputWrapper({ type, clean, ...styleOptions }))
   $: input = stylus(textInput({ type, clean, ...styleOptions }))
   $: name = stylus(textInputName({ type, clean, ...styleOptions }))
   $: error = stylus(textInputError({ type, clean, ...styleOptions }))
@@ -56,7 +53,7 @@
   const focus = () => dispatch('focus', value)
 </script>
 
-<label class={`${label.classes} + ${className}`} for={label}>
+<label class={`${lbl.classes} + ${className}`} for={label}>
   <p class={name.classes}>
     {label}
     {#if validations && validations
@@ -85,8 +82,8 @@
     />
   {/if}
   {#if !clean}
-    <h4 transition:slide={{ duration: 300 }} class={error.classes}>
-      {error}
-    </h4>
+    <p transition:slide={{ duration: 300 }} class={error.classes}>
+      {err}
+    </p>
   {/if}
 </label>

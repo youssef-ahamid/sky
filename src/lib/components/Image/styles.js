@@ -21,7 +21,7 @@ export const imgOverlay = props => {
 export const img = props => {
   return [
     {
-      classes: 'transition duration-300 ease-out',
+      classes: 'w-full h-full block transition duration-300 ease-out',
       on: true,
     },
     { classes: '', styles: '', on: props.type == 'custom' },

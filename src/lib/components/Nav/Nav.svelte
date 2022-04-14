@@ -18,19 +18,23 @@
 
   /* styles */
   import { config } from './styles'
+import Go from '../Go/Go.svelte'
+import Image from '../Image/Image.svelte'
   $: classes = config({ active, ...styleOptions })
-</script>
+</script> 
 
-<div
-  use:clickOutside
-  on:outclick={() => {
-    active = false
-  }}
->
-  <div class={classes.iconWrapper} on:click={toggle}>
+
+<div>
+  <Go to="/">
+    <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="absolute left-[10%] md:hidden top-10 w-28 z-[997]" />
+  </Go>
+  <div class={classes.iconWrapper} on:click={toggle} id="menu-icon">
     <svelte:component this={icon} className={classes.icon} {active} />
   </div>
   <nav class={`${classes.nav} ${className}`}>
+    <Go to="/">
+      <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="my-8 md:my-0 w-44 md:fixed md:top-5 md:left-[10%]" />
+    </Go>
     <List items={links} let:prop={item} className={classes.links}>
       <NavLink
         {...item}

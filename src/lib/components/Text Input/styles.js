@@ -1,7 +1,7 @@
 export const textInputWrapper = props => {
   return [
     {
-      classes: 'group',
+      classes: 'group block my-3 md:my-6 w-full',
       styles: '',
       on: true, // default
     },
@@ -16,17 +16,17 @@ export const textInputWrapper = props => {
 export const textInput = props => {
   return [
     {
-      classes: 'outline-none appearance-none p-4 pb-1 transition duration-300 ease-out border-b-4 bg-secondary bg-opacity-5 focus:bg-opacity-25 text-neutral-dark rounded w-full',
+      classes: 'block outline-none appearance-none p-4 pb-1 transition duration-300 ease-out border-b-4 bg-secondary bg-opacity-5 focus:bg-opacity-15 focus:text-primary text-neutral-dark rounded w-full',
       styles: '',
       on: true, // default
     },
     {
       on: props.clean == false,
-      classes: 'border-red-300 bg-opacity-[15%] animate-wiggle',
+      classes: 'border-red-300 bg-opacity-[15%]',
     },
     {
       on: props.clean == true,
-      classes: 'border-secondary focus:border-primary',
+      classes: 'border-primary',
     },
     {
       on: props.type == 'text area',
@@ -44,7 +44,7 @@ export const textInput = props => {
 export const textInputName = props => {
   return [
     {
-      classes: 'text-secondary font-bold group-focus-within:text-primary capitalize py-0.5 transition duration-300 ease-out',
+      classes: 'text-primary font-medium text-primary capitalize py-0.5 transition duration-300 ease-out',
       styles: '',
       on: true, // default
     },
@@ -59,7 +59,7 @@ export const textInputName = props => {
 export const textInputError = props => {
   return [
     {
-      classes: 'text-red-300 font-bold',
+      classes: 'text-red-300 font-extralight text-base md:text-lg',
       styles: '',
       on: true, // default
     },
@@ -71,17 +71,3 @@ export const textInputError = props => {
   ]
 }
 
-export const navSublinkInactive = props => {
-  return [
-    {
-      classes: '',
-      styles: '',
-      on: true, // default
-    },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
-    },
-  ]
-}

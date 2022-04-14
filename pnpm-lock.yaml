@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@sveltejs/adapter-vercel': next
   '@sveltejs/kit': next
+  '@tailwindcss/line-clamp': ^0.3.1
   '@tailwindcss/typography': 0.5.2
   autoprefixer: 10.4.2
   cssnano: 5.0.17
@@ -20,7 +21,8 @@ specifiers:
 
 devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.47
-  '@sveltejs/kit': 1.0.0-next.307_svelte@3.46.4
+  '@sveltejs/kit': 1.0.0-next.312_svelte@3.46.4
+  '@tailwindcss/line-clamp': 0.3.1_tailwindcss@3.0.19
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.19
   autoprefixer: 10.4.2_postcss@8.4.6
   cssnano: 5.0.17_postcss@8.4.6
@@ -126,8 +128,8 @@ packages:
       esbuild: 0.14.28
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.307_svelte@3.46.4:
-    resolution: {integrity: sha512-dVxSuP0YyGL6/4VVhjLxxj4hHlVscrXJttvsffGnFOUJ1JtrJ496xoxhxB7iSVpYdTMXocjA9w54ZIC59m0J7A==}
+  /@sveltejs/kit/1.0.0-next.312_svelte@3.46.4:
+    resolution: {integrity: sha512-l07ct0FJQnt+y3/NSEBvHKDKVE/7syYQnFhCVZ6H+4LEYRtTNybFxUTC8jA3xpZwPqJLZz1X+Tt+Sa8ZMuVzDg==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -165,6 +167,14 @@ packages:
       vite: 2.9.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindcss/line-clamp/0.3.1_tailwindcss@3.0.19:
+    resolution: {integrity: sha512-pNr0T8LAc3TUx/gxCfQZRe9NB2dPEo/cedPHzUGIPxqDMhgjwNm6jYxww4W5l0zAsAddxr+XfZcqttGiFDgrGg==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.0.19_833e1018ad0d7954aa80c53675939269
     dev: true
 
   /@tailwindcss/typography/0.5.2_tailwindcss@3.0.19:
