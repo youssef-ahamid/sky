@@ -72,7 +72,7 @@ export let links = options => {
 export let nav = options => {
   return [
     {
-    classes: 'fixed ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
+  classes: 'fixed ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
     },
     {
       on: [options.type, 'primary'],

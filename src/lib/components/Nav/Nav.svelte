@@ -45,6 +45,7 @@ import Image from '../Image/Image.svelte'
           active = false
         }}
         className={classes.link}
+        styleOptions={{ type: "primary" }}
       />
     </List>
   </nav>

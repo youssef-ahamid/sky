@@ -36,7 +36,7 @@ export let right = options => {
 export let image = options => {
   return [
     {
-      classes: 'absolute z-0 transition duration-500 w-full h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:translate-y-28 group-focus-within:translate-x-12 group-focus-within:md:translate-y-48 group-focus-within:md:translate-x-28',
+      classes: 'absolute rounded-[50px] ring-primary ring-1 z-0 transition duration-500 w-full h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:translate-y-28 group-focus-within:translate-x-12 group-focus-within:md:translate-y-48 group-focus-within:md:translate-x-28',
     },
     {
       classes: '',

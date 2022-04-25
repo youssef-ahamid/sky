@@ -114,6 +114,7 @@
   ]
 
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
+import Card from '$lib/components/Card/Card.svelte';
 
  const contact = {
   inputs: [
@@ -205,20 +206,44 @@
     </Hero>
 </Section>
 
-<Section id="trust" noContain>
-  <Animateonenterview className="max-w-[90%] md:max-w-[80%] mx-auto">
-    <h2 class="md:mx-3 py-6">Trusted By</h2>
-  </Animateonenterview>
+<Section id="trust" bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" fullHeight>
+  <Hero fullHeight className="items-end">
+    <svelte:fragment slot="left">
 
-  <List
-    items={logos}
-    let:prop={logo}
-    className="py-6 justify-evenly flex flex-wrap"
-  >
-    <Animateonenterview>
-      <Image {...logo} styleOptions={{ size: 'sm' }} />
-    </Animateonenterview>
-  </List>
+      <Animateonenterview className="max-w-[90%] md:max-w-[80%] mx-auto absolute left-0 bottom-full">
+        <h2 class="md:mx-3 py-6 whitespace-pre-line text-neutral-light">
+          Trusted
+          By
+        </h2>
+      </Animateonenterview>
+    
+      <List
+        items={logos}
+        let:prop={logo}
+        className="py-6 justify-evenly grid grid-cols-3 gap-4"
+      >
+        <Animateonenterview>
+          <Card>
+          <Image {...logo} styleOptions={{ size: 'sm' }} />
+        </Card>
+        </Animateonenterview>
+      </List>
+    </svelte:fragment>
+
+    <svelte:fragment slot="right">
+      <List
+        items={logos}
+        let:prop={logo}
+        className="py-6 justify-evenly grid grid-cols-3 gap-4"
+      >
+        <Animateonenterview>
+          <Card>
+          <Image {...logo} styleOptions={{ size: 'sm' }} />
+        </Card>
+        </Animateonenterview>
+      </List>
+    </svelte:fragment>
+  </Hero>
 
   <Animateonenterview>
     <div class="py-12 md:py-20 flex justify-center">
@@ -280,7 +305,7 @@
             class="transition duration-700 w-[50%] group-focus-within:-translate-x-24 group-focus-within:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
           >
             <div
-              class=" h-96  bg-neutral-light rotate-[50deg] transform origin-top-right"
+              class="h-96 bg-neutral-light rotate-[50deg] transform origin-top-right"
             />
           </div>
           <div slot="cta">

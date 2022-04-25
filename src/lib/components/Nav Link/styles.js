@@ -1,30 +1,19 @@
 export const navLinkWrapper = props => {
   return [
     {
-      classes: 'uppercase underline decoration-2 hover:decoration-current underline-offset-2 transiton duration-300 font-heading font-light text-[22px]',
+      classes: 'rounded-3xl group px-2 md:px-4 py-1 transition duration-300 ease-out hover:scale-105',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'text-primary',
+      classes: 'hover:bg-primary hover:text-neutral-light',
       styles: '',
       on: props.type == 'primary'
     },
-
     {
-      classes: 'text-neutral-light',
+      classes: '',
       styles: '',
       on: props.type == 'secondary'
-    },
-    {
-      classes: 'decoration-current',
-      styles: '',
-      on: props.active
-    },
-    {
-      classes: 'decoration-transparent',
-      styles: '',
-      on: !props.active
     },
   ]
 }

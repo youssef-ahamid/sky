@@ -26,8 +26,8 @@ export let logo = ''
 export let logoInner = ''
 export let logoOuter = ''
 
-export let left = 'px-6 py-4 md:py-0 md:px-12'
-export let right = 'px-6 py-4 md:py-0 md:px-12'
+export let left = 'px-6 py-4 md:py-0 md:px-12 relative'
+export let right = 'px-6 py-4 md:py-0 md:px-12 relative'
 
 let options
 export const config = props => {

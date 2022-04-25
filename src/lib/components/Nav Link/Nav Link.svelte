@@ -29,11 +29,11 @@
 </script>
 
 <Go {to} {redirect} on:click>
-  <h5 class={`${wrapper.classes} ${className}`}>
+  <p class={`${wrapper.classes} ${className}`}>
     {#if text != ''}
       {text}
     {:else}
       <slot />
     {/if}
-  </h5>
+  </p>
 </Go>

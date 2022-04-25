@@ -1,12 +1,12 @@
 export const button = props => {
   return [
     {
-      classes: 'px-1.5 transition duration-300 ease-out hover:scale-105 active:scale-[95%] group',
+      classes: 'rounded-3xl px-1.5 transition duration-300 ease-out hover:scale-105 active:scale-[95%] group hover',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'bg-primary hover:bg-neutral-light',
+      classes: 'bg-opacity-15 hover:bg-primary',
       styles: '',
       on: props.type == 'primary'
     },
@@ -26,7 +26,7 @@ export const buttonLabel = props => {
       on: true, // default
     },
     {
-      classes: 'text-neutral-light group-hover:text-primary',
+      classes: 'text-neutral-light group-hover:text-neutral-light',
       styles: '',
       on: props.type == 'primary'
     },
