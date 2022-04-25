@@ -31,6 +31,7 @@
   class={`${wrapper.classes} ${className}`}
   style={wrapper.styles}
   type="button"
+  text={label}
 >
   <p class={name.classes} style={name.styles}>
     {label}

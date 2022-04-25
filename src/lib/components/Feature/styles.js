@@ -4,7 +4,7 @@ export let feature = options => {
   return [
     {
       classes:
-        'relative w-80 md:w-[500px] z-0 focus-within:z-30 my-4 md:mx-4 md:my-16 mx-auto cursor-pointer group focus-visible:outline-none transition',
+        'relative w-80 md:w-[500px] h-64 md:h-72 z-0 focus-within:z-30 my-4 md:mx-4 md:my-16 mx-auto cursor-pointer group focus-visible:outline-none transition',
     },
   ]
 }
@@ -36,7 +36,7 @@ export let right = options => {
 export let image = options => {
   return [
     {
-      classes: 'absolute rounded-[50px] ring-primary ring-1 z-0 transition duration-500 w-full h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:translate-y-28 group-focus-within:translate-x-12 group-focus-within:md:translate-y-48 group-focus-within:md:translate-x-28',
+      classes: 'absolute inset-0 rounded-[50px] ring-primary ring-1 z-10 transition duration-500 w-full h-56 md:h-72 overflow-hidden object-contain object-center',
     },
     {
       classes: '',
@@ -48,7 +48,7 @@ export let image = options => {
 export let title = options => {
   return [
     {
-      classes: 'select-none pb-6 uppercase transition duration-700 ease-out origin-top-left w-[70%] leading-8 scale-[50%] group-focus-within:scale-125',
+      classes: 'select-none absolute left-8 -top-10 uppercase transition duration-300 ease-out origin-top-left w-[70%] leading-8 scale-[50%] group-focus-within:top-2 group-focus-within:scale-[60%] group-focus-within:-translate-x-24 group-focus-within:-translate-y-20 text-neutral-dark',
     },
     {
       classes: '',
@@ -64,7 +64,7 @@ export let title = options => {
 export let content = options => {
   return [
     {
-      classes: 'p-2 w-4/5 z-20 relative transition duration-500 ease-out text-left group-focus-within:translate-y-24 group-focus-within:text-neutral-light',
+      classes: 'p-2 w-4/5 z-20 relative transition duration-500 ease-out text-left group-focus-within:translate-y-12 group-focus-within:translate-x-4 group-focus-within:text-neutral-light',
     },
     {
       classes: '',
@@ -80,7 +80,7 @@ export let content = options => {
 export let otherImage = options => {
   return [
     {
-      classes: 'absolute transition duration-500 ease-out z-0 opacity-0 w-80 md:w-[500px] h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:delay-200 group-focus-within:z-10 group-focus-within:translate-x-36 group-focus-within:md:translate-x-64 group-focus-within:opacity-100',
+      classes: 'absolute transition duration-500 ease-out z-0 opacity-0 w-80 md:w-[500px] h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:delay-200 group-focus-within:z-10 ',
     },
     {
       classes: '',

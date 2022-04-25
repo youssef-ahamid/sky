@@ -56,7 +56,15 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'm-3 text-primary',
+      classes: 'm-2 capitalize text-base md:text-xl',
+    },
+    {
+      on: [options.type, 'primary'],
+      classes: 'text-neutral-light',
+    },
+    {
+      on: [options.type, 'secondary'],
+      classes: 'text-primary',
     },
   ]
 }
@@ -64,7 +72,7 @@ export let link = options => {
 export let links = options => {
   return [
     {
-      classes: 'md:max-w-[80%] mx-auto flex flex-col md:flex-row justify-end py-12 md:py-4 md:px-2',
+      classes: 'md:max-w-[90%] w-full mx-auto flex flex-col md:flex-row justify-end py-12 md:py-4 md:px-2',
     },
   ]
 }
@@ -72,15 +80,7 @@ export let links = options => {
 export let nav = options => {
   return [
     {
-  classes: 'fixed ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
-    },
-    {
-      on: [options.type, 'primary'],
-      classes: 'bg-neutral-light',
-    },
-    {
-      on: [options.type, 'secondary'],
-      classes: 'bg-secondary',
+  classes: 'fixed md:flex md:justify-end ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
     },
     {
       on: [options.active, true],

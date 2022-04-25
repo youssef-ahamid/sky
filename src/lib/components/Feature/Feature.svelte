@@ -17,11 +17,6 @@
   {#if images.length > 0}
     <div class={classes.left}>
       <Image {...images[0]} className={classes.image} />
-      {#each images as img, i}
-        {#if i > 0}
-          <Image {...img} className={classes.otherImage} />
-        {/if}
-      {/each}
     </div>
   {/if}
   <div class={classes.right} on:click>

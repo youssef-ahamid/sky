@@ -33,7 +33,7 @@ import Image from '../Image/Image.svelte'
   </div>
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
-      <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="my-8 md:my-0 w-44 md:fixed md:top-5 md:left-[10%]" />
+      <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="my-8 md:my-0 w-20 pt-5 md:fixed md:top-5 md:left-[10%]" />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>
       <NavLink

@@ -94,27 +94,37 @@
 
     },
   ]
+
   const links = [
     {
       to: '/projects',
-    text: 'projects',
+    text: 'Projects',
     },
     {
       to: '/services',
-      text: 'services',
+      text: 'Services',
     },
     {
-      to: '/about us',
-      text: 'about us',
+      to: '/about',
+      text: 'About us',
     },
     {
       to: '/careers',
-      text: 'careers',
+      text: 'Careers',
+    },
+    {
+      to: '/ac-units',
+      text: 'AC Units',
+    },
+    {
+      to: '/company-profile',
+      text: 'Company profile',
     },
   ]
 
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
 import Card from '$lib/components/Card/Card.svelte';
+import Triangle from '$lib/icons/shapes/triangle.svelte';
 
  const contact = {
   inputs: [
@@ -174,14 +184,6 @@ import Card from '$lib/components/Card/Card.svelte';
   },
 }
 
-  let overlay = null
-
-  const overlayProjects = i => {
-    overlay = i
-  }
-  const unOverlayProjects = () => {
-    overlay = null
-  }
   let Y, height
 </script>
 
@@ -190,27 +192,42 @@ import Card from '$lib/components/Card/Card.svelte';
 <Nav {links} styleOptions={{ type: 'primary' }}/>
 
 <Section id="home" className="bg-secondary relative bg-cover bg-no-repeat bg-center bg-[url('https://i.ibb.co/44HfwBV/IL-Monte-Galala-Real-View.jpg')]">
-  <div class="absolute left-[3%] md:left-[6%] bottom-0 top-0 w-1 md:w-2 rounded-full bg-neutral-light bg-opacity-30 scale-y-150 origin-top"></div>
-  <div class="absolute left-[3%] md:left-[6%] bottom-0 top-0 w-1 md:w-2 rounded-full bg-neutral-light bg-opacity-100 origin-top z-10" style="transform: scaleY({((Y*1.9/height)*100)}%)"></div>
   <Hero fullHeight className="relative">
-    <div class="flex-col text-neutral-light">
-      <p class="text-lg md:text-3xl font-extralight">SKY for Trading and Contracting</p>  
-      <h1 class="py-2 md:py-4 font-bold -mt-2 md:-mt-4">You dream it, we <span class="bg-primary text-neutral-light">make</span> it</h1>
-      <div class="flex py-12">
+    
+    <div class="flex-col text-neutral-light" slot="left">
+      <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
+  & Contracting</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 justify-between place-content-between pla">
+        <h1 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6">
+          You
+          dream
+          it,
+        </h1>
+        <h1 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6"> 
+          we
+          make
+          it
+        </h1>
+      </div>  
+    </div>
+    <svelte:fragment slot="right">
+    <Card className="bg-transparent ring-neutral-light ring-2 max-w-fit rounded-[60px]">
+      <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
+        <Button type="primary" label="more" className="mt-2" />
         <Go to="#contact">
           <Button type="primary" label="contact us" />
         </Go>
-        <Button type="primary" label="more" className="mx-5" />
       </div>
-    </div>
+    </Card>
+  </svelte:fragment>
     </Hero>
 </Section>
 
 <Section id="trust" bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" fullHeight>
-  <Hero fullHeight className="items-end">
+  <Hero fullHeight className="items-end py-20">
     <svelte:fragment slot="left">
 
-      <Animateonenterview className="max-w-[90%] md:max-w-[80%] mx-auto absolute left-0 bottom-full">
+      <Animateonenterview className="max-w-[90%] md:max-w-[80%] mx-auto absolute left-6 md:left-12 bottom-full">
         <h2 class="md:mx-3 py-6 whitespace-pre-line text-neutral-light">
           Trusted
           By
@@ -220,7 +237,7 @@ import Card from '$lib/components/Card/Card.svelte';
       <List
         items={logos}
         let:prop={logo}
-        className="py-6 justify-evenly grid grid-cols-3 gap-4"
+        className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
       >
         <Animateonenterview>
           <Card>
@@ -234,43 +251,33 @@ import Card from '$lib/components/Card/Card.svelte';
       <List
         items={logos}
         let:prop={logo}
-        className="py-6 justify-evenly grid grid-cols-3 gap-4"
+        className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
       >
         <Animateonenterview>
           <Card>
-          <Image {...logo} styleOptions={{ size: 'sm' }} />
-        </Card>
+            <Image {...logo} styleOptions={{ size: 'sm' }} />
+          </Card>
         </Animateonenterview>
+
+        <div class="absolute top-full right-0 grid grid-cols-2 gap-8 whitespace-pre text-neutral-light">
+          <p>
+            <span class="font-bold">SKY</span> for Trading
+  & Contracting
+          </p>
+          <p class="font-bold">
+            Building
+trust
+          </p>
+        </div>
       </List>
     </svelte:fragment>
   </Hero>
-
-  <Animateonenterview>
-    <div class="py-12 md:py-20 flex justify-center">
-      <p
-        class="text-center text-primary font-medium whitespace-pre-line"
-      >
-        Building trust 
-        Reliable.
-      </p>
-    </div>
-  </Animateonenterview>
 </Section>
 
-<Section id="projects" className="bg-secondary overflow-hidden pb-12 md:pb-32">
+<Section id="projects" className="overflow-hidden pb-12 md:pb-32">
   <Animateonenterview>
-    <div class="py-12 md:py-28 flex justify-center">
-      <p
-        class="text-center text-neutral-light font-medium whitespace-pre-line"
-      >
-        Building the future of Building
-        Committed.
-      </p>
-    </div>
-  </Animateonenterview>
-
-  <Animateonenterview>
-    <h2 class="text-neutral-light md:mx-3 py-6">Featured projects</h2>
+    <h2 class="text-neutral-dark md:mx-3 py-6 whitespace-pre-line">Featured
+      projects</h2>
   </Animateonenterview>
 
   <div class="relative w-auto h-auto">
@@ -282,37 +289,28 @@ import Card from '$lib/components/Card/Card.svelte';
     >
       <Animateonenterview
         type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
-        className="overflow-visible relative w-full h-full {overlay ==
-        index
-          ? 'z-30'
-          : 'z-0'}"
+        className="overflow-visible relative w-full h-full"
       >
-        {#if overlay != index && !!overlay}
-          <div
-            transition:fade={{ duration: 300 }}
-            class="absolute inset-0 bg-secondary transition duration-300 ease-out bg-opacity-80 z-30 pointer-events-none"
-          />
-        {/if}
-        <Feature
-          {...feature}
-          on:focus={() => {
-            overlayProjects(index)
-          }}
-          on:blur={unOverlayProjects}
-        >
+        <Feature {...feature}>
           <p slot="description" class="font-normal">{feature.description}</p>
-          <div
-            class="transition duration-700 w-[50%] group-focus-within:-translate-x-24 group-focus-within:md:-translate-x-44 md:w-[40%] inset-0 absolute  overflow-hidden"
-          >
+          <div class="overflow-visible">
             <div
-              class="h-96 bg-neutral-light rotate-[50deg] transform origin-top-right"
-            />
+              class="transition absolute top-0 left-0 duration-500 w-40 md:w-52 m-3 z-10 group-focus-within:-translate-y-12 group-focus-within:-translate-x-24 text-neutral-light overflow-hidden"
+            >
+              <Triangle width={200} height={150} className="rotate-180" strokeWidth={1} />
+            </div>
+            <div class="absolute -right-6 md:-right-8 top-0 z-0 w-48 md:w-64 text-neutral-light group-focus-within:translate-x-12 group-focus-within:-translate-y-12 transition duration-300 ease-out">
+              <Triangle width={200} height={150} className="-rotate-90" strokeWidth={1} />
+            </div>
+            <div class="absolute -left-6 md:-left-8 bottom-8 md:bottom-0 z-0 w-48 md:w-64 text-primary group-focus-within:-translate-x-12 group-focus-within:translate-y-12 transition duration-300 ease-out">
+              <Triangle width={300} height={200} className="rotate-90" strokeWidth={1} />
+            </div>
           </div>
           <div slot="cta">
             <Go to="/projects/{slugify(feature.title)}">
               <Button
                 label="more"
-                className="hover:bg-secondary hover:text-neutral-light text-secondary bg-neutral-light"
+                type="primary"
               />
             </Go>
           </div>

@@ -6,7 +6,7 @@ export const navLinkWrapper = props => {
       on: true, // default
     },
     {
-      classes: 'hover:bg-primary hover:text-neutral-light',
+      classes: 'hover:bg-primary hover:opacity-[75%] hover:text-neutral-light',
       styles: '',
       on: props.type == 'primary'
     },

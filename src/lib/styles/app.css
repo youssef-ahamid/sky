@@ -8,7 +8,7 @@
 
   /* typography */
   h1 {
-    @apply font-heading font-medium text-4xl md:text-[81px] capitalize leading-snug;
+    @apply font-heading font-medium text-4xl md:text-7xl capitalize leading-snug;
   }
 
   h2 {
