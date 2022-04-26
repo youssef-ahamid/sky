@@ -119,7 +119,8 @@
     {
       to: 'https://media.graphassets.com/oz3eyadsQoCQCskelYXZ',
       text: 'Company profile',
-      download: 'SKY for Trading & Contracting - Company Profile'
+      download: 'SKY for Trading & Contracting - Company Profile',
+      redirect: true,
     },
   ]
 
