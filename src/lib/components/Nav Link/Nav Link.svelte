@@ -2,6 +2,7 @@
   export let className = ''
   export let to = ''
   export let text = ''
+  export let download = false
   export let redirect = false
   export let active = false
   export let activeSub = 0
@@ -28,7 +29,7 @@
   $: sublink = stylus(navSublink({ active, ...styleOptions }))
 </script>
 
-<Go {to} {redirect} on:click>
+<Go {to} {redirect} {download} on:click>
   <p class={`${wrapper.classes} ${className}`}>
     {#if text != ''}
       {text}

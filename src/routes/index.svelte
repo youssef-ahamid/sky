@@ -117,8 +117,9 @@
       text: 'AC Units',
     },
     {
-      to: '/company-profile',
+      to: 'https://www.filehosting.org/file/details/3310323/Sky%20-%20Company%20Portfolio.pdf',
       text: 'Company profile',
+      download: 'SKY for Trading & Contracting - Company Profile'
     },
   ]
 

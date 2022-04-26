@@ -1,6 +1,7 @@
 <script>
   /* props */
   export let to = '' // *, url
+  export let download = false // *, true
   export let redirect = false // *, true
   export let className = '' // *, custom wrapper classes
 
@@ -12,6 +13,7 @@
 {#if to != ''}
   <a
     on:click
+    {download}
     href={to}
     target={redirect ? '_blank' : '_self'}
     class={`${classes.link} ${className}`}
