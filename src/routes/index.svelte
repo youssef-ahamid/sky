@@ -184,6 +184,7 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
   },
 }
 
+  import SectionStepper from '$lib/components/Section Stepper/Section Stepper.svelte'
   let sections = ['home', 'trust', 'projects', 'contact']
 
   let Y, height
