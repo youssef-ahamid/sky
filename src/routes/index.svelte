@@ -184,7 +184,6 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
   },
 }
 
-  import SectionStepper from '$lib/components/Section Stepper/Section Stepper.svelte'
   let sections = [ 
     {
       id: 'home',
@@ -212,11 +211,6 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
 <svelte:window bind:scrollY={Y} bind:innerHeight={height} />
 
 <Nav {links} styleOptions={{ type: activeSection.color == 'secondary'? 'primary': 'secondary' }}/>
-<SectionStepper steps={sections.map(section => { return section.id })}>
-  <div class="fixed bottom-5 left-1/2 -translate-x-1/2 rounded-full ring-4 ring-current text-neutral-light hover:scale-105 active:scale-95 transition duration-300 ease-out w-20 h-20">
-
-  </div>
-</SectionStepper>
 
 <Section on:enter={() => { activeSection = sections[0] }} id="home" className="bg-secondary relative bg-cover bg-no-repeat bg-center bg-[url('https://i.ibb.co/44HfwBV/IL-Monte-Galala-Real-View.jpg')]">
   <Hero fullHeight className="relative">
@@ -224,21 +218,21 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
     <div class="flex-col text-neutral-light" slot="left">
       <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
   & Contracting</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 justify-between place-content-between pla">
-        <h1 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 justify-between place-content-between">
+        <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6">
           You
           dream
           it,
-        </h1>
-        <h1 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6"> 
+        </h2>
+        <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6"> 
           we
           make
           it
-        </h1>
+        </h2>
       </div>  
     </div>
     <svelte:fragment slot="right">
-    <Card className="bg-transparent ring-neutral-light ring-2 max-w-fit rounded-[60px]">
+    <Card className="bg-secondary ring-neutral-light ring-2 max-w-fit rounded-[60px]">
       <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
         <Button type="primary" label="more" className="mt-2" />
         <Go to="#contact">
@@ -267,9 +261,9 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
         className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
       >
         <Animateonenterview>
-          <Card>
-          <Image {...logo} styleOptions={{ size: 'sm' }} />
-        </Card>
+          <Card className="bg-neutral-light">
+            <Image {...logo} styleOptions={{ size: 'sm' }} />
+          </Card>
         </Animateonenterview>
       </List>
     </svelte:fragment>
@@ -281,7 +275,7 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
         className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
       >
         <Animateonenterview>
-          <Card>
+          <Card className="bg-neutral-light">
             <Image {...logo} styleOptions={{ size: 'sm' }} />
           </Card>
         </Animateonenterview>
