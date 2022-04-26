@@ -184,12 +184,19 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
   },
 }
 
+  let sections = ['home', 'trust', 'projects', 'contact']
+
   let Y, height
 </script>
 
 <svelte:window bind:scrollY={Y} bind:innerHeight={height} />
 
 <Nav {links} styleOptions={{ type: 'primary' }}/>
+<SectionStepper steps={sections}>
+  <div class="fixed bottom-5 left-1/2 -translate-x-1/2 rounded-full ring-4 ring-current text-neutral-light hover:scale-105 active:scale-95 transition duration-300 ease-out w-20 h-20">
+
+  </div>
+</SectionStepper>
 
 <Section id="home" className="bg-secondary relative bg-cover bg-no-repeat bg-center bg-[url('https://i.ibb.co/44HfwBV/IL-Monte-Galala-Real-View.jpg')]">
   <Hero fullHeight className="relative">
