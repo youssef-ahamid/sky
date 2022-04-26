@@ -20,9 +20,13 @@
   /* styles */
   import { config } from './styles'
   $: classes = config({ noContain, fullHeight })
+
+  let height = 0
 </script>
 
-<section use:inView on:enter={() => { dispatch('enter') }} class={`${classes.section} ${className}`} {id} style="{`background-image: ${gradient? `${gradient},`: ''} url(${bg});`}">
+<svelte:window bind:innerHeight={height} />
+
+<section use:inView={{ bottom: height }} on:enter={() => { dispatch('enter') }} class={`${classes.section} ${className}`} {id} style="{`background-image: ${gradient? `${gradient},`: ''} url(${bg});`}">
   <Title line={title.length > 0}>{title}</Title>
   <div class={classes.content}>
     <slot />
