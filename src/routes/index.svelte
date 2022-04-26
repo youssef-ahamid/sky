@@ -185,21 +185,40 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
 }
 
   import SectionStepper from '$lib/components/Section Stepper/Section Stepper.svelte'
-  let sections = ['home', 'trust', 'projects', 'contact']
+  let sections = [ 
+    {
+      id: 'home',
+      color: 'secondary'
+    },
+    {
+      id: 'trust',
+      color: 'secondary'
+    },
+    {
+      id: 'projects',
+      color: 'neutral-light'
+    },
+    {
+      id: 'contact',
+      color: 'neutral-light'
+    }
+  ]
+
+  let activeSection = sections[0]
 
   let Y, height
 </script>
 
 <svelte:window bind:scrollY={Y} bind:innerHeight={height} />
 
-<Nav {links} styleOptions={{ type: 'primary' }}/>
-<SectionStepper steps={sections}>
+<Nav {links} styleOptions={{ type: activeSection.color == 'secondary'? 'primary': 'secondary' }}/>
+<SectionStepper steps={sections.map(section => { return section.id })}>
   <div class="fixed bottom-5 left-1/2 -translate-x-1/2 rounded-full ring-4 ring-current text-neutral-light hover:scale-105 active:scale-95 transition duration-300 ease-out w-20 h-20">
 
   </div>
 </SectionStepper>
 
-<Section id="home" className="bg-secondary relative bg-cover bg-no-repeat bg-center bg-[url('https://i.ibb.co/44HfwBV/IL-Monte-Galala-Real-View.jpg')]">
+<Section on:enter={() => { activeSection = sections[0] }} id="home" className="bg-secondary relative bg-cover bg-no-repeat bg-center bg-[url('https://i.ibb.co/44HfwBV/IL-Monte-Galala-Real-View.jpg')]">
   <Hero fullHeight className="relative">
     
     <div class="flex-col text-neutral-light" slot="left">
@@ -231,7 +250,7 @@ import Triangle from '$lib/icons/shapes/triangle.svelte';
     </Hero>
 </Section>
 
-<Section id="trust" bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" fullHeight>
+<Section on:enter={() => { activeSection = sections[1] }} id="trust" bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" fullHeight>
   <Hero fullHeight className="items-end py-20">
     <svelte:fragment slot="left">
 
@@ -282,7 +301,7 @@ trust
   </Hero>
 </Section>
 
-<Section id="projects" className="overflow-hidden pb-12 md:pb-32">
+<Section on:enter={() => { activeSection = sections[2] }} id="projects" className="overflow-hidden pb-12 md:pb-32">
   <Animateonenterview>
     <h2 class="text-neutral-dark md:mx-3 py-6 whitespace-pre-line">Featured
       projects</h2>
@@ -445,7 +464,7 @@ trust
   </Hero>
 </Section>
 
-<Section id="contact" noContain>
+<Section on:enter={() => { activeSection = sections[3] }} id="contact" noContain>
   <h2 class="text-center text-primary pb-6 md:pb-16">Contact us</h2>
 
   <div class="flex w-full flex-wrap md:flex-nowrap justify-around max-w-7xl mx-auto items-center" >

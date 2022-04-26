@@ -8,6 +8,11 @@
   export let noContain = false
   export let fullHeight = false
 
+  import { inView } from '$lib/actions'
+
+  import { createEventDispatcher } from 'svelte/internal'
+  const dispatch = createEventDispatcher()
+
   import Title from '$lib/components/Title/Title.svelte'
   import Go from '$lib/components/Go/Go.svelte'
   import Button from '$lib/components/Button/Button.svelte'
@@ -17,7 +22,7 @@
   $: classes = config({ noContain, fullHeight })
 </script>
 
-<section class={`${classes.section} ${className}`} {id} style="{`background-image: ${gradient? `${gradient},`: ''} url(${bg});`}">
+<section use:inView on:enter={() => { dispatch('enter') }} class={`${classes.section} ${className}`} {id} style="{`background-image: ${gradient? `${gradient},`: ''} url(${bg});`}">
   <Title line={title.length > 0}>{title}</Title>
   <div class={classes.content}>
     <slot />
