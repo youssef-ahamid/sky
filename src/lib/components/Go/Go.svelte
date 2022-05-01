@@ -1,7 +1,7 @@
 <script>
   /* props */
   export let to = '' // *, url
-  export let download = false // *, true
+  export let download = null // *, true
   export let redirect = false // *, true
   export let className = '' // *, custom wrapper classes
 
@@ -9,11 +9,18 @@
   import { config } from './styles'
   let classes = config()
 </script>
-
-{#if to != ''}
+{#if !!download }
   <a
     on:click
     {download}
+    href={to}
+    class={`${classes.link} ${className}`}
+  >
+    <slot />
+  </a>
+{:else if to != ''}
+  <a
+    on:click
     href={to}
     target={redirect ? '_blank' : '_self'}
     class={`${classes.link} ${className}`}

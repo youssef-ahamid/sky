@@ -117,16 +117,15 @@
       text: 'AC Units',
     },
     {
-      to: 'https://media.graphassets.com/oz3eyadsQoCQCskelYXZ',
+      to: 'Sky_Company_Portfolio.pdf',
       text: 'Company profile',
-      download: 'SKY for Trading & Contracting - Company Profile',
-      redirect: true,
+      download: 'SKY for Trading & Contracting - Company Profile'
     },
   ]
 
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
-import Card from '$lib/components/Card/Card.svelte';
-import Triangle from '$lib/icons/shapes/triangle.svelte';
+  import Card from '$lib/components/Card/Card.svelte';
+  import Triangle from '$lib/icons/shapes/triangle.svelte';
 
  const contact = {
   inputs: [
