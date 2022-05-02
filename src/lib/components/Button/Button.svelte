@@ -1,6 +1,6 @@
 <script>
   /* props */
-  export let type = '' // *, secondary
+  export let type = 'primary' // *, secondary
   export let shape = 'default' // *, ghost, full,
   export let icon = null // *, icon component
   export let className = '' // *, custom wrapper classes
@@ -17,7 +17,7 @@
     button({ type, active, shape, reverse, ...styleOptions })
   )
   $: name = stylus(
-    buttonLabel({ type, active, shape, reverse, ...styleOptions })
+    buttonLabel({ type, active, label, shape, reverse, ...styleOptions })
   )
   $: bIcon = stylus(
     buttonIcon({ type, active, shape, reverse, ...styleOptions })
@@ -31,7 +31,7 @@
   class={`${wrapper.classes} ${className}`}
   style={wrapper.styles}
   type="button"
-  text={label}
+  data-text={label}
 >
   <p class={name.classes} style={name.styles}>
     {label}

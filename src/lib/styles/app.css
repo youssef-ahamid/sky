@@ -30,14 +30,18 @@
   h6 {
     @apply font-heading font-medium text-[35px];
   }
-}
 
-p {
-  @apply font-heading font-light text-lg md:text-2xl leading-snug;
-}
+  p {
+    @apply font-heading font-light text-lg md:text-2xl leading-snug;
+  }
 
-.body-lg {
-  @apply font-heading font-light text-xl md:text-[35px] leading-snug;
+  .body-lg {
+    @apply font-heading font-light text-xl md:text-[35px] leading-snug;
+  }
+
+  input {
+    @apply font-heading font-light text-base md:text-xl placeholder:text-center placeholder:text-xl md:placeholder:text-2xl leading-snug;
+  }
 }
 
 

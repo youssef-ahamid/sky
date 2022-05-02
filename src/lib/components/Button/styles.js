@@ -1,7 +1,7 @@
 export const button = props => {
   return [
     {
-      classes: 'relative m-1 rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
+      classes: 'relative m-1 flex items-center rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
       styles: '',
       on: true, // default
     },
@@ -35,18 +35,23 @@ export const buttonLabel = props => {
       styles: '',
       on: props.type == 'secondary'
     },
+    {
+      classes: 'hidden',
+      styles: '',
+      on: !props.label || props.label.length == 0
+    },
   ]
 }
 
 export const buttonIcon = props => {
   return [
     {
-      classes: '',
+      classes: 'w-8 md:w-10 block m-1 md:m-2',
       styles: '',
       on: true, // default
     },
     {
-      classes: '',
+      classes: 'text-primary',
       styles: '',
       on: props.type == 'primary'
     },

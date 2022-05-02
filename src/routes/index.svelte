@@ -15,6 +15,7 @@
   import { fade, scale, slide } from 'svelte/transition'
   import Nav from '$lib/components/Nav/Nav.svelte'
 
+
   const features = [
     {
       title: 'il-monte galala',
@@ -127,65 +128,21 @@
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
   import Card from '$lib/components/Card/Card.svelte';
   import Triangle from '$lib/icons/shapes/triangle.svelte';
-import Phone from '$lib/icons/social/phone.svelte';
-
- const contact = {
-  inputs: [
-    {
-      component: TextInput,
-      data: {
-        label: 'name',
-        className: 'md:w-[45%]',
-        value: '',
-        validations: [{ type: 'required', error: 'required' }],
-      },
-    },
-    {
-      component: TextInput,
-      data: {
-        label: 'email',
-        className: 'md:w-[45%]',
-        value: '',
-        validations: [
-          { type: 'required', error: 'required' },
-          { type: 'email', error: 'invalid email' },
-        ],
-      },
-    },
-    {
-      component: TextInput,
-      data: {
-        label: 'phone',
-        className: 'md:w-[45%]',
-        value: '',
-        validations: [{ type: 'required', error: 'required' }],
-      },
-    },
-    {
-      component: TextInput,
-      data: {
-        label: 'company',
-        className: 'md:w-[45%]',
-        value: '',
-      },
-    },
-    {
-      component: TextInput,
-      data: {
-        label: 'message',
-        className: 'w-full',
-        value: '',
-        validations: [{ type: 'required', error: 'required field' }],
-        type: 'text area',
-      },
-    },
-  ],
-  button: {
-    label: 'send message',
-    shape: 'round',
-    type: 'primary',
-  },
-}
+  import Phone from '$lib/icons/social/phone.svelte';
+import { onMount } from 'svelte';
+  
+  let emailInput
+  let emailCollect = {
+    label: 'email',
+    placeholder: 'leave your email',
+    value: '',
+    validations: [{ type: 'required', error: 'Required field' }, { type: 'email', error: 'Must be a valid email' }],
+    validateOnChange: true,
+    cta: {
+      icon: EmailAttachment,
+      type:"primary"
+    }
+  }
 
   let sections = [ 
     {
@@ -209,6 +166,32 @@ import Phone from '$lib/icons/social/phone.svelte';
   let activeSection = sections[0]
 
   let Y, height
+
+  const siteData = {
+    siteName: 'skyfortc.com',
+    siteOwner: 'Sky For Trading & Contracting',
+    siteEmail: 'info@skyfortc.com'
+  }
+  const config = {}
+
+  import zaagel from  'zaagel'
+  zaagel.configure(siteData, config)
+  
+  function mail(e) {
+    let email = e.detail
+    const message = {
+      to: email,
+      subject: "Thank you for your message. We'll be in touch soon!",
+      template: "message-confirmation", // email template used
+      body: { email }, // data to populate template,
+      replyTo: "info@skyfortc.com",
+    }
+    zaagel.mail(message)
+  }
+
+  onMount(() => {
+    emailInput.validate()
+  })
 </script>
 
 <svelte:window bind:scrollY={Y} bind:innerHeight={height} />
@@ -465,7 +448,7 @@ trust
     <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
       <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
       <div class="flex flex-col">
-        <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[200px]">
+        <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[220px] my-2">
             <div class="w-[90%] py-3 mx-auto flex flex-col space-y-4 px-12">
               <Go to="tel:+201033923229" className="flex curso-pointer">
                 <Phone className="text-primary w-8" />
@@ -477,7 +460,7 @@ trust
               </Copyable>
             </div>
         </Card>
-        <Form />
+        <TextInput bind:this={emailInput} {...emailCollect} on:submit={mail} />
         <p class="w-64 text-center mx-auto">and we'll send you a message!</p>
       </div>
     </div>

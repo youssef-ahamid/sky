@@ -6,12 +6,14 @@
   export let type = 'text' // *, text area
   export let trim = false // *, true
   export let validations = null // *, array of validation objects
+  export let validateOnChange = false // *, true
   export let className = '' // *, custom wrapper classes
   export let label = '' // *, label text
   export let placeholder = '' // *, placeholder text
+  export let cta = {}
   export let value = '' // *, bound value
   export let styleOptions = {}
-
+  
   /* data */
   $: validation = assert(validations || [], value)
   $: value = trim ? value.trim() : value
@@ -31,18 +33,21 @@
     textInput,
     textInputName,
     textInputError,
+    textInputCTA,
   } from './styles'
 
   $: lbl = stylus(textInputWrapper({ type, clean, ...styleOptions }))
   $: input = stylus(textInput({ type, clean, ...styleOptions }))
   $: name = stylus(textInputName({ type, clean, ...styleOptions }))
   $: error = stylus(textInputError({ type, clean, ...styleOptions }))
+  $: CTA = stylus(textInputCTA({ type, clean, ...styleOptions }))
 
   /* transitions */
-  import { slide } from 'svelte/transition'
+  import { scale, slide } from 'svelte/transition'
 
   /* events */
   import { createEventDispatcher } from 'svelte/internal'
+  import Button from '../Button/Button.svelte'
   const dispatch = createEventDispatcher()
   const valid = () => dispatch('valid', value)
   const invalid = () => dispatch('invalid', value)
@@ -51,6 +56,11 @@
     dispatch('blur', value)
   }
   const focus = () => dispatch('focus', value)
+  const submit = () => dispatch('submit', value)
+  const change = () => {
+    if (validateOnChange) validate()
+    dispatch('change', value)
+  }
 </script>
 
 <label class={`${lbl.classes} + ${className}`} for={label}>
@@ -69,6 +79,7 @@
       name={label}
       class={input.classes}
       on:focus={focus}
+      on:input={change}
       on:blur={blur}
     />
   {:else if type == 'text area'}
@@ -77,9 +88,15 @@
       {placeholder}
       name={label}
       class={input.classes}
+      on:input={change}
       on:focus={focus}
       on:blur={blur}
     />
+  {/if}
+  {#if !!cta.type && clean}
+    <div transition:scale={{ duration: 300 }} class="absolute right-0 top-0 bottom-0">
+      <Button {...cta} className={CTA.classes} on:click={submit}/>
+    </div>
   {/if}
   {#if !clean}
     <p transition:slide={{ duration: 300 }} class={error.classes}>

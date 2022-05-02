@@ -1,7 +1,7 @@
 export const textInputWrapper = props => {
   return [
     {
-      classes: 'group block my-3 md:my-6 w-full',
+      classes: 'group block w-full relative my-3',
       styles: '',
       on: true, // default
     },
@@ -16,7 +16,7 @@ export const textInputWrapper = props => {
 export const textInput = props => {
   return [
     {
-      classes: 'block outline-none appearance-none p-4 pb-1 transition duration-300 ease-out border-b-4 bg-secondary bg-opacity-5 focus:bg-opacity-15 focus:text-primary text-neutral-dark rounded w-full',
+      classes: 'block outline-none appearance-none py-8 px-10 transition placeholder:text-gray-300 caret-primary placeholder:font-light duration-300 ease-out ring-2 ring-primary rounded-[100px] bg-neutral-light bg-opacity-5 focus:bg-primary focus:bg-opacity-10 focus:text-primary text-neutral-dark w-full',
       styles: '',
       on: true, // default
     },
@@ -44,7 +44,7 @@ export const textInput = props => {
 export const textInputName = props => {
   return [
     {
-      classes: 'text-primary font-medium text-primary capitalize py-0.5 transition duration-300 ease-out',
+      classes: 'hidden',
       styles: '',
       on: true, // default
     },
@@ -59,7 +59,22 @@ export const textInputName = props => {
 export const textInputError = props => {
   return [
     {
-      classes: 'text-red-300 font-extralight text-base md:text-lg',
+      classes: 'hidden',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
+    },
+  ]
+}
+
+export const textInputCTA = props => {
+  return [
+    {
+      classes: 'bg-primary absolute z-50 rounded-full top-1/2 -translate-y-1/2 right-0',
       styles: '',
       on: true, // default
     },
