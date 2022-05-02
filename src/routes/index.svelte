@@ -1,5 +1,6 @@
 <script>
-	import Copyable from './../lib/components/Copy/Copyable.svelte';
+	import EmailAttachment from '$lib/icons/social/email attachment.svelte';
+	import Copyable from '$lib/components/Copyable/Copyable.svelte';
   import Button from '$lib/components/Button/Button.svelte'
   import Hero from '$lib/components/Hero/Hero.svelte'
   import Feature from '$lib/components/Feature/Feature.svelte'
@@ -126,6 +127,7 @@
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
   import Card from '$lib/components/Card/Card.svelte';
   import Triangle from '$lib/icons/shapes/triangle.svelte';
+import Phone from '$lib/icons/social/phone.svelte';
 
  const contact = {
   inputs: [
@@ -342,7 +344,7 @@ trust
   </div>
 </Section>
 
-<Section id="services" className="overflow-visible">
+<!-- <Section id="services" className="overflow-visible">
     <div class="flex-col items-center flex lg:flex-none lg:grid lg:grid-rows-2 lg:grid-cols-3 lg:place-items-center py-20 overflow-visible">
       <Animateonenterview type="flyLeft">
         <div class="flex-col">
@@ -407,7 +409,7 @@ trust
         </div>
       </Animateonenterview> 
     </div>
-</Section>
+</Section> -->
 <!-- 
 <Hero fullHeight>
   <div class="py-56 px-8 overflow-hidden md:overflow-visible text-center">
@@ -434,7 +436,7 @@ trust
   </div>
 </Hero> -->
 
-<Section id="about">
+<!-- <Section id="about">
   <Hero className="py-16 md:py-36 overflow-hidden">
     <Animateonenterview
       slot="left"
@@ -457,29 +459,26 @@ trust
       <Image {...aboutImage} />
     </Animateonenterview>
   </Hero>
-</Section>
+</Section> -->
 
-<Section on:enter={() => { activeSection = sections[3] }} id="contact" noContain>
-  <h2 class="text-center text-primary pb-6 md:pb-16">Contact us</h2>
-
-  <div class="flex w-full flex-wrap md:flex-nowrap justify-around max-w-7xl mx-auto items-center" >
-    <Animateonenterview type="flyLeft">
-      <div class="flex-col w-full p-4 md:p-8">
-        <Image src="http://images.dailyhive.com/20170201154612/kickstarter-new-york-brooklyn-office.jpg" alt="Sky For Trading and Contracting Office" className="w-full py-2" />
-        <p class="max-w-[90%] leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis a lacus mattis faucibus. Duis vel varius</p>
-        <div class="flex w-48 justify-between py-6">
-          <Go to="tel:+201200525233">
-            <Button label="call" type="secondary" />
-          </Go>
-          <Copyable value="youssef@getbrewsy.com">
-            <Button label="email"type="secondary" />
-          </Copyable>
-        </div>
+<Section on:enter={() => { activeSection = sections[3] }} id="contact" noContain fullHeight bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" className="relative">
+    <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
+      <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
+      <div class="flex flex-col">
+        <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[200px]">
+            <div class="w-[90%] py-3 mx-auto flex flex-col space-y-4 px-12">
+              <Go to="tel:+201033923229" className="flex curso-pointer">
+                <Phone className="text-primary w-8" />
+                <p>01033923229</p>
+              </Go>
+              <Copyable value="info@skyfortc.com" className="flex cursor-pointer">
+                <EmailAttachment className="text-primary w-8" />
+                <p>info@skyfortc.com</p>
+              </Copyable>
+            </div>
+        </Card>
+        <Form />
+        <p class="w-64 text-center mx-auto">and we'll send you a message!</p>
       </div>
-    </Animateonenterview>
-    <Animateonenterview type="flyRight">
-      <Form {...contact} className="md:p-10" />
-    </Animateonenterview>
-
-  </div>
+    </div>
 </Section>

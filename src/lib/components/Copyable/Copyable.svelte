@@ -1,6 +1,7 @@
 <script>
   import { draw, fade } from 'svelte/transition'
 
+  export let className = ''
   export let value = ''
   export let id = value
 
@@ -23,7 +24,7 @@
     class="hidden"
     bind:this={data}
   />
-  <div on:click={copy} class="peer">
+  <div on:click={copy} class="peer {className}">
     <slot />
   </div>
 

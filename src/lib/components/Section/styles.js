@@ -20,7 +20,7 @@ export let content = options => {
     },
     {
       on: [options.noContain, true],
-      classes: 'py-4 md:py-16',
+      classes: '',
     },
   ]
 }
