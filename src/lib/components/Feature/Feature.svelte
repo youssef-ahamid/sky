@@ -21,8 +21,8 @@
   {/if}
   <div class={classes.right} on:click>
     <slot />
+    <h4 class={classes.title}>{title}</h4>
     <div class={classes.content}>
-      <h4 class={classes.title}>{title}</h4>
       <div class={classes.description}>
         <slot name="description" />
       </div>

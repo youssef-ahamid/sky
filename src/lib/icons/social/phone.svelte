@@ -4,7 +4,7 @@
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  class={`w-full h-auto transition duration-300 ease-out ${className}`}
+  class={`h-auto transition duration-300 ease-out ${className}`}
   viewBox="0 0 48 48"
   ><path
     class="fill-current"

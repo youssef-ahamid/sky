@@ -26,7 +26,7 @@ import Image from '../Image/Image.svelte'
 
 <div>
   <Go to="/">
-    <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="absolute left-[10%] md:hidden top-10 w-28 z-[997]" />
+    <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="absolute left-[10%] md:hidden top-10 w-24 md:w-36 z-[997]" />
   </Go>
   <div class={classes.iconWrapper} on:click={toggle} id="menu-icon">
     <svelte:component this={icon} className={classes.icon} {active} />

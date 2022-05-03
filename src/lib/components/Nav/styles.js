@@ -4,7 +4,7 @@ export let iconWrapper = options => {
   return [
     {
       classes:
-        'transition duration-300 ease-out delay-[400ms] bg-neutral-light text-primary w-12 h-12 scale-125 pl-1 flex rounded-full flex-col items-center justify-center text-center md:w-16 fixed md:hidden bg-secondary shadow-secondary/30 right-8 top-10 z-[999]',
+        'transition duration-300 ease-out w-12 h-12 scale-125 pl-1 flex rounded-full flex-col items-center justify-center text-center md:w-16 fixed md:hidden shadow-secondary/30 right-8 top-10 z-[999]',
     },
     {
       on: [options.active, true],
@@ -16,13 +16,21 @@ export let iconWrapper = options => {
       classes:
         'shadow-lg',
     },
+    {
+      on: [options.type, 'primary'],
+      classes: 'bg-neutral-light text-primary',
+    },
+    {
+      on: [options.type, 'secondary'],
+      classes: 'bg-primary text-neutral-light',
+    },
   ]
 }
 
 export let icon = options => {
   return [
     {
-      classes: `transition duration-500 delay-100`,
+      classes: `transition duration-500`,
     },
     {
       on: [options.active, true],
@@ -56,7 +64,7 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'm-2 capitalize text-base md:text-xl',
+      classes: 'm-2 capitalize text-base md:text-xl font-medium md:font-normal max-w-fit md:max-w-[auto]',
     },
     {
       on: [options.type, 'primary'],
@@ -80,7 +88,7 @@ export let links = options => {
 export let nav = options => {
   return [
     {
-  classes: 'fixed md:flex md:justify-end ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
+  classes: 'fixed md:flex md:justify-end md:bg-transparent ring ring-primary -ml-1 md:ml-0 md:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 md:bottom-auto md:translate-x-0 md:right-0 w-full p-4 z-[998]',
     },
     {
       on: [options.active, true],
@@ -90,6 +98,14 @@ export let nav = options => {
     {
       on: [options.active, false],
       classes: '-translate-x-full',
+    },
+    {
+      on: [options.type, 'primary'],
+      classes: 'text-neutral-light bg-secondary',
+    },
+    {
+      on: [options.type, 'secondary'],
+      classes: 'text-primary bg-white',
     },
   ]
 }

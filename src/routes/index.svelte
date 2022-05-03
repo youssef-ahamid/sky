@@ -21,11 +21,9 @@
       title: 'il-monte galala',
       images: [
         {
-          src: 'https://i.ibb.co/7NLx6bW/image001-6-10.jpg',
-        },
-        {
           src: 'https://i.ibb.co/0MKRvpv/Untitled-1-1024x577.jpg',
         },
+        
       ],
       description:
         'Solorerferum ipit omnis earibus cipiciae volestia ipid mo occus doluptin experum quae que nosanim doles',
@@ -34,10 +32,7 @@
       title: 'fouka bay',
       images: [
         {
-          src: 'https://i.ibb.co/x3xwxsZ/015.jpg',
-        },
-        {
-          src: 'https://i.ibb.co/qsqKMJv/the-house-fouka-bay-4.jpg',
+          src: 'https://i.ibb.co/7NLx6bW/image001-6-10.jpg',
         },
       ],
       description:
@@ -65,6 +60,24 @@
     },
     {
       src: 'https://i.ibb.co/gPgRm3n/18056466-1563980143613615-208734119081921344-o.png',
+    },
+    {
+      src: 'assets/logos/pharmaoverseas.png'
+    },
+    {
+      src: 'assets/logos/alahly.png'
+    },
+    {
+      src: 'assets/logos/ashrae.png'
+    },
+    {
+      src: 'assets/logos/NBE.jpeg'
+    },
+    {
+      src: 'assets/logos/vodafone.png'
+    },
+    {
+      src: 'assets/logos/zahran.png'
     },
   ]
   const services = [
@@ -130,6 +143,7 @@
   import Triangle from '$lib/icons/shapes/triangle.svelte';
   import Phone from '$lib/icons/social/phone.svelte';
 import { onMount } from 'svelte';
+import Preload from '$lib/components/Preload/Preload.svelte';
   
   let emailInput
   let emailCollect = {
@@ -139,7 +153,7 @@ import { onMount } from 'svelte';
     validations: [{ type: 'required', error: 'Required field' }, { type: 'email', error: 'Must be a valid email' }],
     validateOnChange: true,
     cta: {
-      icon: EmailAttachment,
+      label: "send",
       type:"primary"
     }
   }
@@ -172,10 +186,6 @@ import { onMount } from 'svelte';
     siteOwner: 'Sky For Trading & Contracting',
     siteEmail: 'info@skyfortc.com'
   }
-  const config = {}
-
-  import zaagel from  'zaagel'
-  zaagel.configure(siteData, config)
   
   function mail(e) {
     let email = e.detail
@@ -183,54 +193,88 @@ import { onMount } from 'svelte';
       to: email,
       subject: "Thank you for your message. We'll be in touch soon!",
       template: "message-confirmation", // email template used
-      body: { email }, // data to populate template,
+      body: { email, ...siteData }, // data to populate template,
       replyTo: "info@skyfortc.com",
     }
-    zaagel.mail(message)
+    fetch(`https://zaagel.samuraisoftware.house/mail`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "crossorigin": "anonymous", "Access-Control-Allow-Origin": "*" },
+      mode: "cors",
+      body: JSON.stringify(message),
+    })
   }
+
+  let images = []
+  let imagesLoaded = 0
+  let imagesLength
+  let loaded = false
+
+  $: images.forEach(img => {
+      img.onload = function(){
+        imagesLoaded++;
+        if(imagesLoaded === imagesLength) loaded = true
+      }
+    })
 
   onMount(() => {
     emailInput.validate()
+    imagesLength = images.length
   })
 </script>
 
 <svelte:window bind:scrollY={Y} bind:innerHeight={height} />
+<Preload>
+  <img src="assets/bg/1.png" alt="">
+  <img src="assets/bg/2.png" alt="">
+</Preload>
 
 <Nav {links} styleOptions={{ type: activeSection.color == 'secondary'? 'primary': 'secondary' }}/>
 
-<Section on:enter={() => { activeSection = sections[0] }} id="home" className="bg-secondary relative bg-cover bg-no-repeat bg-center bg-[url('https://i.ibb.co/44HfwBV/IL-Monte-Galala-Real-View.jpg')]">
+<Section on:enter={() => { activeSection = sections[0] }} id="home" className="relative" bg="assets/bg/1.png">
   <Hero fullHeight className="relative">
     
     <div class="flex-col text-neutral-light" slot="left">
-      <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
-  & Contracting</p>
+      <Animateonenterview type="flyLeft">
+        <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
+    & Contracting</p>
+      </Animateonenterview>
       <div class="grid grid-cols-1 md:grid-cols-2 justify-between place-content-between">
-        <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6">
-          You
-          dream
-          it,
-        </h2>
-        <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6"> 
-          we
-          make
-          it
-        </h2>
+        <Animateonenterview>
+          <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6">
+            You
+            dream
+            it,
+          </h2>
+        </Animateonenterview>
+        <Animateonenterview>
+          <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6"> 
+            we
+            make
+            it
+          </h2>
+        </Animateonenterview>
       </div>  
     </div>
     <svelte:fragment slot="right">
-    <Card className="bg-secondary ring-neutral-light ring-2 max-w-fit rounded-[60px]">
-      <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
-        <Button type="primary" label="more" className="mt-2" />
-        <Go to="#contact">
-          <Button type="primary" label="contact us" />
-        </Go>
-      </div>
+    <Card className="bg-opacity-0 hover:bg-opacity-15 ring-neutral-light ring-2 max-w-fit rounded-[60px]">
+      <Animateonenterview>
+        <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
+          <Animateonenterview type="flyLeft">
+            <Button type="primary" label="more" className="mt-2" />
+          </Animateonenterview>
+          <Animateonenterview type="flyRight">
+            <Go to="#contact">
+              <Button type="primary" label="contact us" />
+            </Go>
+          </Animateonenterview>
+        </div>
+      </Animateonenterview>
     </Card>
   </svelte:fragment>
     </Hero>
 </Section>
 
-<Section on:enter={() => { activeSection = sections[1] }} id="trust" bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" fullHeight>
+<Section on:enter={() => { activeSection = sections[1] }} id="trust" bg="assets/bg/2.png" fullHeight>
   <Hero fullHeight className="items-end py-20">
     <svelte:fragment slot="left">
 
@@ -242,12 +286,12 @@ import { onMount } from 'svelte';
       </Animateonenterview>
     
       <List
-        items={logos}
+        items={logos.slice(0, 6)}
         let:prop={logo}
         className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
       >
         <Animateonenterview>
-          <Card className="bg-neutral-light">
+          <Card className="bg-neutral-light h-28 w-28 flex justify-center items-center">
             <Image {...logo} styleOptions={{ size: 'sm' }} />
           </Card>
         </Animateonenterview>
@@ -256,25 +300,29 @@ import { onMount } from 'svelte';
 
     <svelte:fragment slot="right">
       <List
-        items={logos}
+        items={logos.slice(6, 12)}
         let:prop={logo}
         className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
       >
         <Animateonenterview>
-          <Card className="bg-neutral-light">
+          <Card className="bg-neutral-light h-28 w-28 flex justify-center items-center">
             <Image {...logo} styleOptions={{ size: 'sm' }} />
           </Card>
         </Animateonenterview>
 
         <div class="absolute top-full right-0 grid grid-cols-2 gap-8 whitespace-pre text-neutral-light">
-          <p>
-            <span class="font-bold">SKY</span> for Trading
-  & Contracting
-          </p>
+          <Animateonenterview type="flyRight">
+            <p>
+              <span class="font-bold">SKY</span> for Trading
+    & Contracting
+            </p>
+          </Animateonenterview>
+          <Animateonenterview type="flyLeft">
           <p class="font-bold">
             Building
 trust
           </p>
+        </Animateonenterview>
         </div>
       </List>
     </svelte:fragment>
@@ -302,14 +350,14 @@ trust
           <p slot="description" class="font-normal">{feature.description}</p>
           <div class="overflow-visible">
             <div
-              class="transition absolute top-0 left-0 duration-500 w-40 md:w-52 m-3 z-10 group-focus-within:-translate-y-12 group-focus-within:-translate-x-24 text-neutral-light overflow-hidden"
+              class="transition absolute top-0 left-0 duration-500 w-40 md:w-52 m-3 z-10 group-focus-within:-translate-y-12 group-hover:-translate-y-12 group-focus-within:-translate-x-24 group-hover:-translate-x-24 text-neutral-light overflow-hidden"
             >
               <Triangle width={200} height={150} className="rotate-180" strokeWidth={1} />
             </div>
-            <div class="absolute -right-6 md:-right-8 top-0 z-0 w-48 md:w-64 text-neutral-light group-focus-within:translate-x-12 group-focus-within:-translate-y-12 transition duration-300 ease-out">
+            <div class="absolute -right-6 md:-right-8 top-0 z-0 w-48 md:w-64 text-neutral-light group-focus-within:translate-x-12 group-hover:translate-x-12 group-focus-within:-translate-y-12 group-hover:-translate-y-12 transition duration-300 ease-out">
               <Triangle width={200} height={150} className="-rotate-90" strokeWidth={1} />
             </div>
-            <div class="absolute -left-6 md:-left-8 bottom-8 md:bottom-0 z-0 w-48 md:w-64 text-primary group-focus-within:-translate-x-12 group-focus-within:translate-y-12 transition duration-300 ease-out">
+            <div class="absolute -left-6 md:-left-8 bottom-8 md:bottom-0 z-0 w-48 md:w-64 text-primary group-focus-within:-translate-x-12 group-hover:-translate-x-12 group-focus-within:translate-y-12 group-hover:translate-y-12 transition duration-300 ease-out">
               <Triangle width={300} height={200} className="rotate-90" strokeWidth={1} />
             </div>
           </div>
@@ -444,20 +492,20 @@ trust
   </Hero>
 </Section> -->
 
-<Section on:enter={() => { activeSection = sections[3] }} id="contact" noContain fullHeight bg="https://i.ibb.co/7YBnMSw/HVAC-System-Office-Building.jpg" className="relative">
+<Section on:enter={() => { activeSection = sections[3] }} id="contact" noContain fullHeight bg="assets/bg/3.JPG" className="relative">
     <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
       <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
       <div class="flex flex-col">
         <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[220px] my-2">
-            <div class="w-[90%] py-3 mx-auto flex flex-col space-y-4 px-12">
-              <Go to="tel:+201033923229" className="flex curso-pointer">
-                <Phone className="text-primary w-8" />
-                <p>01033923229</p>
-              </Go>
-              <Copyable value="info@skyfortc.com" className="flex cursor-pointer">
-                <EmailAttachment className="text-primary w-8" />
+            <div class="w-[90%] py-3 mx-auto flex flex-col items-center space-y-4 px-12">
+              <Copyable value="info@skyfortc.com" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
+                <EmailAttachment className="text-primary w-8 mx-1" />
                 <p>info@skyfortc.com</p>
               </Copyable>
+              <Go to="tel:+201033923229" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
+                <Phone className="text-primary w-8 mx-1" />
+                <p>01033923229</p>
+              </Go>
             </div>
         </Card>
         <TextInput bind:this={emailInput} {...emailCollect} on:submit={mail} />
@@ -465,3 +513,4 @@ trust
       </div>
     </div>
 </Section>
+  

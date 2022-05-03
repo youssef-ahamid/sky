@@ -29,6 +29,6 @@
     "tailwindcss": "3.0.19"
   },
   "dependencies": {
-    "zaagel": "^0.2.4"
+    "zaagel": "0.2.2"
   }
 }

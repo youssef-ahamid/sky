@@ -18,10 +18,10 @@ specifiers:
   prettier-plugin-svelte: 2.6.0
   svelte: 3.46.4
   tailwindcss: 3.0.19
-  zaagel: ^0.2.4
+  zaagel: 0.2.2
 
 dependencies:
-  zaagel: 0.2.4
+  zaagel: 0.2.2
 
 devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.50
@@ -2146,6 +2146,6 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /zaagel/0.2.4:
-    resolution: {integrity: sha512-XTdpdhkHYdkRHND1XLhmM+jiqro5a/Xeyzac2wk3qj3ogtWZGcXv4xdZsSRhWaLmVH3jQpZX0CUIniV6zpIZEw==}
+  /zaagel/0.2.2:
+    resolution: {integrity: sha512-aDWx/TITgxguAKKr4FxlTd0rjfnSjgy0YQhrk79N+BfnqHuqg8BB9jJKyw1FKZwy6mN761zU+dOdtoF92WIDhA==}
     dev: false
