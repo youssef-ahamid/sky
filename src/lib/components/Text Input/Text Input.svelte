@@ -1,3 +1,5 @@
+<svelte:options accessors />
+
 <script>
   /* helpers */
   import { assert } from '$lib/helpers'
@@ -13,7 +15,7 @@
   export let cta = {}
   export let value = '' // *, bound value
   export let styleOptions = {}
-  
+
   /* data */
   $: validation = assert(validations || [], value)
   $: value = trim ? value.trim() : value
@@ -24,6 +26,11 @@
     err = clean ? '' : validation.failed.error
     if (clean) valid()
     else invalid()
+  }
+
+  let refresher = 0
+  export const refresh = () => {
+    refresher++
   }
 
   /* styles */
@@ -94,9 +101,14 @@
     />
   {/if}
   {#if !!cta.type && clean}
-    <div transition:scale={{ duration: 300 }} class="absolute right-0 top-0 bottom-0">
-      <Button {...cta} className={CTA.classes} on:click={submit}/>
-    </div>
+    {#key refresher}
+      <div
+        transition:scale={{ duration: 300 }}
+        class="absolute right-0 top-0 bottom-0"
+      >
+        <Button {...cta} className={CTA.classes} on:click={submit} />
+      </div>
+    {/key}
   {/if}
   {#if !clean}
     <p transition:slide={{ duration: 300 }} class={error.classes}>

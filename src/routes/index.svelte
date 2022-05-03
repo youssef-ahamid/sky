@@ -179,7 +179,7 @@ import Preload from '$lib/components/Preload/Preload.svelte';
 
   let activeSection = sections[0]
 
-  let Y, height
+  let Y, height, mailedTo
 
   const siteData = {
     siteName: 'skyfortc.com',
@@ -187,38 +187,30 @@ import Preload from '$lib/components/Preload/Preload.svelte';
     siteEmail: 'info@skyfortc.com'
   }
   
-  function mail(e) {
-    let email = e.detail
+  function mail() {
+    if (mailedTo == emailInput.value) return
+    
+    mailedTo = emailInput.value
+    emailInput.cta.label = 'sent!'
+    emailInput.refresh()
+
     const message = {
-      to: email,
+      to: emailInput.value,
       subject: "Thank you for your message. We'll be in touch soon!",
-      template: "message-confirmation", // email template used
-      body: { email, ...siteData }, // data to populate template,
+      template: "message-sent", // email template used
+      data: { email: emailInput.value, ...siteData }, // data to populate template,
       replyTo: "info@skyfortc.com",
     }
     fetch(`https://zaagel.samuraisoftware.house/mail`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "crossorigin": "anonymous", "Access-Control-Allow-Origin": "*" },
+      headers: { "Content-Type": "application/json" },
       mode: "cors",
       body: JSON.stringify(message),
     })
   }
 
-  let images = []
-  let imagesLoaded = 0
-  let imagesLength
-  let loaded = false
-
-  $: images.forEach(img => {
-      img.onload = function(){
-        imagesLoaded++;
-        if(imagesLoaded === imagesLength) loaded = true
-      }
-    })
-
   onMount(() => {
     emailInput.validate()
-    imagesLength = images.length
   })
 </script>
 
@@ -508,7 +500,7 @@ trust
               </Go>
             </div>
         </Card>
-        <TextInput bind:this={emailInput} {...emailCollect} on:submit={mail} />
+        <TextInput bind:this={emailInput} bind:value={emailCollect.value} {...emailCollect} on:submit={mail} on:change={() => emailInput.cta.label = 'send'} />
         <p class="w-64 text-center mx-auto">and we'll send you a message!</p>
       </div>
     </div>
