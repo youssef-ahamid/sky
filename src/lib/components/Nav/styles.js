@@ -64,7 +64,7 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'm-2 capitalize text-base md:text-xl font-medium md:font-normal max-w-fit md:max-w-[auto]',
+      classes: 'm-2 capitalize text-base md:text-xl font-medium md:font-normal max-w-fit md:max-w-full',
     },
     {
       on: [options.type, 'primary'],

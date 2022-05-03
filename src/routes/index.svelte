@@ -256,7 +256,7 @@ import Preload from '$lib/components/Preload/Preload.svelte';
       </div>  
     </div>
     <svelte:fragment slot="right">
-    <Card className="bg-opacity-0 hover:bg-opacity-15 ring-neutral-light ring-2 max-w-fit rounded-[60px]">
+    <Card className="bg-neutral-light bg-opacity-10 hover:bg-opacity-0 focus-within:bg-opacity-5 ring-neutral-light ring-2 max-w-fit rounded-[60px]">
       <Animateonenterview>
         <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
           <Animateonenterview type="flyLeft">
