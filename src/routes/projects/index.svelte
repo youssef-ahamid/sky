@@ -16,16 +16,20 @@
 </script>
 
 <script>
-  import Hero from '$lib/sections/Hero.svelte'
-  import Seo from '$lib/components/SEO/SEO.svelte'
-  import { activePage } from '$lib/stores'
-  import Filterable from '$lib/sections/Filterable.svelte'
-  import Feature from '$lib/components/Feature/Feature.svelte';
-
+  // Props
   export let projects, page, path
-
+  
+  // Sections
+  import Hero from '$lib/sections/Hero.svelte'
+  import Filterable from '$lib/sections/Filterable.svelte'
+  
+  // Components
+  import Project from '$lib/components/Project/Project.svelte';
+  import Seo from '$lib/components/SEO/SEO.svelte'
+  
+  // Data Handling & Stores
+  import { activePage } from '$lib/stores'
   $activePage = 'projects'
-
 </script>
 
 <Seo {...page.seo} />
@@ -35,7 +39,7 @@
 <Filterable
   selected="All"
   items={projects}
-  component={Feature}
+  component={Project}
   matchingKey="services"
   matchInArray
   secondaryMatchingKey="shortTitle"

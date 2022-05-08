@@ -24,7 +24,7 @@ export const img = props => {
       classes: 'w-full h-full block transition duration-300 ease-out',
       on: true,
     },
-    { classes: '', styles: '', on: props.type == 'custom' },
+    { classes: 'max-w-[70px] md:max-w-[110px] hover:scale-110', styles: '', on: props.type == 'logo' },
     { classes: 'max-h-[70px] md:max-h-[110px] hover:scale-110', styles: '', on: props.size == 'sm' },
   ]
 }

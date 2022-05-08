@@ -47,7 +47,7 @@
     <h2 class="py-2 capitalize">{title}</h2>
     <Filter {filters} on:filter={select} bind:active={selected} />
   </div>
-  <div class="flex flex-wrap justify-center">
+  <div class="flex flex-wrap justify-center p-4 md:max-w-[90%] mx-auto">
     {#each activeItems as item (item.title)}
       <div class="block" animate:flip={{ duration: 500 }}>
         <svelte:component this={component} {...item} />

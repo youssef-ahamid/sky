@@ -3,6 +3,7 @@
   export let styleOptions = {}
   export let src = ''
   export let url = ''
+  export let type = ''
 
   if (src.length == 0 && url.length > 0) src = url
 
@@ -14,9 +15,9 @@
   import { stylus } from '$lib/helpers'
   import { imgWrapper, imgOverlay, img } from './styles'
 
-  $: wrapper = stylus(imgWrapper(styleOptions))
-  $: overlay = stylus(imgOverlay({ src, ...styleOptions }))
-  $: image = stylus(img(styleOptions))
+  $: wrapper = stylus(imgWrapper({ type, ...styleOptions }))
+  $: overlay = stylus(imgOverlay({ type, src, ...styleOptions }))
+  $: image = stylus(img({ type, ...styleOptions }))
 </script>
 
 <div class={`${wrapper.classes} ${className}`} style={wrapper.styles}>
