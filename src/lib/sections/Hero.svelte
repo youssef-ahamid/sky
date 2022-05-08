@@ -16,6 +16,7 @@
   let tweens = []
   let timeout
   const tweenAll = () => tweens.forEach(tween => tween.set(1))
+  const untweenAll = () => tweens.forEach(tween => tween.set(0))
 </script>
 
 <Section color="secondary" {fullHeight} bg={background.url}>
@@ -42,6 +43,7 @@
       on:enter={() => {
         timeout = setTimeout(tweenAll, 1500)
       }}
+      on:exit={untweenAll}
       className="flex text-center mx-auto w-4/5 md:justify-end absolute bottom-[5%] md:bottom-[15%] justify-center md:right-10"
     >
       {#each statistic as stat, i}
