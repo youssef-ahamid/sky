@@ -4,6 +4,7 @@
   /* props */
   export let title = ''
   export let images = []
+  export let image = {}
   export let reverse = false // *, true
   export let active = false // *, true
   export let className = '' // *, custom wrapper classes
@@ -18,6 +19,8 @@
     <div class={classes.left}>
       <Image {...images[0]} className={classes.image} />
     </div>
+  {:else if !!image}
+    <Image {...image} className={classes.image} />
   {/if}
   <div class={classes.right} on:click>
     <slot />

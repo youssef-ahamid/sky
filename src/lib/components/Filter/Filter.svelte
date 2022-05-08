@@ -12,6 +12,7 @@
   const dispatch = createEventDispatcher()
 
   export const select = filter => (active = filter)
+  $: active = active.toLowerCase()
 
   /* styles */
   import { stylus } from '$lib/helpers'
@@ -33,8 +34,8 @@
   {#each filters as filter}
     <button
       on:click={() => {
-        active = filter
-        dispatch('filter', filter)
+        active = filter.toLowerCase()
+        dispatch('filter', filter.toLowerCase())
       }}
       class={`${tag.classes} ${
         active == filter ? selected.classes : notSelected.classes

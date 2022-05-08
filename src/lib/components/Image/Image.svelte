@@ -2,6 +2,10 @@
   /* props */
   export let styleOptions = {}
   export let src = ''
+  export let url = ''
+
+  if (src.length == 0 && url.length > 0) src = url
+
   export let alt = ''
   export let clip = false
   export let className = '' // *, custom wrapper classes

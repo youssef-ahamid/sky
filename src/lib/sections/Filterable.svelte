@@ -27,9 +27,7 @@
 </script>
 
 <Section noContain className="mt-32 relative">
-  <div
-    class="w-full sticky top-0 left-0 right-0 bg-neutral-light py-3 text-center"
-  >
+  <div class="w-full sticky top-0 left-0 right-0 bg-neutral-light py-3 text-center">
     <h2 class="py-2 capitalize">{title}</h2>
     <Filter {filters} on:filter={select} bind:active={selected} />
   </div>
