@@ -1,3 +1,4 @@
 import { writable } from 'svelte/store'
 
-export const example = writable([])
+export const activeSection = writable({ color: "", id: "", title: "" })
+export const activePage = writable("")

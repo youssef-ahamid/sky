@@ -9,6 +9,9 @@
   export let reverse = false // *, true
   export let styleOptions = {}
 
+  import { resolve } from '$lib/icons'
+  if(typeof icon === 'string') icon = resolve(icon)
+
   /* styles */
   import { stylus } from '$lib/helpers'
   import { button, buttonLabel, buttonIcon } from './styles'
@@ -38,7 +41,9 @@
   </p>
   {#if !!icon}
     <span class={bIcon.classes} style={bIcon.styles}
-      ><svelte:component this={icon} /></span
-    >
+      >
+        <svelte:component this={icon} />
+      </span>
   {/if}
 </button>
+

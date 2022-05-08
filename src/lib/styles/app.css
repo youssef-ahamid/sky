@@ -8,15 +8,15 @@
 
   /* typography */
   h1 {
-    @apply font-heading font-medium text-4xl md:text-7xl capitalize leading-snug;
+    @apply font-heading font-bold text-3xl md:text-5xl leading-snug;
   }
 
   h2 {
-    @apply font-heading font-medium text-3xl md:text-6xl capitalize;
+    @apply font-heading font-bold text-2xl md:text-4xl capitalize;
   }
 
   h3 {
-    @apply font-heading font-medium text-[55px];
+    @apply font-heading font-semibold text-lg md:text-[22px] leading-[1.75];
   }
 
   h4 {
@@ -32,11 +32,19 @@
   }
 
   p {
-    @apply font-heading font-light text-lg md:text-2xl leading-snug;
+    @apply font-heading font-light text-lg md:text-[22px] leading-[1.75];
+  }
+
+  button {
+    @apply font-heading font-bold text-lg md:text-[22px]
   }
 
   .body-lg {
-    @apply font-heading font-light text-xl md:text-[35px] leading-snug;
+    @apply font-heading font-light text-xl md:text-2xl leading-[1.75];
+  }
+
+  .body-xl {
+    @apply font-heading font-light text-2xl md:text-4xl leading-[1.75];
   }
 
   input {

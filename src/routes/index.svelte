@@ -110,40 +110,13 @@
     },
   ]
 
-  const links = [
-    {
-      to: '/projects',
-    text: 'Projects',
-    },
-    {
-      to: '/services',
-      text: 'Services',
-    },
-    {
-      to: '/about',
-      text: 'About us',
-    },
-    {
-      to: '/careers',
-      text: 'Careers',
-    },
-    {
-      to: '/ac-units',
-      text: 'AC Units',
-    },
-    {
-      to: 'Sky_Company_Portfolio.pdf',
-      text: 'Company profile',
-      download: 'SKY for Trading & Contracting - Company Profile'
-    },
-  ]
-
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
   import Card from '$lib/components/Card/Card.svelte';
-  import Triangle from '$lib/icons/shapes/triangle.svelte';
+  import Triangle from '$lib/icons/shape/triangle.svelte';
   import Phone from '$lib/icons/social/phone.svelte';
 import { onMount } from 'svelte';
 import Preload from '$lib/components/Preload/Preload.svelte';
+import Triangles from '$lib/components/Triangles/Triangles.svelte';
   
   let emailInput
   let emailCollect = {
@@ -157,27 +130,6 @@ import Preload from '$lib/components/Preload/Preload.svelte';
       type:"primary"
     }
   }
-
-  let sections = [ 
-    {
-      id: 'home',
-      color: 'secondary'
-    },
-    {
-      id: 'trust',
-      color: 'secondary'
-    },
-    {
-      id: 'projects',
-      color: 'neutral-light'
-    },
-    {
-      id: 'contact',
-      color: 'neutral-light'
-    }
-  ]
-
-  let activeSection = sections[0]
 
   let Y, height, mailedTo
 
@@ -220,11 +172,8 @@ import Preload from '$lib/components/Preload/Preload.svelte';
   <img src="assets/bg/2.png" alt="">
 </Preload>
 
-<Nav {links} styleOptions={{ type: activeSection.color == 'secondary'? 'primary': 'secondary' }}/>
-
-<Section on:enter={() => { activeSection = sections[0] }} id="home" className="relative" bg="assets/bg/1.png">
+<Section color="secondary" id="home" className="relative" bg="assets/bg/1.png">
   <Hero fullHeight className="relative">
-    
     <div class="flex-col text-neutral-light" slot="left">
       <Animateonenterview type="flyLeft">
         <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
@@ -248,25 +197,25 @@ import Preload from '$lib/components/Preload/Preload.svelte';
       </div>  
     </div>
     <svelte:fragment slot="right">
-    <Card className="bg-neutral-light bg-opacity-10 hover:bg-opacity-0 focus-within:bg-opacity-5 ring-neutral-light ring-2 max-w-fit rounded-[60px]">
-      <Animateonenterview>
-        <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
-          <Animateonenterview type="flyLeft">
-            <Button type="primary" label="more" className="mt-2" />
-          </Animateonenterview>
-          <Animateonenterview type="flyRight">
-            <Go to="#contact">
-              <Button type="primary" label="contact us" />
-            </Go>
-          </Animateonenterview>
-        </div>
-      </Animateonenterview>
-    </Card>
-  </svelte:fragment>
-    </Hero>
+      <Card className="bg-neutral-light bg-opacity-10 hover:bg-opacity-0 focus-within:bg-opacity-5 ring-neutral-light ring-2 max-w-fit rounded-[60px]">
+        <Animateonenterview>
+          <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
+            <Animateonenterview type="flyLeft">
+              <Button type="primary" label="more" className="mt-2" />
+            </Animateonenterview>
+            <Animateonenterview type="flyRight">
+              <Go to="#contact">
+                <Button type="primary" label="contact us" />
+              </Go>
+            </Animateonenterview>
+          </div>
+        </Animateonenterview>
+      </Card>
+    </svelte:fragment>
+  </Hero>
 </Section>
 
-<Section on:enter={() => { activeSection = sections[1] }} id="trust" bg="assets/bg/2.png" fullHeight>
+<Section color="secondary" id="trust" bg="assets/bg/2.png" fullHeight>
   <Hero fullHeight className="items-end py-20">
     <svelte:fragment slot="left">
 
@@ -321,7 +270,7 @@ trust
   </Hero>
 </Section>
 
-<Section on:enter={() => { activeSection = sections[2] }} id="projects" className="overflow-hidden pb-12 md:pb-32">
+<Section color="neutral-light" id="projects" className="overflow-hidden pb-12 md:pb-32">
   <Animateonenterview>
     <h2 class="text-neutral-dark md:mx-3 py-6 whitespace-pre-line">Featured
       projects</h2>
@@ -340,19 +289,7 @@ trust
       >
         <Feature {...feature}>
           <p slot="description" class="font-normal">{feature.description}</p>
-          <div class="overflow-visible">
-            <div
-              class="transition absolute top-0 left-0 duration-500 w-40 md:w-52 m-3 z-10 group-focus-within:-translate-y-12 group-hover:-translate-y-12 group-focus-within:-translate-x-24 group-hover:-translate-x-24 text-neutral-light overflow-hidden"
-            >
-              <Triangle width={200} height={150} className="rotate-180" strokeWidth={1} />
-            </div>
-            <div class="absolute -right-6 md:-right-8 top-0 z-0 w-48 md:w-64 text-neutral-light group-focus-within:translate-x-12 group-hover:translate-x-12 group-focus-within:-translate-y-12 group-hover:-translate-y-12 transition duration-300 ease-out">
-              <Triangle width={200} height={150} className="-rotate-90" strokeWidth={1} />
-            </div>
-            <div class="absolute -left-6 md:-left-8 bottom-8 md:bottom-0 z-0 w-48 md:w-64 text-primary group-focus-within:-translate-x-12 group-hover:-translate-x-12 group-focus-within:translate-y-12 group-hover:translate-y-12 transition duration-300 ease-out">
-              <Triangle width={300} height={200} className="rotate-90" strokeWidth={1} />
-            </div>
-          </div>
+          <Triangles />
           <div slot="cta">
             <Go to="/projects/{slugify(feature.title)}">
               <Button
@@ -484,25 +421,25 @@ trust
   </Hero>
 </Section> -->
 
-<Section on:enter={() => { activeSection = sections[3] }} id="contact" noContain fullHeight bg="assets/bg/3.JPG" className="relative">
-    <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
-      <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
-      <div class="flex flex-col">
-        <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[220px] my-2">
-            <div class="w-[90%] py-3 mx-auto flex flex-col items-center space-y-4 px-12">
-              <Copyable value="info@skyfortc.com" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
-                <EmailAttachment className="text-primary w-8 mx-1" />
-                <p>info@skyfortc.com</p>
-              </Copyable>
-              <Go to="tel:+201033923229" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
-                <Phone className="text-primary w-8 mx-1" />
-                <p>01033923229</p>
-              </Go>
-            </div>
-        </Card>
-        <TextInput bind:this={emailInput} bind:value={emailCollect.value} {...emailCollect} on:submit={mail} on:change={() => emailInput.cta.label = 'send'} />
-        <p class="w-64 text-center mx-auto">and we'll send you a message!</p>
-      </div>
+<Section color="neutral-light" id="contact" noContain fullHeight bg="assets/bg/3.JPG" className="relative">
+  <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
+    <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
+    <div class="flex flex-col">
+      <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[220px] my-2">
+          <div class="w-[90%] py-3 mx-auto flex flex-col items-center space-y-4 px-12">
+            <Copyable value="info@skyfortc.com" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
+              <EmailAttachment className="text-primary w-8 mx-1" />
+              <p>info@skyfortc.com</p>
+            </Copyable>
+            <Go to="tel:+201033923229" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
+              <Phone className="text-primary w-8 mx-1" />
+              <p>01033923229</p>
+            </Go>
+          </div>
+      </Card>
+      <TextInput bind:this={emailInput} bind:value={emailCollect.value} {...emailCollect} on:submit={mail} on:change={() => emailInput.cta.label = 'send'} />
+      <p class="w-64 text-center mx-auto">and we'll send you a message!</p>
     </div>
+  </div>
 </Section>
   

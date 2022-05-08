@@ -1,19 +1,29 @@
 export const button = props => {
   return [
     {
-      classes: 'relative m-1 flex items-center rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
+      classes: 'relative my-1 flex items-center rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'bg-opacity-[15%] bg-neutral-light',
+      classes: 'bg-opacity-[15%] bg-neutral-light text-neutral-light hover:text-neutral-light',
       styles: '',
-      on: props.type == 'primary'
+      on: props.type == 'primary' && props.shape != 'ghost'
     },
     {
-      classes: 'bg-neutral-light hover:bg-secondary',
+      classes: 'bg-neutral-light hover:bg-secondary text-secondary hover:text-neutral-light',
       styles: '',
-      on: props.type == 'secondary'
+      on: props.type == 'secondary' && props.shape != 'ghost'
+    },
+    {
+      classes: 'text-primary hover:text-neutral-light',
+      styles: '',
+      on: props.type == 'primary' && props.shape == 'ghost'
+    },
+    {
+      classes: 'text-neutral-light',
+      styles: '',
+      on: props.type == 'secondary' && props.shape == 'ghost'
     },
   ]
 }
@@ -21,17 +31,22 @@ export const button = props => {
 export const buttonLabel = props => {
   return [
     {
-      classes: 'z-[5] whitespace-nowrap uppercase font-semibold select-none leading-none transition duration-300 ease-out  px-4 py-2',
+      classes: 'text-current z-[5] whitespace-nowrap uppercase font-semibold select-none leading-none transition duration-300 ease-out pr-4 py-2',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'text-neutral-light group-hover:text-neutral-light group-hover:shadow-xl group-hover:bg-primary rounded-full',
+      classes: 'group-hover:shadow-xl group-hover:bg-primary rounded-full',
       styles: '',
       on: props.type == 'primary'
     },
     {
-      classes: 'text-secondary group-hover:text-neutral-light',
+      classes: 'pl-4',
+      styles: '',
+      on: props.type != 'ghost'
+    },
+    {
+      classes: '',
       styles: '',
       on: props.type == 'secondary'
     },
@@ -46,12 +61,12 @@ export const buttonLabel = props => {
 export const buttonIcon = props => {
   return [
     {
-      classes: 'w-8 md:w-10 block m-1 md:m-2',
+      classes: 'group-hover:translate-x-4 transition duration-500 ease-out text-current w-8 md:w-10 block m-1 md:m-2',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'text-primary',
+      classes: '',
       styles: '',
       on: props.type == 'primary'
     },

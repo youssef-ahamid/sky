@@ -20,6 +20,7 @@
   import { config } from './styles'
 import Go from '../Go/Go.svelte'
 import Image from '../Image/Image.svelte'
+import { activePage } from '$lib/stores';
   $: classes = config({ active, ...styleOptions })
 </script> 
 
@@ -38,7 +39,7 @@ import Image from '../Image/Image.svelte'
     <List items={links} let:prop={item} className={classes.links}>
       <NavLink
         {...item}
-        active={activeLink === links.indexOf(item)}
+        active={$activePage == item.text.toLowerCase()}
         {activeSub}
         on:click={() => {
           activeLink = links.indexOf(item)

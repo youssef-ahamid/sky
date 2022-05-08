@@ -1,5 +1,6 @@
 <script>
   export let type = 'fade'
+  export let delay = 0
   export let className = ''
   export let styles = ''
 
@@ -30,7 +31,7 @@
 
 <div
   use:inView={{ bottom: 20 }}
-  style={styles}
+  style="{styles} transition-delay: {delay}ms"
   on:enter={enter}
   on:exit={exit}
   class={`${wrapper.classes} ${className}`}

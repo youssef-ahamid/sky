@@ -11,6 +11,11 @@ export const navLinkWrapper = props => {
       on: props.type == 'primary'
     },
     {
+      classes: 'bg-primary text-neutral-light',
+      styles: '',
+      on: props.active
+    },
+    {
       classes: '',
       styles: '',
       on: props.type == 'secondary'
