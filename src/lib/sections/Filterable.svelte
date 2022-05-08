@@ -10,8 +10,17 @@
   export let secondaryMatchingKey = ''
   export let matchInArray = false
   export let title = ''
-  export let filters = []
 
+  let filters = ['all']
+  items.forEach(it =>
+    matchInArray
+      ? filters.push(
+          ...it[matchingKey].map(i =>
+            i[secondaryMatchingKey].toLowerCase()
+          )
+        )
+      : filters.push(it[matchingKey])
+  )
   $: activeItems =
     selected.toLowerCase() == 'all'
       ? items
@@ -26,15 +35,23 @@
   const select = e => (selected = e.detail)
 </script>
 
-<Section noContain className="mt-32 relative">
-  <div class="w-full sticky top-0 left-0 right-0 bg-neutral-light py-3 text-center">
+<Section
+  noContain
+  fullHeight
+  className="mt-8 pt-24 relative"
+  color="neutral-light"
+>
+  <div
+    class="w-full sticky top-0 left-0 right-0 bg-neutral-light py-3 text-center"
+  >
     <h2 class="py-2 capitalize">{title}</h2>
     <Filter {filters} on:filter={select} bind:active={selected} />
   </div>
-
-  {#each activeItems as item (item.title)}
-    <div class="block" animate:flip={{ duration: 500 }}>
-      <svelte:component this={component} {...item} />
-    </div>
-  {/each}
+  <div class="flex flex-wrap justify-center">
+    {#each activeItems as item (item.title)}
+      <div class="block" animate:flip={{ duration: 500 }}>
+        <svelte:component this={component} {...item} />
+      </div>
+    {/each}
+  </div>
 </Section>

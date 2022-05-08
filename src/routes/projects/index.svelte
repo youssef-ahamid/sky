@@ -24,14 +24,8 @@
 
   export let projects, page, path
 
-  let filters = [
-    'all',
-    'mep',
-    'infrastructure',
-    'finishing',
-    'turnkey',
-  ]
   $activePage = 'projects'
+
 </script>
 
 <Seo {...page.seo} />
@@ -45,6 +39,5 @@
   matchingKey="services"
   matchInArray
   secondaryMatchingKey="shortTitle"
-  {filters}
   title="Browse Projects"
 />
