@@ -16,14 +16,9 @@ export const button = props => {
       on: props.type == 'secondary' && props.shape != 'ghost'
     },
     {
-      classes: 'text-primary hover:text-neutral-light',
+      classes: 'text-current -ml-5',
       styles: '',
-      on: props.type == 'primary' && props.shape == 'ghost'
-    },
-    {
-      classes: 'text-neutral-light',
-      styles: '',
-      on: props.type == 'secondary' && props.shape == 'ghost'
+      on:  props.shape == 'ghost'
     },
   ]
 }
@@ -38,7 +33,7 @@ export const buttonLabel = props => {
     {
       classes: 'group-hover:shadow-xl group-hover:bg-primary rounded-full',
       styles: '',
-      on: props.type == 'primary'
+      on: props.type == 'primary' && props.shape != 'ghost'
     },
     {
       classes: 'pl-4',

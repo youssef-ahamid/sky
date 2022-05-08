@@ -32,7 +32,7 @@
         <p>{hero.description}</p>
       </Animateonenterview>
       <Animateonenterview delay="1200">
-        <div class="my-8 -ml-4">
+        <div class="my-8">
           <Button {...button[0]} />
         </div>
       </Animateonenterview>

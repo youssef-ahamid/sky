@@ -9,10 +9,13 @@ import Image from "../Image/Image.svelte"
   export let description = ''
   export let clients = []
   export let image = {}
+  export let services = []
+  
   export let additionalImageData = {}
   export let cta = {}
-  export let services = []
 
+  console.log(cta)
+  
   if (!preheader) preheader = services.map(service => service.shortTitle).join(' ● ')
 
   export let color = 'secondary'
@@ -27,8 +30,8 @@ import Image from "../Image/Image.svelte"
 </script>
 
 
-<div class="w-full flex flex-wrap lg:flex-nowrap items-center justify-center text-{color} {className}" {title}>
-    <div class="w-full min-w-fit md:min-w-min {image.url || image.src? 'md:max-w-[50%]': 'md:max-w-[70%]'}">
+<div class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-center text-{color} {className}" {title}>
+    <div class="w-full min-w-fit md:min-w-min {image.url || image.src? 'md:max-w-[50%]': 'md:max-w-[70%]'} pr-4">
         <h3 class="{color == 'secondary'? 'text-primary': 'text-neutral-light'}">{preheader}</h3>
         {#each clients as client }
             <Image type="logo" src={client.logo.url} alt={client.name} />
@@ -36,13 +39,15 @@ import Image from "../Image/Image.svelte"
         <h2 class="uppercase">{title}</h2>
         <p class="max-w-[64ch] mt-6 md:mt-12">{description}</p>
         {#if !!cta.label }
-            <Go to={cta.url} className="{color == 'secondary'? 'text-primary': 'text-neutral-light'}">
+            <Go to={cta.link} className="{color == 'secondary'? 'text-primary': 'text-neutral-light'} mt-5 md:mt-10 block">
                 <Button {...cta} />
             </Go>
         {/if}
     </div>
 
     <div class="w-full md:w-[50%]">
-        <Image {...image} {...additionalImageData} />
+        <Go to={cta.link}>
+            <Image {...image} {...additionalImageData} />
+        </Go>
     </div>
 </div>

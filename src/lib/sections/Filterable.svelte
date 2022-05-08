@@ -2,6 +2,8 @@
   import Section from '$lib/components/Section/Section.svelte'
   import Filter from '$lib/components/Filter/Filter.svelte'
   import { flip } from 'svelte/animate'
+  import Triangles from '$lib/components/Triangles/Triangles.svelte'
+  import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
 
   export let component
   export let selected = ''
@@ -38,19 +40,40 @@
 <Section
   noContain
   fullHeight
-  className="mt-8 pt-24 relative"
+  className="mt-1 pt-8"
   color="neutral-light"
 >
   <div
-    class="w-full sticky top-0 left-0 right-0 bg-neutral-light py-3 text-center"
+    class="w-full sticky top-6 md:top-12 left-0 right-0 bg-neutral-light py-3 text-center"
   >
-    <h2 class="py-2 capitalize">{title}</h2>
-    <Filter {filters} on:filter={select} bind:active={selected} />
+    <Animateonenterview>
+      <h2 class="py-2 capitalize">{title}</h2>
+    </Animateonenterview>
+    <Animateonenterview type="flyUp">
+      <Filter {filters} on:filter={select} bind:active={selected} />
+    </Animateonenterview>
   </div>
-  <div class="flex flex-wrap justify-center p-4 md:max-w-[90%] mx-auto">
-    {#each activeItems as item (item.title)}
+  <div
+    class="flex flex-wrap justify-center p-4 mt-6 md:max-w-[90%] mx-auto"
+  >
+    {#each activeItems as item, i (item.title)}
       <div class="block" animate:flip={{ duration: 500 }}>
-        <svelte:component this={component} {...item} />
+        <Animateonenterview
+          type={i % 2 === 0 ? 'flyLeft' : 'flyRight'}
+          delay="100"
+        >
+          <svelte:component
+            this={component}
+            {...item}
+            additionalImageData={{ type: 'custom', clip: Triangles }}
+            cta={{
+              link: `/projects/${item.slug}`,
+              label: 'view project',
+              icon: 'chevron_right',
+              shape: 'ghost',
+            }}
+          />
+        </Animateonenterview>
       </div>
     {/each}
   </div>

@@ -1,8 +1,16 @@
 <script>
 import Triangle from "$lib/icons/shape/triangle.svelte";
 
+let innerWidth
+
+$: mobile = innerWidth < 700
+
 </script>
-<div class="overflow-visible">
+
+<svelte:window bind:innerWidth />
+
+
+<div class="overflow-visible hidden md:block">
   <div
     class="transition absolute top-0 left-0 duration-500 w-40 md:w-52 m-3 z-10 group-focus-within:-translate-y-12 group-hover:-translate-y-12 group-focus-within:-translate-x-24 group-hover:-translate-x-24 text-neutral-light overflow-hidden"
   >

@@ -1,7 +1,7 @@
 export const imgWrapper = props => {
   return [
     {
-      classes: 'w-full block',
+      classes: 'w-full block relative group',
       on: true,
     },
     { classes: 'p-3', styles: '', on: props.size == 'sm' },
@@ -25,6 +25,7 @@ export const img = props => {
       on: true,
     },
     { classes: 'max-w-[70px] md:max-w-[110px] hover:scale-110', styles: '', on: props.type == 'logo' },
+    { classes: 'rounded-2xl my-6 md:my-auto md:rounded-[100px] ring-1 ring-primary', styles: '', on: props.type == 'custom' },
     { classes: 'max-h-[70px] md:max-h-[110px] hover:scale-110', styles: '', on: props.size == 'sm' },
   ]
 }
