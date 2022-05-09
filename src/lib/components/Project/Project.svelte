@@ -14,12 +14,10 @@
   export let additionalImageData = {}
   export let cta = {}
 
-  console.log(cta)
-
   if (!preheader)
     preheader = services
       .map(service => service.shortTitle)
-      .join(' ● ')
+      .join('  ●  ')
 
   export let color = 'secondary'
 
@@ -34,7 +32,6 @@
 
 <div
   class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-center text-{color} {className}"
-  {title}
 >
   <div
     class="w-full min-w-fit {image.url || image.src
@@ -66,7 +63,7 @@
   </div>
 
   {#if !!image.url || !!image.src}
-    <div class="w-full md:w-[50%]">
+    <div class="w-full md:w-[50%]" {title}>
       <Go to={cta.link}>
         <Image {...image} {...additionalImageData} />
       </Go>

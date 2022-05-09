@@ -40,7 +40,8 @@
 <Section
   noContain
   fullHeight
-  className="mt-1 pt-8"
+  id="filters"
+  className="mt-1 pt-8 overflow-auto"
   color="neutral-light"
 >
   <div

@@ -1,11 +1,11 @@
 <script>
   /* props */
   export let items = [] // *, array of carrousel items
-  export let currentStep
+  export let currentStep = 0
+  export let numPreviewedEachStep = 1
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
 
-  import CarrouselItem from '$lib/components/Carrousel Item/Carrousel Item.svelte'
   import List from '$lib/components/List/List.svelte'
   import Stepper from '$lib/components/Stepper/Stepper.svelte'
   import Button from '$lib/components/Button/Button.svelte'
@@ -16,17 +16,13 @@
 
   /* methods */
   export const next = () => {
-    if (currentStep != items.length - 1) currentStep++
+    if (currentStep < items.length - numPreviewedEachStep) currentStep += numPreviewedEachStep
     else dispatch('finish')
   }
   export const prev = () => {
-    if (currentStep != 0) currentStep--
+    if (currentStep != 0) currentStep -= numPreviewedEachStep
+    if (currentStep < 0) currentStep = 0
   }
-  let selected = false
-  $: remainders = Array.from(
-    { length: items.length },
-    (_, i) => i - currentStep
-  )
   let carrouselItems = []
   export const select = num => {
     currentStep = num
@@ -36,15 +32,11 @@
         dispatch('complete')
       }, 500)
     else dispatch('rewatch')
-    selected = true
     carrouselItems[currentStep].scrollIntoView({
       behavior: 'smooth',
       inline: 'center',
-      block: num % 2 === 0 ? 'end' : 'start',
+      block: 'start',
     })
-    setTimeout(() => {
-      selected = false
-    }, 500)
   }
 
   $: select(currentStep)
@@ -58,15 +50,17 @@
     carrouselStepper,
     carrouselButtons,
     carrouselButton,
+    carrousel,
   } from './styles'
 
   $: wrapper = stylus(carrouselWrapper(styleOptions))
-  $: cItem = stylus(carrouselItem(styleOptions))
+  $: carr = stylus(carrousel(styleOptions))
+  $: cItem = stylus(carrouselItem({ number: numPreviewedEachStep, ...styleOptions }))
   $: controls = stylus(carrouselControls(styleOptions))
   $: stepper = stylus(carrouselStepper(styleOptions))
   $: buttons = stylus(carrouselButtons(styleOptions))
   $: button = stylus(carrouselButton(styleOptions))
-  
+
   onMount(() => {
     dispatch('rewatch')
   })
@@ -78,19 +72,12 @@
 <svelte:window bind:outerWidth={screenWidth} />
 
 <div class={`${wrapper.classes} ${className}`} style={wrapper.styles}>
-  <List {items} let:prop={item} className={carrousel.classes}>
+  <List {items} let:prop={item} let:index className={carr.classes} styles={carr.classes}>
     <div
       bind:this={carrouselItems[items.indexOf(item)]}
       class={cItem.classes}
     >
-      <CarrouselItem
-        {...item}
-        on:preview={() => {
-          select(items.indexOf(item))
-        }}
-        {mobile}
-        bind:remaining={remainders[items.indexOf(item)]}
-      />
+      <slot {item} previewed={index < currentStep + numPreviewedEachStep && index >= currentStep} />
     </div>
   </List>
   {#key currentStep}
@@ -103,22 +90,19 @@
       />
       <div class={buttons.classes}>
         <Button
-          label="prev"
-          shape="ghost"
+          label=""
+          icon="chevron_left"
+          type="primary"
+          reverse
+          shape="icon"
           on:click={prev}
-          className={`${button.classes} ${
-            currentStep === 0 ? 'opacity-0' : 'opacity-100'
-          }`}
         />
         <Button
-          label="next"
-          shape="ghost"
+          label=""
+          icon="chevron_right"
+          type="primary"
+          shape="icon"
           on:click={next}
-          className={`${button.classes} ${
-            currentStep === items.length - 1
-              ? 'opacity-0'
-              : 'opacity-100'
-          }`}
         />
       </div>
     </div>

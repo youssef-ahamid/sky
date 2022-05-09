@@ -20,7 +20,7 @@ export const api = {
     APIURL = '',
     cache = 'default'
   ) {
-    let route = APIURL + '/api/' + url
+    let route = APIURL + url
 
     const response = await fetch(route, {
       method: 'POST',
@@ -75,4 +75,9 @@ export const slugify = text => {
     .replace(/\s+/g, '-')
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-')
+}
+
+export const getComponentData = (components, component) => {
+  let data = components.filter(c => c.__typename == component)
+  return data.length > 1 ? data : data[0]
 }

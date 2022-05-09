@@ -10,8 +10,7 @@
   export let styleOptions = {}
 
   import { resolve } from '$lib/icons'
-  if(typeof icon === 'string') icon = resolve(icon)
-
+  
   /* styles */
   import { stylus } from '$lib/helpers'
   import { button, buttonLabel, buttonIcon } from './styles'
@@ -20,7 +19,14 @@
     button({ type, active, shape, reverse, ...styleOptions })
   )
   $: name = stylus(
-    buttonLabel({ type, active, label, shape, reverse, ...styleOptions })
+    buttonLabel({
+      type,
+      active,
+      label,
+      shape,
+      reverse,
+      ...styleOptions,
+    })
   )
   $: bIcon = stylus(
     buttonIcon({ type, active, shape, reverse, ...styleOptions })
@@ -40,10 +46,14 @@
     {label}
   </p>
   {#if !!icon}
-    <span class={bIcon.classes} style={bIcon.styles}
-      >
+    <span class={bIcon.classes} style={bIcon.styles}>
+      {#if typeof icon === 'string'}
+        {#await resolve[icon]() then module}
+          <svelte:component this={module.default} />
+        {/await}
+      {:else}
         <svelte:component this={icon} />
-      </span>
+      {/if}
+    </span>
   {/if}
 </button>
-

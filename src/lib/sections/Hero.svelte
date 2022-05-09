@@ -1,10 +1,14 @@
 <script>
+  import { getComponentData } from '$lib/helpers'
+
   export let fullHeight = false
   export let background = {}
   export let path = '/'
-  export let hero = {}
-  export let button = []
-  export let statistic = []
+  export let content = {}
+
+  let hero = getComponentData(content, 'Hero')
+  let button = getComponentData(content, 'Button')
+  let statistic = getComponentData(content, 'Statistic')
 
   import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte'
   import Button from '$lib/components/Button/Button.svelte'
@@ -12,6 +16,7 @@
   import Section from '$lib/components/Section/Section.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
   import Tween from '$lib/components/Tween/Tween.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
 
   let tweens = []
   let timeout
@@ -32,28 +37,30 @@
         <p>{hero.description}</p>
       </Animateonenterview>
       <Animateonenterview delay="1200">
-        <div class="my-8">
-          <Button {...button[0]} />
-        </div>
+        <Go to={button.url} className="my-8">
+          <Button {...button} />
+        </Go>
       </Animateonenterview>
     </div>
-    <Animateonenterview
-      delay="1200"
-      type="flyUp"
-      on:enter={() => {
-        timeout = setTimeout(tweenAll, 1500)
-      }}
-      on:exit={untweenAll}
-      className="flex text-center mx-auto w-4/5 md:justify-end absolute bottom-[5%] md:bottom-[15%] justify-center md:right-10"
-    >
-      {#each statistic as stat, i}
-        <div class="mx-3 min-w-fit">
-          <p>{stat.title}</p>
-          <p class="body-xl font-bold">
-            +<Tween val={stat.number} bind:this={tweens[i]} />
-          </p>
-        </div>
-      {/each}
-    </Animateonenterview>
+    {#if !!statistic && statistic.length > 0}
+      <Animateonenterview
+        delay="1200"
+        type="flyUp"
+        on:enter={() => {
+          timeout = setTimeout(tweenAll, 1500)
+        }}
+        on:exit={untweenAll}
+        className="flex text-center mx-auto w-4/5 md:justify-end absolute bottom-[5%] md:bottom-[15%] justify-center md:right-10"
+      >
+        {#each statistic as stat, i}
+          <div class="mx-3 min-w-fit">
+            <p>{stat.title}</p>
+            <p class="body-xl font-bold">
+              +<Tween val={stat.number} bind:this={tweens[i]} />
+            </p>
+          </div>
+        {/each}
+      </Animateonenterview>
+    {/if}
   </Hero>
 </Section>

@@ -1,24 +1,34 @@
 export const button = props => {
   return [
     {
-      classes: 'relative my-1 flex items-center rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
+      classes: 'relative my-1 flex items-center justify-center rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'bg-opacity-[15%] bg-neutral-light text-neutral-light hover:text-neutral-light',
+      classes: 'bg-primary text-neutral-light hover:bg-neutral-light hover:text-primary',
       styles: '',
-      on: props.type == 'primary' && props.shape != 'ghost'
+      on: props.type == 'primary' && props.shape != 'ghost' && props.shape != 'icon'
     },
     {
       classes: 'bg-neutral-light hover:bg-secondary text-secondary hover:text-neutral-light',
       styles: '',
-      on: props.type == 'secondary' && props.shape != 'ghost'
+      on: props.type == 'secondary' && props.shape != 'ghost' && props.shape != 'icon'
     },
     {
       classes: 'text-current -ml-5',
       styles: '',
       on:  props.shape == 'ghost'
+    },
+    {
+      classes: 'rounded-full ring-1 ring-current',
+      styles: '',
+      on:  props.shape == 'icon'
+    },
+    {
+      classes: 'bg-neutral-light text-primary hover:text-neutral-light hover:bg-primary',
+      styles: '',
+      on:  props.shape == 'icon' && props.type == 'primary'
     },
   ]
 }
@@ -56,14 +66,19 @@ export const buttonLabel = props => {
 export const buttonIcon = props => {
   return [
     {
-      classes: 'group-hover:translate-x-4 transition duration-500 ease-out text-current w-8 md:w-10 block m-1 md:m-2',
+      classes: 'transition duration-500 ease-out text-current w-6 md:w-10 block m-1 md:m-2',
       styles: '',
       on: true, // default
     },
     {
-      classes: '',
+      classes: 'group-hover:translate-x-2 group-active:translate-x-0',
       styles: '',
-      on: props.type == 'primary'
+      on: !props.reverse
+    },
+    {
+      classes: 'group-hover:-translate-x-2 group-active:translate-x-0',
+      styles: '',
+      on: props.reverse
     },
   ]
 }

@@ -23,9 +23,6 @@
     navSublinkActive,
     navSublinkInactive,
   } from './styles'
-  
-  import { activePage } from '$lib/stores';
-  $: console.log($activePage, text)
 
   $: wrapper = stylus(navLinkWrapper({ active, ...styleOptions }))
   $: list = stylus(navSublinkList({ active, ...styleOptions }))

@@ -120,22 +120,35 @@ export async function getPage(slug) {
           background {
             url
           }
-          statistic {
-            title
-            number
-          }
-          button {
-            type
-            shape
-            label
-            icon
-          }
           fullHeight
-          hero {
-            title
-            description
-            image {
+          preheader
+          title
+          content {
+            __typename
+            ... on Button {
+              icon
+              label
+              shape
+              type
               url
+            }
+            ... on Hero {
+              description
+              title
+              image {
+                url
+              }
+            }
+            ... on Statistic {
+              number
+              title
+            }
+            ... on Testimonial {
+              text
+              client {
+                name
+                role
+              }
             }
           }
         }

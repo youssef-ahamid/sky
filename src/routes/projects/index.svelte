@@ -18,18 +18,21 @@
 <script>
   // Props
   export let projects, page, path
-  
+
   // Sections
   import Hero from '$lib/sections/Hero.svelte'
   import Filterable from '$lib/sections/Filterable.svelte'
-  
+  import Testimonial from '$lib/sections/Testimonial.svelte'
+
   // Components
-  import Project from '$lib/components/Project/Project.svelte';
+  import Project from '$lib/components/Project/Project.svelte'
   import Seo from '$lib/components/SEO/SEO.svelte'
-  
+
   // Data Handling & Stores
   import { activePage } from '$lib/stores'
   $activePage = 'projects'
+
+  console.log(page.sections[1])
 </script>
 
 <Seo {...page.seo} />
@@ -45,3 +48,5 @@
   secondaryMatchingKey="shortTitle"
   title="Browse Projects"
 />
+
+<Testimonial {...page.sections[1]} />

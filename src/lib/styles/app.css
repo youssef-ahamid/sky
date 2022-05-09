@@ -39,6 +39,10 @@
     @apply font-heading font-bold text-lg md:text-[22px]
   }
 
+  .body-sm {
+    @apply font-heading font-light text-sm md:text-base leading-relaxed;
+  }
+
   .body-lg {
     @apply font-heading font-light text-xl md:text-2xl leading-[1.75];
   }
