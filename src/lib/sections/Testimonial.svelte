@@ -15,6 +15,7 @@
   import { stylus } from '$lib/helpers'
   import { preheaderStyles, titleStyles } from './styles'
   import Testimonial from '$lib/components/Testimonial/Testimonial.svelte'
+  import { mobile } from '$lib/stores';
 
   $: prehead = stylus(preheaderStyles({ color: 'primary' }))
   $: tit = stylus(titleStyles())
@@ -32,9 +33,10 @@
 
   <Carrousel
     items={testimonials}
+    loop
     let:item={testimonial}
     let:previewed
-    numPreviewedEachStep={2}
+    numPreviewedEachStep={$mobile? 1: 2}
   >
     {#if previewed}
       <div

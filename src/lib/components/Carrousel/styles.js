@@ -16,7 +16,7 @@ export const carrouselWrapper = props => {
 export const carrousel = props => {
   return [
     {
-      classes: 'flex flex-wrap md:flex-nowrap min-h-[150px] items-end justify-center overflow-hidden',
+      classes: 'flex flex-wrap md:flex-nowrap min-h-[150px] md:min-h-[200px] items-end justify-center w-full overflow-hidden',
       styles: ``,
       on: true, // default
     },

@@ -1,4 +1,5 @@
 <script context="module">
+  export const prerender = true
   import { getProjectPreviews, getPage } from '$lib/gql'
 
   export async function load({ url }) {

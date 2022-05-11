@@ -148,6 +148,12 @@ export async function getPage(slug) {
               client {
                 name
                 role
+                avatar {
+                  url
+                }
+                logo {
+                  url
+                }
               }
             }
           }

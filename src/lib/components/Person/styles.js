@@ -1,7 +1,7 @@
 export const PersonWrapper = props => {
   return [
     {
-      classes: '',
+      classes: 'flex items-center justify-start space-x-2 mt-6',
       styles: '',
       on: true, // default
     },
@@ -10,7 +10,7 @@ export const PersonWrapper = props => {
 export const TextWrapper = props => {
   return [
     {
-      classes: '',
+      classes: 'hover:text-primary transition duration-300 ease-out px-3',
       styles: '',
       on: true, // default
     },

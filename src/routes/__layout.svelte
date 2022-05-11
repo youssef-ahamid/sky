@@ -1,7 +1,7 @@
 <script>
   import Nav from '$lib/components/Nav/Nav.svelte'
 
-  import { activeSection } from '$lib/stores'
+  import { activeSection, mobile } from '$lib/stores'
 
   let links = [
     {
@@ -31,8 +31,13 @@
     },
   ]
 
+  let innerWidth
+
+  $: $mobile = innerWidth < 700
   import '$lib/styles/app.css'
 </script>
+
+<svelte:window bind:innerWidth />
 
 <Nav
   {links}

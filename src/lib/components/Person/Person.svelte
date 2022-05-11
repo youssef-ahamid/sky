@@ -1,8 +1,12 @@
 <script>
   /* props */
   export let avatar = {}
+  export let logo = {}
+  if(!avatar) avatar = logo
   export let name = ''
   export let caption = ''
+  export let role = ''
+  if (caption.length == 0 && !!role && role.length > 0) caption = role
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
 
@@ -16,9 +20,11 @@
 </script>
 
 <div class={`${wrapper.classes} ${className}`}>
-  <Image type="avatar" {...avatar} alt={name} />
+  {#if !!avatar && (!!avatar.src || !!avatar.url) }
+    <Image type="avatar" {...avatar} alt={name} />
+  {/if}
   <div class={textWrapper.classes}>
-    <p class="font-semibold" />
-    <p class="body-sm font-medium">{caption}</p>
+    <p class="body-sm one-liner font-bold">{name}</p>
+    <p class="body-sm one-liner font-medium">{caption}</p>
   </div>
 </div>

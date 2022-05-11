@@ -1,14 +1,6 @@
 <script>
-import Triangle from "$lib/icons/shape/triangle.svelte";
-
-let innerWidth
-
-$: mobile = innerWidth < 700
-
+import Triangle from "$lib/icons/shape/triangle.svelte"
 </script>
-
-<svelte:window bind:innerWidth />
-
 
 <div class="overflow-visible hidden md:block">
   <div
