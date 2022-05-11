@@ -2,6 +2,7 @@
   /* props */
   export let items = [] // *, array of carrousel items
   export let currentStep = 0
+  export let loop = false
   export let numPreviewedEachStep = 1
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
@@ -16,13 +17,19 @@
 
   /* methods */
   export const next = () => {
-    if (currentStep < items.length - numPreviewedEachStep) currentStep += numPreviewedEachStep
-    else dispatch('finish')
+    if (currentStep < items.length - numPreviewedEachStep)
+      currentStep += numPreviewedEachStep
+    else {
+      dispatch('finish')
+      if (loop) currentStep = 0
+    }
   }
   export const prev = () => {
-    if (currentStep != 0) currentStep -= numPreviewedEachStep
-    if (currentStep < 0) currentStep = 0
+    if (currentStep < numPreviewedEachStep && loop) currentStep = items.length - numPreviewedEachStep
+    else if (currentStep >= numPreviewedEachStep) currentStep -= numPreviewedEachStep
+    else currentStep = 0
   }
+
   let carrouselItems = []
   export const select = num => {
     currentStep = num
@@ -55,7 +62,9 @@
 
   $: wrapper = stylus(carrouselWrapper(styleOptions))
   $: carr = stylus(carrousel(styleOptions))
-  $: cItem = stylus(carrouselItem({ number: numPreviewedEachStep, ...styleOptions }))
+  $: cItem = stylus(
+    carrouselItem({ number: numPreviewedEachStep, ...styleOptions })
+  )
   $: controls = stylus(carrouselControls(styleOptions))
   $: stepper = stylus(carrouselStepper(styleOptions))
   $: buttons = stylus(carrouselButtons(styleOptions))
@@ -64,20 +73,25 @@
   onMount(() => {
     dispatch('rewatch')
   })
-
-  let screenWidth
-  $: mobile = screenWidth < 768
 </script>
 
-<svelte:window bind:outerWidth={screenWidth} />
-
 <div class={`${wrapper.classes} ${className}`} style={wrapper.styles}>
-  <List {items} let:prop={item} let:index className={carr.classes} styles={carr.classes}>
+  <List
+    {items}
+    let:prop={item}
+    let:index
+    className={carr.classes}
+    styles={carr.classes}
+  >
     <div
       bind:this={carrouselItems[items.indexOf(item)]}
       class={cItem.classes}
     >
-      <slot {item} previewed={index < currentStep + numPreviewedEachStep && index >= currentStep} />
+      <slot
+        {item}
+        previewed={index < currentStep + numPreviewedEachStep &&
+          index >= currentStep}
+      />
     </div>
   </List>
   {#key currentStep}
