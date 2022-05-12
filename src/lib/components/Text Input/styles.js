@@ -16,13 +16,13 @@ export const textInputWrapper = props => {
 export const textInput = props => {
   return [
     {
-      classes: 'block outline-none appearance-none py-8 px-10 transition placeholder:text-gray-300 caret-primary placeholder:font-light duration-300 ease-out ring-2 ring-primary rounded-[100px] bg-neutral-light bg-opacity-5 focus:bg-primary focus:bg-opacity-10 focus:text-primary text-neutral-dark w-full',
+      classes: 'block outline-none appearance-none py-8 px-10 transition placeholder:text-gray-300 caret-primary placeholder:font-light duration-300 ease-out ring-2 ring-neutral-light shadow-inner ring-offset-primary ring-offset-2 rounded-full bg-neutral-light focus:ring-offset-4 text-neutral-dark w-full placeholder:text-left',
       styles: '',
       on: true, // default
     },
     {
       on: props.clean == false,
-      classes: 'border-red-300 bg-opacity-[15%]',
+      classes: 'border-red-300',
     },
     {
       on: props.clean == true,
@@ -30,7 +30,7 @@ export const textInput = props => {
     },
     {
       on: props.type == 'text area',
-      classes: 'resize-none h-28 md:h-40 w-full min-w-[100%] block',
+      classes: 'resize-none h-20 md:h-32 w-full block',
     },
     { 
       classes: '', 
@@ -74,7 +74,7 @@ export const textInputError = props => {
 export const textInputCTA = props => {
   return [
     {
-      classes: 'bg-primary absolute z-50 rounded-full top-1/2 -translate-y-1/2 right-0',
+      classes: 'bg-primary z-50 rounded-full py-3',
       styles: '',
       on: true, // default
     },

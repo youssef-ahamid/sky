@@ -1,12 +1,12 @@
 export const button = props => {
   return [
     {
-      classes: 'relative my-1 flex items-center justify-center rounded-full p-1 transition duration-300 ease-out active:scale-[95%] group',
+      classes: 'relative my-1 flex items-center justify-center rounded-full p-1 transition duration-300 ease-out hover:scale-[105%] active:scale-[95%] group',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'bg-primary text-neutral-light hover:bg-neutral-light hover:text-primary',
+      classes: 'bg-primary text-neutral-light',
       styles: '',
       on: props.type == 'primary' && props.shape != 'ghost' && props.shape != 'icon'
     },
@@ -36,12 +36,12 @@ export const button = props => {
 export const buttonLabel = props => {
   return [
     {
-      classes: 'text-current z-[5] whitespace-nowrap uppercase font-semibold select-none leading-none transition duration-300 ease-out pr-4 py-2',
+      classes: 'text-current z-[5] whitespace-nowrap uppercase font-semibold select-none leading-none transition duration-300 ease-out pr-4 py-2 group-hover:rotate-[-7deg] ',
       styles: '',
       on: true, // default
     },
     {
-      classes: 'group-hover:shadow-xl group-hover:bg-primary rounded-full',
+      classes: '',
       styles: '',
       on: props.type == 'primary' && props.shape != 'ghost'
     },

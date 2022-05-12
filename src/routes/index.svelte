@@ -420,7 +420,7 @@ trust
     </Animateonenterview>
   </Hero>
 </Section> -->
-
+<!-- 
 <Section color="neutral-light" id="contact" noContain fullHeight bg="assets/bg/3.JPG" className="relative">
   <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
     <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
@@ -442,4 +442,4 @@ trust
     </div>
   </div>
 </Section>
-  
+   -->

@@ -9,7 +9,7 @@ export function assert(validations = [], value) {
 }
 
 export function validate(validation, value) {
-  if (!validation) return true;
+  if (!validation) return { success: true };
 
   let validations = [
     { id: "required", run: exists, message: "This field is required" },
@@ -17,11 +17,12 @@ export function validate(validation, value) {
   ];
 
   let fn = validations.filter((_) => _.id == validation)[0];
+  console.log(validation)
   if (!fn)
     throw new Error(
-      `validation not found.\n\nPossible validations:\n${
-        "- " + validations.map((_) => _.id).split("\n- ")
-      }\nValidation provided: ${validation}`
+      `validation not found.\n\nKenshi validations:\n${
+        "- " + validations.map((_) => _.id).join("\n- ")
+      }\n\nValidation provided: ${validation}\n\n`
     );
   return { success: fn.run(value), message: fn.message };
 }

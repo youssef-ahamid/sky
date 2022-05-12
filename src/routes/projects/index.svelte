@@ -31,6 +31,7 @@
 
   // Data Handling & Stores
   import { activePage } from '$lib/stores'
+import Contact from '$lib/sections/Contact.svelte'
   $activePage = 'projects'
 
   console.log(page.sections[2])
@@ -51,3 +52,5 @@
 />
 
 <Testimonial {...page.sections[1]} />
+
+<Contact {...page.sections[2]} />

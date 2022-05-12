@@ -2,7 +2,7 @@
 
 <script>
   /* helpers */
-  import { assert } from '$lib/validations'
+  import { assert } from '$lib/validate'
 
   /* props */
   export let type = 'text' // *, text area
@@ -98,7 +98,7 @@
   {#if !!cta.type && clean}
     <div
       transition:scale={{ duration: 300 }}
-      class="absolute right-0 top-0 bottom-0"
+      class="absolute top-1/2 -translate-y-1/2 right-4"
     >
       <Button {...cta} className={CTA.classes} on:click={submit} />
     </div>
