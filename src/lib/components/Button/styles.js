@@ -36,7 +36,7 @@ export const button = props => {
 export const buttonLabel = props => {
   return [
     {
-      classes: 'text-current z-[5] whitespace-nowrap uppercase font-semibold select-none leading-none transition duration-300 ease-out pr-4 py-2 group-hover:rotate-[-7deg] ',
+      classes: 'text-current z-[5] whitespace-nowrap uppercase font-semibold select-none leading-none transition duration-300 ease-out pr-4 py-2 group-hover:rotate-[-4deg] ',
       styles: '',
       on: true, // default
     },
