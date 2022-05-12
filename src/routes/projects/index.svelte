@@ -33,7 +33,7 @@
   import { activePage } from '$lib/stores'
   $activePage = 'projects'
 
-  console.log(page.sections[1])
+  console.log(page.sections[2])
 </script>
 
 <Seo {...page.seo} />

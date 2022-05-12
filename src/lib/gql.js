@@ -139,6 +139,13 @@ export async function getPage(slug) {
                 url
               }
             }
+            ... on TextInput {
+              cta
+              label
+              placeholder
+              validateOnChange
+              validations
+            }
             ... on Statistic {
               number
               title

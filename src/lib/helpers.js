@@ -5,14 +5,6 @@ export const serializeClasses = (styles, condition) => {
     .join(' ')
 }
 
-import isValid from '$lib/validations'
-export const assert = (validations, value) => {
-  for (let i = 0; i < validations.length; i++)
-    if (!isValid(validations[i].type, value))
-      return { success: false, failed: validations[i] }
-  return { success: true }
-}
-
 export const api = {
   post: async function (
     url = '',

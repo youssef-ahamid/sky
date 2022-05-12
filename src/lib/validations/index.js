@@ -1,20 +1,27 @@
-import exists from './required'
-import isEmail from './email'
+import exists from "./required";
+import isEmail from "./email";
 
-export default function isValid(validation, value) {
-  if (!validation) return true
+export function assert(validations = [], value) {
+  for (let i = 0; i < validations.length; i++)
+    var v = validate(validations[i], value);
+  if (!v.success) return v;
+  return { success: true };
+}
 
-  let map = [
-    { id: 'required', run: exists },
-    { id: 'email', run: isEmail },
-  ]
+export function validate(validation, value) {
+  if (!validation) return true;
 
-  let fn = map.filter(_ => _.id == validation)[0]
+  let validations = [
+    { id: "required", run: exists, message: "This field is required" },
+    { id: "email", run: isEmail, message: "This is not a valid email" },
+  ];
+
+  let fn = validations.filter((_) => _.id == validation)[0];
   if (!fn)
     throw new Error(
       `validation not found.\n\nPossible validations:\n${
-        '- ' + map.map(_ => _.id).split('\n- ')
+        "- " + validations.map((_) => _.id).split("\n- ")
       }\nValidation provided: ${validation}`
-    )
-  return fn.run(value)
+    );
+  return { success: fn.run(value), message: fn.message };
 }

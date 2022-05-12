@@ -2,7 +2,7 @@
 
 <script>
   /* helpers */
-  import { assert } from '$lib/helpers'
+  import { assert } from '$lib/validations'
 
   /* props */
   export let type = 'text' // *, text area
@@ -17,7 +17,7 @@
   export let styleOptions = {}
 
   /* data */
-  $: validation = assert(validations || [], value)
+  $: validation = assert(validations, value)
   $: value = trim ? value.trim() : value
   let clean = true
   let err = ''
@@ -26,11 +26,6 @@
     err = clean ? '' : validation.failed.error
     if (clean) valid()
     else invalid()
-  }
-
-  let refresher = 0
-  export const refresh = () => {
-    refresher++
   }
 
   /* styles */
@@ -101,14 +96,12 @@
     />
   {/if}
   {#if !!cta.type && clean}
-    {#key refresher}
-      <div
-        transition:scale={{ duration: 300 }}
-        class="absolute right-0 top-0 bottom-0"
-      >
-        <Button {...cta} className={CTA.classes} on:click={submit} />
-      </div>
-    {/key}
+    <div
+      transition:scale={{ duration: 300 }}
+      class="absolute right-0 top-0 bottom-0"
+    >
+      <Button {...cta} className={CTA.classes} on:click={submit} />
+    </div>
   {/if}
   {#if !clean}
     <p transition:slide={{ duration: 300 }} class={error.classes}>
