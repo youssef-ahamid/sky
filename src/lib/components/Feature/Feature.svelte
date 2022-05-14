@@ -14,12 +14,20 @@
   $: classes = config({ reverse, active })
 </script>
 
-<button class={`${classes.feature} ${className}`} on:focus on:click on:blur>
+<button
+  class={`${classes.feature} ${className}`}
+  on:focus
+  on:click
+  on:blur
+>
   {#if images.length > 0}
     <div class={classes.left}>
       <Image {...images[0]} className={classes.image} />
     </div>
   {:else if !!image}
+    <div
+      class="w-full h-full opacity-0 group-hover:opacity-100 rounded-[50px] bg-gradient-to-t from-secondary z-20 absolute pointer-events-none transition duration-300 ease-out"
+    />
     <Image {...image} className={classes.image} />
   {/if}
   <div class={classes.right} on:click>

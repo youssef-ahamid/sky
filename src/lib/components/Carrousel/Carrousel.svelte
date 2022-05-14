@@ -3,6 +3,7 @@
   export let items = [] // *, array of carrousel items
   export let currentStep = 0
   export let loop = false
+  export let noControls = false
   export let numPreviewedEachStep = 1
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
@@ -94,31 +95,33 @@
       />
     </div>
   </List>
-  {#key currentStep}
-    <div class={controls.classes}>
-      <Stepper
-        direction="horizontal"
-        steps={items.length}
-        bind:active={currentStep}
-        className={stepper.classes}
-      />
-      <div class={buttons.classes}>
-        <Button
-          label=""
-          icon="chevron_left"
-          type="primary"
-          reverse
-          shape="icon"
-          on:click={prev}
+  {#if !noControls }
+    {#key currentStep}
+      <div class={controls.classes}>
+        <Stepper
+          direction="horizontal"
+          steps={items.length}
+          bind:active={currentStep}
+          className={stepper.classes}
         />
-        <Button
-          label=""
-          icon="chevron_right"
-          type="primary"
-          shape="icon"
-          on:click={next}
-        />
+        <div class={buttons.classes}>
+          <Button
+            label=""
+            icon="chevron_left"
+            type="primary"
+            reverse
+            shape="icon"
+            on:click={prev}
+          />
+          <Button
+            label=""
+            icon="chevron_right"
+            type="primary"
+            shape="icon"
+            on:click={next}
+          />
+        </div>
       </div>
-    </div>
-  {/key}
+    {/key}
+  {/if}
 </div>

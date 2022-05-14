@@ -9,7 +9,35 @@
   export let content = {}
   export let input = getComponentData(content, 'TextInput')
 
-  let emailInput
+  let emailInput, mailedTo
+
+  const siteData = {
+    siteName: 'skyfortc.com',
+    siteOwner: 'Sky For Trading & Contracting',
+    siteEmail: 'info@skyfortc.com'
+  }
+
+  function mail() {
+    if (mailedTo == emailInput.value) return
+    
+    mailedTo = emailInput.value
+    emailInput.cta.label = 'sent!'
+    emailInput.refresh()
+
+    const message = {
+      to: emailInput.value,
+      subject: "Thank you for leaving your email. We'll be in touch soon!",
+      template: "message-sent", // email template used
+      data: { email: emailInput.value, ...siteData }, // data to populate template,
+      replyTo: "info@skyfortc.com",
+    }
+    fetch(`https://zaagel.samuraisoftware.house/mail`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      body: JSON.stringify(message),
+    })
+  }
 
   /* styles */
   import { stylus } from '$lib/helpers'
@@ -37,6 +65,7 @@
       <TextInput
         bind:this={emailInput}
         bind:value={input.value}
+        on:submit={mail}
         {...input}
         className="my-4 mx-6 max-w-md ring-neutral-light"
         on:change={() => (emailInput.cta.label = 'send')}

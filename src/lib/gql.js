@@ -177,3 +177,61 @@ export async function getPage(slug) {
   return page
 }
 
+export async function getSection(id) {
+  const query = gql`
+    {
+      section(where: {identifier: "${id}"}) {
+        background {
+          url
+        }
+        fullHeight
+        preheader
+        title
+        content {
+          __typename
+          ... on Button {
+            icon
+            label
+            shape
+            type
+            url
+          }
+          ... on Hero {
+            description
+            title
+            image {
+              url
+            }
+          }
+          ... on TextInput {
+            cta
+            label
+            placeholder
+            validateOnChange
+            validations
+          }
+          ... on Statistic {
+            number
+            title
+          }
+          ... on Testimonial {
+            text
+            client {
+              name
+              role
+              avatar {
+                url
+              }
+              logo {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+  const { section } = await graphcms.request(query)
+  return section
+}
+

@@ -1,45 +1,35 @@
+<script context="module">
+  import { getProjectPreviews, getSection } from '$lib/gql'
+
+  export async function load() {
+    let projects = await getProjectPreviews()
+    let contact = await getSection('contact')
+
+    return {
+      props: {
+        projects,
+        contact
+      },
+    }
+  }
+</script>
+
 <script>
-	import EmailAttachment from '$lib/icons/social/email attachment.svelte';
-	import Copyable from '$lib/components/Copyable/Copyable.svelte';
+
+  export let projects, contact
+
   import Button from '$lib/components/Button/Button.svelte'
   import Hero from '$lib/components/Hero/Hero.svelte'
   import Feature from '$lib/components/Feature/Feature.svelte'
   import Go from '$lib/components/Go/Go.svelte'
   import List from '$lib/components/List/List.svelte'
   import Image from '$lib/components/Image/Image.svelte'
-  import Form from '$lib/components/Form/Form.svelte';
 
   import { slugify } from '$lib/helpers'
   import Section from '$lib/components/Section/Section.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
-  import { fade, scale, slide } from 'svelte/transition'
-  import Nav from '$lib/components/Nav/Nav.svelte'
 
-
-  const features = [
-    {
-      title: 'il-monte galala',
-      images: [
-        {
-          src: 'https://i.ibb.co/0MKRvpv/Untitled-1-1024x577.jpg',
-        },
-        
-      ],
-      description:
-        'Solorerferum ipit omnis earibus cipiciae volestia ipid mo occus doluptin experum quae que nosanim doles',
-    },
-    {
-      title: 'fouka bay',
-      images: [
-        {
-          src: 'https://i.ibb.co/7NLx6bW/image001-6-10.jpg',
-        },
-      ],
-      description:
-        'Solorerferum ipit omnis earibus cipiciae volestia ipid mo occus doluptin experum quae que nosanim doles',
-    },
-    
-  ]
+  const features = projects
 
   const aboutImage = {
     src: 'https://i.ibb.co/MG9r206/Screen-Shot-2022-04-03-at-1-59-16-PM.png',
@@ -80,6 +70,7 @@
       src: 'assets/logos/zahran.png'
     },
   ]
+
   const services = [
     {
   title: 'Infrastructure Works',
@@ -110,164 +101,69 @@
     },
   ]
 
-  import TextInput from '$lib/components/Text Input/Text Input.svelte'
   import Card from '$lib/components/Card/Card.svelte';
-  import Triangle from '$lib/icons/shape/triangle.svelte';
-  import Phone from '$lib/icons/social/phone.svelte';
-import { onMount } from 'svelte';
-import Preload from '$lib/components/Preload/Preload.svelte';
-import Triangles from '$lib/components/Triangles/Triangles.svelte';
-  
-  let emailInput
-  let emailCollect = {
-    label: 'email',
-    placeholder: 'leave your email',
-    value: '',
-    validations: [{ type: 'required', error: 'Required field' }, { type: 'email', error: 'Must be a valid email' }],
-    validateOnChange: true,
-    cta: {
-      label: "send",
-      type:"primary"
-    }
-  }
+  import Triangles from '$lib/components/Triangles/Triangles.svelte';
+import Contact from '$lib/sections/Contact.svelte';
 
-  let Y, height, mailedTo
-
-  const siteData = {
-    siteName: 'skyfortc.com',
-    siteOwner: 'Sky For Trading & Contracting',
-    siteEmail: 'info@skyfortc.com'
-  }
-  
-  function mail() {
-    if (mailedTo == emailInput.value) return
-    
-    mailedTo = emailInput.value
-    emailInput.cta.label = 'sent!'
-    emailInput.refresh()
-
-    const message = {
-      to: emailInput.value,
-      subject: "Thank you for your message. We'll be in touch soon!",
-      template: "message-sent", // email template used
-      data: { email: emailInput.value, ...siteData }, // data to populate template,
-      replyTo: "info@skyfortc.com",
-    }
-    fetch(`https://zaagel.samuraisoftware.house/mail`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      mode: "cors",
-      body: JSON.stringify(message),
-    })
-  }
-
-  onMount(() => {
-    emailInput.validate()
-  })
+  let Y, height
 </script>
 
 <svelte:window bind:scrollY={Y} bind:innerHeight={height} />
-<Preload>
-  <img src="assets/bg/1.png" alt="">
-  <img src="assets/bg/2.png" alt="">
-</Preload>
 
-<Section color="secondary" id="home" className="relative" bg="assets/bg/1.png">
-  <Hero fullHeight className="relative">
-    <div class="flex-col text-neutral-light" slot="left">
+<Section color="secondary" fullHeight id="home" className="relative" bg="https://media.graphassets.com/OXVoxwYCTrCHsQ0jxHfA?_gl=1*8eev2b*_ga*MTAyNzk5OTI1My4xNjUyMjYwNDc4*_ga_G6FYGSYGZ4*MTY1MjUzNDI0Ny45LjEuMTY1MjUzNTA2OC42MA..">
+  <Hero fullHeight className="text-white -mt-12 md:mt-0">
+    <div class="flex flex-col items-start space-y-4">
       <Animateonenterview type="flyLeft">
         <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
-    & Contracting</p>
+        & Contracting</p>
       </Animateonenterview>
-      <div class="grid grid-cols-1 md:grid-cols-2 justify-between place-content-between">
-        <Animateonenterview>
-          <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6">
-            You
-            dream
-            it,
-          </h2>
-        </Animateonenterview>
-        <Animateonenterview>
-          <h2 class="py-2 md:py-4 font-bold md:whitespace-pre-line px-6"> 
-            we
-            make
-            it
-          </h2>
-        </Animateonenterview>
-      </div>  
+      <Animateonenterview type="flyLeft" delay="200">
+        <h1 class="whitespace-pre-line">You dream it, 
+          we make it</h1>
+      </Animateonenterview>
+      <Animateonenterview type="flyLeft" delay="500">
+        <p class="max-w-[700px]">We have delivered value for clients in Egypt and Beyond. Browse our projects or download our company profile to know more about our work.</p>
+      </Animateonenterview>
+      <Animateonenterview delay="1200">
+        <Go to="/projects" className="my-8">
+          <Button label="Browse projects" icon="chevron_right" shape="ghost" />
+        </Go>
+      </Animateonenterview>
     </div>
-    <svelte:fragment slot="right">
-      <Card className="bg-neutral-light bg-opacity-10 hover:bg-opacity-0 focus-within:bg-opacity-5 ring-neutral-light ring-2 max-w-fit rounded-[60px]">
-        <Animateonenterview>
-          <div class="py-6 md:py-10 px-3 flex-col flex justify-between items-center">
-            <Animateonenterview type="flyLeft">
-              <Button type="primary" label="more" className="mt-2" />
-            </Animateonenterview>
-            <Animateonenterview type="flyRight">
-              <Go to="#contact">
-                <Button type="primary" label="contact us" />
-              </Go>
-            </Animateonenterview>
-          </div>
-        </Animateonenterview>
-      </Card>
-    </svelte:fragment>
   </Hero>
 </Section>
 
-<Section color="secondary" id="trust" bg="assets/bg/2.png" fullHeight>
-  <Hero fullHeight className="items-end py-20">
-    <svelte:fragment slot="left">
+<Section color="secondary" id="trust" className="text-secondary py-16">
 
-      <Animateonenterview className="max-w-[90%] md:max-w-[80%] mx-auto absolute left-6 md:left-12 bottom-full">
-        <h2 class="md:mx-3 py-6 whitespace-pre-line text-neutral-light">
-          Trusted
-          By
-        </h2>
-      </Animateonenterview>
-    
-      <List
-        items={logos.slice(0, 6)}
-        let:prop={logo}
-        className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
-      >
-        <Animateonenterview>
-          <Card className="bg-neutral-light h-28 w-28 flex justify-center items-center">
-            <Image {...logo} styleOptions={{ size: 'sm' }} />
-          </Card>
-        </Animateonenterview>
-      </List>
-    </svelte:fragment>
-
-    <svelte:fragment slot="right">
-      <List
-        items={logos.slice(6, 12)}
-        let:prop={logo}
-        className="py-6 justify-evenly grid grid-cols-2 md:grid-cols-3 gap-4"
-      >
-        <Animateonenterview>
-          <Card className="bg-neutral-light h-28 w-28 flex justify-center items-center">
-            <Image {...logo} styleOptions={{ size: 'sm' }} />
-          </Card>
-        </Animateonenterview>
-
-        <div class="absolute top-full right-0 grid grid-cols-2 gap-8 whitespace-pre text-neutral-light">
-          <Animateonenterview type="flyRight">
-            <p>
-              <span class="font-bold">SKY</span> for Trading
-    & Contracting
-            </p>
-          </Animateonenterview>
-          <Animateonenterview type="flyLeft">
-          <p class="font-bold">
-            Building
+  <Animateonenterview>
+    <h2 class="md:mx-3 py-6 whitespace-pre-line text-center">
+      Trusted By
+    </h2>
+  </Animateonenterview>
+  <List
+    items={logos}
+    let:prop={logo}
+    let:index
+    className="flex justify-center flex-wrap mx-auto relative"
+  >
+    <Animateonenterview className="m-3">
+      <Image {...logo} styleOptions={{ size: 'sm' }} className="grayscale-[1000] hover:grayscale-0 transition duration-300 ease-out" />
+    </Animateonenterview>
+  </List>
+  <div class="absolute bottom-0 right-0 grid grid-cols-2 gap-8 whitespace-pre text-secondary">
+    <Animateonenterview type="flyRight">
+      <p>
+        <span class="font-bold">SKY</span> for Trading
+& Contracting
+      </p>
+    </Animateonenterview>
+    <Animateonenterview type="flyLeft">
+    <p class="font-bold">
+      Building
 trust
-          </p>
-        </Animateonenterview>
-        </div>
-      </List>
-    </svelte:fragment>
-  </Hero>
+    </p>
+  </Animateonenterview>
+  </div>
 </Section>
 
 <Section color="neutral-light" id="projects" className="overflow-hidden pb-12 md:pb-32">
@@ -288,7 +184,7 @@ trust
         className="overflow-visible relative w-full h-full"
       >
         <Feature {...feature}>
-          <p slot="description" class="font-normal">{feature.description}</p>
+          <p slot="description" class="font-normal line-clamp-3">{feature.description}</p>
           <Triangles />
           <div slot="cta">
             <Go to="/projects/{slugify(feature.title)}">
@@ -303,6 +199,9 @@ trust
     </List>
   </div>
 </Section>
+
+<Contact {...contact} />
+
 
 <!-- <Section id="services" className="overflow-visible">
     <div class="flex-col items-center flex lg:flex-none lg:grid lg:grid-rows-2 lg:grid-cols-3 lg:place-items-center py-20 overflow-visible">

@@ -23,7 +23,7 @@
   let err = ''
   export const validate = () => {
     clean = validation.success
-    err = clean ? '' : validation.failed.error
+    err = clean ? '' : validation.message
     if (clean) valid()
     else invalid()
   }
@@ -95,17 +95,19 @@
       on:blur={blur}
     />
   {/if}
-  {#if !!cta.type && clean}
-    <div
-      transition:scale={{ duration: 300 }}
-      class="absolute top-1/2 -translate-y-1/2 right-4"
-    >
-      <Button {...cta} className={CTA.classes} on:click={submit} />
-    </div>
-  {/if}
-  {#if !clean}
-    <p transition:slide={{ duration: 300 }} class={error.classes}>
-      {err}
-    </p>
-  {/if}
+  {#key clean}
+    {#if !!cta.type && clean}
+      <div
+        transition:scale={{ duration: 300 }}
+        class="absolute top-1/2 -translate-y-1/2 right-4"
+      >
+        <Button {...cta} className={CTA.classes} on:click={submit} />
+      </div>
+    {/if}
+    {#if !clean}
+      <p transition:slide={{ duration: 300 }} class={error.classes}>
+        {err}
+      </p>
+    {/if}
+  {/key}
 </label>

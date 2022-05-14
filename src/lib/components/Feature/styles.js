@@ -48,7 +48,7 @@ export let image = options => {
 export let title = options => {
   return [
     {
-      classes: 'select-none absolute left-8 md:left-10 uppercase transition duration-300 ease-out origin-top-left w-[70%] leading-8 scale-[50%] top-6 md:top-8 z-20 text-left group-focus-within:scale-[60%] group-hover:scale-[60%] group-focus-within:-translate-x-16 group-hover:-translate-x-16 group-focus-within:-translate-y-12 group-hover:-translate-y-12 text-neutral-dark max-w-[150px]',
+      classes: 'select-none text-neutral-light md:text-secondary text-4xl md:text-2xl one-liner md:whitespace-pre-wrap absolute left-8 md:left-10 uppercase transition duration-300 ease-out origin-top-left w-[70%] leading-8 scale-[50%] top-8 z-20 text-left group-focus-within:scale-[60%] group-hover:scale-[60%] md:group-focus-within:-translate-x-16 md:group-hover:-translate-x-16 md:group-focus-within:-translate-y-12 md:group-hover:-translate-y-12 md:max-w-[150px]',
     },
     {
       classes: '',
