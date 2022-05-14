@@ -22,7 +22,6 @@
     
     mailedTo = emailInput.value
     emailInput.cta.label = 'sent!'
-    emailInput.refresh()
 
     const message = {
       to: emailInput.value,
