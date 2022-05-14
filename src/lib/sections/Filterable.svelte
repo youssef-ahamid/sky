@@ -13,6 +13,10 @@
   export let matchInArray = false
   export let title = ''
 
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
   let filters = ['all']
   items.forEach(it =>
     matchInArray
@@ -23,6 +27,7 @@
         )
       : filters.push(it[matchingKey])
   )
+  filters = filters.filter(onlyUnique)
   $: activeItems =
     selected.toLowerCase() == 'all'
       ? items
@@ -67,6 +72,7 @@
             this={component}
             {...item}
             additionalImageData={{ type: 'custom', clip: Triangles }}
+            reverse={i % 2 === 1}
             cta={{
               link: `/projects/${item.slug}`,
               label: 'view project',

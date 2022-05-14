@@ -1,12 +1,27 @@
 <script context="module">
   export const prerender = true
+  import { getPage } from '$lib/gql'
+
+  export async function load() {
+    let page = await getPage('projects')
+
+    return {
+      props: {
+        page,
+      },
+    }
+  }
 </script>
 
 <script>
-  import Footer from '$lib/components/Footer/Footer.svelte';
+  import Footer from '$lib/components/Footer/Footer.svelte'
   import Nav from '$lib/components/Nav/Nav.svelte'
+  import Contact from '$lib/sections/Contact.svelte'
+  import Seo from '$lib/components/SEO/SEO.svelte'
 
-  import { activeSection, mobile } from '$lib/stores'
+  import { activeSection, mobile, activePage } from '$lib/stores'
+
+  export let page
 
   let links = [
     {
@@ -39,29 +54,15 @@
   let innerWidth
 
   $: $mobile = innerWidth < 700
+  $activePage = 'projects'
+
   import '$lib/styles/app.css'
 </script>
 
 <svelte:window bind:innerWidth />
 
-<Nav
-  {links}
-  styleOptions={{
-    type:
-      $activeSection.color == 'secondary' ? 'primary' : 'secondary',
-  }}
-/>
+<Seo {...page.seo} />
+
 <slot />
 
-<Footer 
-  {links} 
-  content="some text for the logo can go in here for real"
-  copyright="copyright 2021 Sky for Trading & Contracting"
-  address={{
-    email: "info@skyfortc.com",
-    phone: "+1 (844) 789-8787",
-    fullAddress: "Sky for Trading & Contracting, Inc.\n" +
-      "1201 N. Main Street, Suite #100\n" +
-      "Cleveland, OH 44115",
-  }}
-/>
+<Contact {...page.sections[2]} />

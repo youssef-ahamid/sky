@@ -24,7 +24,7 @@
   $: classes = config({ active, ...styleOptions })
 </script>
 
-<div>
+<div class="absolute">
   <Go to="/">
     <Image
       src="https://i.ibb.co/h261LhZ/sky-logo.png"

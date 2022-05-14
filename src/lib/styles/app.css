@@ -62,6 +62,37 @@
   .one-liner {
     @apply whitespace-nowrap;
   }
+
+  .project-content {
+    @apply max-w-[80%] mx-auto text-secondary;
+  }
+  .project-content h3 {
+    @apply text-primary my-1 md:my-4;
+  }
+  .project-content p {
+    @apply pb-4;
+  }
+  .project-content a {
+    @apply text-primary underline decoration-primary transition duration-300 ease-out hover:scale-105;
+  }
+  .project-content ul {
+    @apply py-2;
+  }
+  .project-content li {
+    @apply my-6 relative pl-12 leading-relaxed;
+  }
+  .project-content li::before {
+    @apply absolute left-0 top-1 bg-primary opacity-75 w-8 h-8 rounded-full content-['+'] text-neutral-light text-lg font-bold text-center align-middle hover:opacity-100;
+  }
+  .project-content img {
+    @apply block rounded-3xl h-[200px] md:h-[400px] object-center object-cover my-8;
+  }
+  .project-content img.full {
+    @apply w-full;
+  }
+  .project-content img.half {
+    @apply w-[40%];
+  }
 }
 
 

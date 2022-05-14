@@ -14,7 +14,7 @@ import Triangle from "$lib/icons/shape/triangle.svelte"
     />
   </div>
   <div
-    class="absolute -right-6 md:-right-8 top-0 z-0 w-48 md:w-64 text-neutral-light group-focus-within:translate-x-12 group-hover:translate-x-12 group-focus-within:-translate-y-12 group-hover:-translate-y-12 transition duration-300 ease-out"
+    class="absolute -right-6 md:-right-8 top-0 z-[-1] w-48 md:w-64 text-neutral-light group-focus-within:translate-x-12 group-hover:translate-x-12 group-focus-within:-translate-y-12 group-hover:-translate-y-12 transition duration-300 ease-out"
   >
     <Triangle
       width={200}
@@ -24,7 +24,7 @@ import Triangle from "$lib/icons/shape/triangle.svelte"
     />
   </div>
   <div
-    class="absolute -left-6 md:-left-8 bottom-8 md:bottom-0 z-0 w-48 md:w-64 text-primary group-focus-within:-translate-x-12 group-hover:-translate-x-12 group-focus-within:translate-y-12 group-hover:translate-y-12 transition duration-300 ease-out"
+    class="absolute -left-6 md:-left-8 bottom-8 md:bottom-0 z-[-1] w-48 md:w-64 text-primary group-focus-within:-translate-x-12 group-hover:-translate-x-12 group-focus-within:translate-y-12 group-hover:translate-y-12 transition duration-300 ease-out"
   >
     <Triangle
       width={300}

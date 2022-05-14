@@ -75,10 +75,13 @@ export async function getFeaturedProjects() {
 export async function getProject(slug) {
   const query = gql`
     {
-      project(where: {slug: ${slug}}) {
+      project(where: {slug: "${slug}"}) {
         slug
         title
         description
+        image {
+          url
+        }
         clients {
           name
           logo {
@@ -88,7 +91,9 @@ export async function getProject(slug) {
         owner
         location
         businessVolume
-        scope
+        scope { 
+          html
+        }
         services {
           title
           shortTitle
@@ -100,8 +105,8 @@ export async function getProject(slug) {
       }
     }
   `
-  const { projects } = await graphcms.request(query)
-  return projects
+  const { project } = await graphcms.request(query)
+  return project
 }
 
 export async function getPage(slug) {

@@ -10,6 +10,7 @@
   export let clients = []
   export let image = {}
   export let services = []
+  export let reverse = false
 
   export let additionalImageData = {}
   export let cta = {}
@@ -31,12 +32,12 @@
 </script>
 
 <div
-  class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-center text-{color} {className}"
+  class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-center text-{color} {className} {reverse? 'flex-row-reverse': ''}"
 >
   <div
     class="w-full min-w-fit {image.url || image.src
       ? 'md:w-[50%] md:min-w-min'
-      : 'md:w-[70%] md:min-w-fit'} pr-4"
+      : 'md:w-[70%] md:min-w-fit'} px-8"
   >
     <h3
       class={color == 'secondary'
@@ -45,9 +46,13 @@
     >
       {preheader}
     </h3>
-    {#each clients as client}
-      <Image type="logo" src={client.logo.url} alt={client.name} />
-    {/each}
+    <div class="flex items-center">
+      {#each clients as client, i}
+        {#if !!client.logo && !!client.logo.url && i < 4}
+          <Image type="logo" {...client.logo} alt={client.name} className="mr-2" />
+        {/if}
+      {/each}
+    </div>
     <h2 class="uppercase">{title}</h2>
     <p class="max-w-[64ch] mt-6 md:mt-12">{description}</p>
     {#if !!cta.label}

@@ -34,8 +34,6 @@
   $activePage = 'projects'
 </script>
 
-<Seo {...page.seo} />
-
 <Hero {...page.sections[0]} {path} />
 
 <Filterable
@@ -50,4 +48,3 @@
 
 <Testimonial {...page.sections[1]} />
 
-<Contact {...page.sections[2]} />

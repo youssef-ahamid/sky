@@ -4,7 +4,7 @@ export let hero = options => {
   return [
     {
       classes:
-        'w-full flex items-center justify-between flex-wrap md:flex-nowrap',
+        'w-full flex items-center md:justify-between flex-wrap md:flex-nowrap mt-32 md:mt-0',
     },
     { on: [options.fullHeight, true], classes: 'min-h-screen' },
     { on: [options.reverse, true], classes: '' },
@@ -27,7 +27,7 @@ export let logoInner = ''
 export let logoOuter = ''
 
 export let left = 'px-6 py-4 md:py-0 md:px-12 relative md:max-w-[80%]'
-export let right = 'px-6 py-4 md:py-0 md:px-12 relative'
+export let right = 'px-6 py-4 md:py-0 md:px-12 relative -mt-12 md:mt-0 md:max-w-[50%] mx-auto'
 
 let options
 export const config = props => {

@@ -34,7 +34,7 @@ import Image from '../Image/Image.svelte'
       <div class="flex flex-wrap">
         <div class="mx-3 my-2">
           <p class="font-bold body-sm">Email</p>
-          <Copyable val={address.email}>
+          <Copyable value={address.email}>
             <p class="body-sm">{address.email}</p>
           </Copyable>
         </div>

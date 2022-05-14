@@ -22,14 +22,14 @@
 
 <Section
   color="secondary"
-  className="bg-secondary text-neutral-light py-12"
+  className="bg-secondary text-neutral-light py-20"
   {fullHeight}
   bg={!!background ? background.url : ''}
 >
   <div
     class="flex flex-col lg:flex-row items-start lg:items-center justify-between"
   >
-    <div>
+    <div class="min-w-[50%]">
       <h3 class={prehead.classes}>{preheader}</h3>
       <h2 class={tit.classes}>{title}</h2>
     </div>
