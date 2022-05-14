@@ -113,10 +113,6 @@ import Contact from '$lib/sections/Contact.svelte';
 <Section color="secondary" fullHeight id="home" className="relative" bg="https://media.graphassets.com/OXVoxwYCTrCHsQ0jxHfA?_gl=1*8eev2b*_ga*MTAyNzk5OTI1My4xNjUyMjYwNDc4*_ga_G6FYGSYGZ4*MTY1MjUzNDI0Ny45LjEuMTY1MjUzNTA2OC42MA..">
   <Hero fullHeight className="text-white -mt-12 md:mt-0">
     <div class="flex flex-col items-start space-y-4">
-      <Animateonenterview type="flyLeft">
-        <p class="text-lg md:text-3xl font-extralight whitespace-pre"><span class="font-bold">SKY</span> for Trading 
-        & Contracting</p>
-      </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="200">
         <h1 class="whitespace-pre-line">You dream it, 
           we make it</h1>
@@ -133,8 +129,7 @@ import Contact from '$lib/sections/Contact.svelte';
   </Hero>
 </Section>
 
-<Section color="secondary" id="trust" className="text-secondary py-16">
-
+<Section color="neutral" id="trust" className="text-secondary py-16">
   <Animateonenterview>
     <h2 class="md:mx-3 py-6 whitespace-pre-line text-center">
       Trusted By
