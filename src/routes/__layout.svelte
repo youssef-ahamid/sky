@@ -1,4 +1,5 @@
 <script>
+  import Footer from '$lib/components/Footer/Footer.svelte';
   import Nav from '$lib/components/Nav/Nav.svelte'
 
   import { activeSection, mobile } from '$lib/stores'
@@ -47,3 +48,5 @@
   }}
 />
 <slot />
+
+<!-- <Footer {links} copyright="2021 Sky for Trading & Contracting" /> -->
