@@ -16,6 +16,7 @@
   import { preheaderStyles, titleStyles } from './styles'
   import Testimonial from '$lib/components/Testimonial/Testimonial.svelte'
   import { mobile } from '$lib/stores';
+  import Steps from '$lib/icons/waves/steps.svelte';
 
   $: prehead = stylus(preheaderStyles({ color: 'primary' }))
   $: tit = stylus(titleStyles())

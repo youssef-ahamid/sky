@@ -24,7 +24,7 @@
     class="hidden"
     bind:this={data}
   />
-  <div on:click={copy} class="peer {className}">
+  <div on:click={copy} class="peer cursor-pointer {className}">
     <slot />
   </div>
 

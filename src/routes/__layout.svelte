@@ -1,3 +1,7 @@
+<script context="module">
+  export const prerender = true
+</script>
+
 <script>
   import Footer from '$lib/components/Footer/Footer.svelte';
   import Nav from '$lib/components/Nav/Nav.svelte'
@@ -49,4 +53,17 @@
 />
 <slot />
 
-<!-- <Footer {links} copyright="2021 Sky for Trading & Contracting" /> -->
+<Footer 
+  {links} 
+  content="some text for the logo can go in here for real"
+  copyright="copyright 2021 Sky for Trading & Contracting"
+  address={{
+    email: "info@skyfortc.com",
+    phone: "+1 (844) 789-8787",
+    fullAddress: "Sky for Trading & Contracting, Inc.\n" +
+      "1201 N. Main Street, Suite #100\n" +
+      "Cleveland, OH 44115",
+  }}
+>
+  
+</Footer>

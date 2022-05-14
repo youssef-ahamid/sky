@@ -18,23 +18,30 @@
 
   /* styles */
   import { config } from './styles'
-import Go from '../Go/Go.svelte'
-import Image from '../Image/Image.svelte'
-import { activePage } from '$lib/stores';
+  import Go from '../Go/Go.svelte'
+  import Image from '../Image/Image.svelte'
+  import { activePage } from '$lib/stores'
   $: classes = config({ active, ...styleOptions })
-</script> 
-
+</script>
 
 <div>
   <Go to="/">
-    <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="absolute left-[10%] md:hidden top-10 w-24 md:w-36 z-[997]" />
+    <Image
+      src="https://i.ibb.co/h261LhZ/sky-logo.png"
+      alt="Sky Fort for Trading and Contracting logo"
+      className="absolute left-[10%] md:hidden top-10 w-24 md:w-36 z-[997]"
+    />
   </Go>
   <div class={classes.iconWrapper} on:click={toggle} id="menu-icon">
     <svelte:component this={icon} className={classes.icon} {active} />
   </div>
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
-      <Image src="https://i.ibb.co/h261LhZ/sky-logo.png" alt="Sky Fort for Trading and Contracting logo" className="my-8 md:my-0 w-20 pt-5 md:fixed md:top-5 md:left-[10%]" />
+      <Image
+        src="https://i.ibb.co/h261LhZ/sky-logo.png"
+        alt="Sky Fort for Trading and Contracting logo"
+        className="my-8 md:my-0 w-20 md:w-32 pt-5 md:fixed md:top-5 md:left-[10%]"
+      />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>
       <NavLink
@@ -46,7 +53,7 @@ import { activePage } from '$lib/stores';
           active = false
         }}
         className={classes.link}
-        styleOptions={{ type: "primary" }}
+        styleOptions={{ type: 'primary' }}
       />
     </List>
   </nav>

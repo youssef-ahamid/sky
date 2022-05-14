@@ -17,7 +17,6 @@ export function validate(validation, value) {
   ];
 
   let fn = validations.filter((_) => _.id == validation)[0];
-  console.log(validation)
   if (!fn)
     throw new Error(
       `validation not found.\n\nKenshi validations:\n${

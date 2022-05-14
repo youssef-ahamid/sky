@@ -1,5 +1,4 @@
 <script context="module">
-  export const prerender = true
   import { getProjectPreviews, getPage } from '$lib/gql'
 
   export async function load({ url }) {
@@ -24,6 +23,7 @@
   import Hero from '$lib/sections/Hero.svelte'
   import Filterable from '$lib/sections/Filterable.svelte'
   import Testimonial from '$lib/sections/Testimonial.svelte'
+  import Contact from '$lib/sections/Contact.svelte'
 
   // Components
   import Project from '$lib/components/Project/Project.svelte'
@@ -31,10 +31,7 @@
 
   // Data Handling & Stores
   import { activePage } from '$lib/stores'
-import Contact from '$lib/sections/Contact.svelte'
   $activePage = 'projects'
-
-  console.log(page.sections[2])
 </script>
 
 <Seo {...page.seo} />
