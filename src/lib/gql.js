@@ -241,7 +241,7 @@ export async function getSection(id) {
             number
             title
           }
-          ... on Statistic {
+          ... on Step {
             title
             text
           }
