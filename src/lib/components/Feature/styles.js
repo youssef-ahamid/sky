@@ -68,10 +68,10 @@ export let title = options => {
 export let content = options => {
   return [
     {
-      classes: 'p-2 w-4/5 z-20 absolute -bottom-5 justify-end transition duration-500 ease-out text-left group-focus-within:translate-x-4 group-hover:translate-x-4 group-focus-within:text-neutral-light group-hover:text-neutral-light',
+      classes: 'p-2 w-4/5 z-20 absolute -bottom-5 justify-end transition duration-500 ease-out text-left group-focus-within:translate-x-4 group-hover:translate-x-4 text-neutral-light',
     },
     {
-      classes: 'translate-x-4 text-neutral-light',
+      classes: 'translate-x-4',
       on: [options.active, true]
     },
     {
