@@ -11,12 +11,14 @@
   export let content = {}
   export let testimonials = getComponentData(content, 'Testimonial')
 
+  let trans = false
+
   /* styles */
   import { stylus } from '$lib/helpers'
   import { preheaderStyles, titleStyles } from './styles'
   import Testimonial from '$lib/components/Testimonial/Testimonial.svelte'
-  import { mobile } from '$lib/stores';
-  import Steps from '$lib/icons/waves/steps.svelte';
+  import { mobile } from '$lib/stores'
+  import Steps from '$lib/icons/waves/steps.svelte'
 
   $: prehead = stylus(preheaderStyles({ color: 'primary' }))
   $: tit = stylus(titleStyles())
@@ -37,15 +39,20 @@
     loop
     let:item={testimonial}
     let:previewed
-    numPreviewedEachStep={$mobile? 1: 2}
+    numPreviewedEachStep={$mobile ? 1 : 2}
+    on:next={(trans =-400)}
+    on:prev={(trans = 400)}
   >
     {#if previewed}
-      <div
-        in:fly={{ x: 400, delay: 400 }}
-        out:fly={{ x: -400, duration: 300 }}
-      >
-        <Testimonial {...testimonial} />
-      </div>
+      {#key testimonial}
+        <div
+          in:fly={{ x: trans, delay: 400 }}
+          out:fly={{ x: -trans, duration: 300 }}
+          class:absolute={!previewed}
+        >
+          <Testimonial {...testimonial} />
+        </div>
+      {/key}
     {/if}
   </Carrousel>
 </Section>

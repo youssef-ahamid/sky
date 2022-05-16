@@ -10,15 +10,13 @@
   export let clients = []
   export let image = {}
   export let services = []
+  export let type = []
   export let reverse = false
 
   export let additionalImageData = {}
   export let cta = {}
 
-  if (!preheader)
-    preheader = services
-      .map(service => service.shortTitle)
-      .join('  ●  ')
+  if (!preheader) preheader = type.join('  ●  ')
 
   export let color = 'secondary'
 
@@ -32,11 +30,11 @@
 </script>
 
 <div
-  class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-center text-{color} {className} {reverse? 'flex-row-reverse': ''}"
+  class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-between text-{color} {className} {reverse? 'flex-row-reverse': ''}"
 >
   <div
     class="w-full min-w-fit {image.url || image.src
-      ? 'md:w-[50%] md:min-w-min'
+      ? 'md:w-[47%] md:min-w-min'
       : 'md:w-[70%] md:min-w-fit'} px-8"
   >
     <h3
@@ -46,15 +44,8 @@
     >
       {preheader}
     </h3>
-    <div class="flex items-center">
-      {#each clients as client, i}
-        {#if !!client.logo && !!client.logo.url && i < 4}
-          <Image type="logo" {...client.logo} alt={client.name} className="mr-2" />
-        {/if}
-      {/each}
-    </div>
     <h2 class="uppercase">{title}</h2>
-    <p class="max-w-[64ch] mt-6 md:mt-12">{description}</p>
+    <p class="max-w-[64ch] mt-3 md:mt-6 line-clamp-4">{description}</p>
     {#if !!cta.label}
       <Go
         to={cta.link}
@@ -68,7 +59,7 @@
   </div>
 
   {#if !!image.url || !!image.src}
-    <div class="w-full md:w-[50%]" {title}>
+    <div class="w-full md:w-[47%]" {title}>
       <Go to={cta.link}>
         <Image {...image} {...additionalImageData} />
       </Go>

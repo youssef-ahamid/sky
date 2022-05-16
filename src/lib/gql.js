@@ -14,6 +14,7 @@ export async function getProjectPreviews() {
         image {
           url
         }
+        type
         clients {
           logo {
             url
@@ -27,6 +28,21 @@ export async function getProjectPreviews() {
   `
   const { projects } = await graphcms.request(query)
   return projects
+}
+
+export async function getClients() {
+  const query = gql`
+    {
+      clients(where: {logo: {}}) {
+        logo {
+          url(transformation: {document: {output: {format: png}}})
+        }
+        name
+      }
+    }
+  `
+  const { clients } = await graphcms.request(query)
+  return clients
 }
 
 export async function getServices() {
@@ -62,6 +78,7 @@ export async function getFeaturedProjects() {
             url
           }
         }
+        type
         services {
           shortTitle
         }
@@ -80,6 +97,10 @@ export async function getProject(slug) {
         title
         description
         image {
+          url
+        }
+        type
+        images {
           url
         }
         clients {

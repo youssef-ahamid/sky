@@ -63,8 +63,8 @@
     <div class="flex justify-end w-full">
       <TextInput
         bind:this={emailInput}
-        bind:value={input.value}
         on:submit={mail}
+        validateOnChange
         {...input}
         className="my-4 mx-6 max-w-md ring-neutral-light"
         on:change={() => (emailInput.cta.label = 'send')}

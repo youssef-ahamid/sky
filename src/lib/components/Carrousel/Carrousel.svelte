@@ -3,10 +3,13 @@
   export let items = [] // *, array of carrousel items
   export let currentStep = 0
   export let loop = false
+  export let autoplay = false
   export let noControls = false
   export let numPreviewedEachStep = 1
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
+
+  let autoplayInterval
 
   import List from '$lib/components/List/List.svelte'
   import Stepper from '$lib/components/Stepper/Stepper.svelte'
@@ -18,18 +21,33 @@
 
   /* methods */
   export const next = () => {
-    if (currentStep < items.length - numPreviewedEachStep)
+    if (currentStep < items.length - numPreviewedEachStep) {
       currentStep += numPreviewedEachStep
-    else {
+      dispatch('next')
+    } else {
       dispatch('finish')
-      if (loop) currentStep = 0
+      if (loop) {
+        currentStep = 0
+        dispatch('next')
+      }
     }
+    clearInterval(autoplayInterval)
+    autoplayInterval = setInterval(next, 3000)
   }
   export const prev = () => {
-    if (currentStep < numPreviewedEachStep && loop) currentStep = items.length - numPreviewedEachStep
-    else if (currentStep >= numPreviewedEachStep) currentStep -= numPreviewedEachStep
+    if (currentStep < numPreviewedEachStep && loop) {
+      currentStep = items.length - numPreviewedEachStep
+      dispatch('prev')
+    } else if (currentStep >= numPreviewedEachStep) {
+      currentStep -= numPreviewedEachStep
+      dispatch('prev')
+    }
     else currentStep = 0
+    clearInterval(autoplayInterval)
+    autoplayInterval = setInterval(next, 3000)
   }
+
+  if (autoplay) autoplayInterval = setInterval(next, 3000)
 
   let carrouselItems = []
   export const select = num => {
@@ -40,11 +58,6 @@
         dispatch('complete')
       }, 500)
     else dispatch('rewatch')
-    carrouselItems[currentStep].scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-      block: 'start',
-    })
   }
 
   $: select(currentStep)
@@ -76,12 +89,15 @@
   })
 </script>
 
-<div class={`${wrapper.classes} ${className}`} style={wrapper.styles}>
+<div
+  class={`${wrapper.classes} ${className} relative h-80 md:h-96 overflow-hidden`}
+  style={wrapper.styles}
+>
   <List
     {items}
     let:prop={item}
     let:index
-    className={carr.classes}
+    className={`${carr.classes} absolute top-4`}
     styles={carr.classes}
   >
     <div
@@ -95,33 +111,33 @@
       />
     </div>
   </List>
-  {#if !noControls }
-    {#key currentStep}
-      <div class={controls.classes}>
-        <Stepper
-          direction="horizontal"
-          steps={items.length}
-          bind:active={currentStep}
-          className={stepper.classes}
+  {#if !noControls}
+    <div
+      class={`${controls.classes} absolute bottom-0 -translate-x-1/2 left-1/2`}
+    >
+      <Stepper
+        direction="horizontal"
+        steps={items.length}
+        bind:active={currentStep}
+        className={stepper.classes}
+      />
+      <div class={buttons.classes}>
+        <Button
+          label=""
+          icon="chevron_left"
+          type="primary"
+          reverse
+          shape="icon"
+          on:click={prev}
         />
-        <div class={buttons.classes}>
-          <Button
-            label=""
-            icon="chevron_left"
-            type="primary"
-            reverse
-            shape="icon"
-            on:click={prev}
-          />
-          <Button
-            label=""
-            icon="chevron_right"
-            type="primary"
-            shape="icon"
-            on:click={next}
-          />
-        </div>
+        <Button
+          label=""
+          icon="chevron_right"
+          type="primary"
+          shape="icon"
+          on:click={next}
+        />
       </div>
-    {/key}
+    </div>
   {/if}
 </div>

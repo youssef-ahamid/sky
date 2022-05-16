@@ -1,14 +1,16 @@
 <script context="module">
-  import { getProjectPreviews, getSection } from '$lib/gql'
+  import { getProjectPreviews, getSection, getClients } from '$lib/gql'
 
   export async function load() {
     let projects = await getProjectPreviews()
     let contact = await getSection('contact')
+    let clients = await getClients()
 
     return {
       props: {
         projects,
-        contact
+        contact,
+        clients
       },
     }
   }
@@ -16,7 +18,7 @@
 
 <script>
 
-  export let projects, contact
+  export let projects, contact, clients
 
   import Button from '$lib/components/Button/Button.svelte'
   import Hero from '$lib/components/Hero/Hero.svelte'
@@ -24,52 +26,18 @@
   import Go from '$lib/components/Go/Go.svelte'
   import List from '$lib/components/List/List.svelte'
   import Image from '$lib/components/Image/Image.svelte'
+  import Carrousel from '$lib/components/Carrousel/Carrousel.svelte'
 
   import { slugify } from '$lib/helpers'
   import Section from '$lib/components/Section/Section.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
 
   const features = projects
-
+  let trans = 400
   const aboutImage = {
     src: 'https://i.ibb.co/MG9r206/Screen-Shot-2022-04-03-at-1-59-16-PM.png',
   }
-
-  const logos = [
-    {
-      src: 'https://i.ibb.co/VpRGQLQ/logo-57371358399.png',
-    },
-    {
-      src: 'https://i.ibb.co/58DdS3d/HSBC-Symbol.png',
-    },
-    {
-      src: 'https://i.ibb.co/3vCnScV/HHR-Logo-Color-HR.png',
-    },
-    {
-      src: 'https://i.ibb.co/ZTQ5ck7/th.jpg',
-    },
-    {
-      src: 'https://i.ibb.co/gPgRm3n/18056466-1563980143613615-208734119081921344-o.png',
-    },
-    {
-      src: 'assets/logos/pharmaoverseas.png'
-    },
-    {
-      src: 'assets/logos/alahly.png'
-    },
-    {
-      src: 'assets/logos/ashrae.png'
-    },
-    {
-      src: 'assets/logos/NBE.jpeg'
-    },
-    {
-      src: 'assets/logos/vodafone.png'
-    },
-    {
-      src: 'assets/logos/zahran.png'
-    },
-  ]
+  
 
   const services = [
     {
@@ -101,9 +69,12 @@
     },
   ]
 
+
   import Card from '$lib/components/Card/Card.svelte';
   import Triangles from '$lib/components/Triangles/Triangles.svelte';
 import Contact from '$lib/sections/Contact.svelte';
+import { mobile } from '$lib/stores';
+import { fly } from 'svelte/transition';
 
   let Y, height
 </script>
@@ -129,23 +100,40 @@ import Contact from '$lib/sections/Contact.svelte';
   </Hero>
 </Section>
 
-<Section color="neutral" id="trust" className="text-secondary py-16">
+<Section color="neutral" id="trust" className="text-secondary py-16" noContain>
   <Animateonenterview>
-    <h2 class="md:mx-3 py-6 whitespace-pre-line text-center">
+    <h2 class="md:mx-3 pt-6 whitespace-pre-line text-center">
       Trusted By
     </h2>
   </Animateonenterview>
-  <List
-    items={logos}
-    let:prop={logo}
-    let:index
-    className="flex justify-center flex-wrap mx-auto relative"
+
+  
+  <Carrousel
+    items={clients}
+    loop
+    autoplay
+    noControls
+    className="flex justify-center items-center flex-wrap mx-auto relative"
+    let:item={client}
+    let:previewed
+    numPreviewedEachStep={$mobile ? 3 : 6}
+    on:next={(trans =-800)}
+    on:prev={(trans = 800)}
   >
-    <Animateonenterview className="m-3">
-      <Image {...logo} styleOptions={{ size: 'sm' }} className="grayscale-[1000] hover:grayscale-0 transition duration-300 ease-out" />
-    </Animateonenterview>
-  </List>
-  <div class="absolute bottom-0 right-0 grid grid-cols-2 gap-8 whitespace-pre text-secondary">
+  {#if previewed}
+      {#key client.name}
+        <div
+          in:fly={{ x: trans, duration: 600, delay: 500 }}
+          out:fly={{ x: -trans, duration: 500 }}
+        >
+        <Animateonenterview className="m-3">
+          <Image {...client.logo} alt={`${client.name} logo`} styleOptions={{ type: 'logo' }} className="grayscale-[1000] hover:grayscale-0 transition duration-300 ease-out mx-6" />
+        </Animateonenterview>
+        </div>
+      {/key}
+    {/if}
+    </Carrousel>
+  <div class="absolute bottom-10 right-0 grid grid-cols-2 gap-8 whitespace-pre text-secondary">
     <Animateonenterview type="flyRight">
       <p>
         <span class="font-bold">SKY</span> for Trading
@@ -163,8 +151,7 @@ trust
 
 <Section color="neutral-light" id="projects" className="overflow-hidden pb-12 md:pb-32">
   <Animateonenterview>
-    <h2 class="text-neutral-dark md:mx-3 py-6 whitespace-pre-line">Featured
-      projects</h2>
+    <h2 class="text-neutral-dark md:mx-3 py-6 whitespace-pre-line">Featured projects</h2>
   </Animateonenterview>
 
   <div class="relative w-auto h-auto">
@@ -172,13 +159,14 @@ trust
       items={features}
       let:prop={feature}
       let:index
-      className="flex justify-center md:justify-between flex-wrap mx-auto relative"
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto relative max-w-fit"
     >
+      <Go to="/projects/{feature.slug}">
       <Animateonenterview
         type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
         className="overflow-visible relative w-full h-full"
       >
-        <Feature {...feature}>
+        <Feature {...feature} active={$mobile}>
           <p slot="description" class="font-normal line-clamp-3">{feature.description}</p>
           <Triangles />
           <div slot="cta">
@@ -191,6 +179,7 @@ trust
           </div>
         </Feature>
       </Animateonenterview>
+    </Go>
     </List>
   </div>
 </Section>

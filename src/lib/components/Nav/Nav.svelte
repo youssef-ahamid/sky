@@ -24,12 +24,12 @@
   $: classes = config({ active, ...styleOptions })
 </script>
 
-<div class="absolute">
+<div class="absolute top-0 left-0 right-0">
   <Go to="/">
     <Image
       src="https://i.ibb.co/h261LhZ/sky-logo.png"
       alt="Sky Fort for Trading and Contracting logo"
-      className="absolute left-[10%] md:hidden top-10 w-24 md:w-36 z-[997]"
+      className="absolute left-[10%] lg:hidden top-10 w-24 lg:w-36 z-[997]"
     />
   </Go>
   <div class={classes.iconWrapper} on:click={toggle} id="menu-icon">
@@ -40,7 +40,7 @@
       <Image
         src="https://i.ibb.co/h261LhZ/sky-logo.png"
         alt="Sky Fort for Trading and Contracting logo"
-        className="my-8 md:my-0 w-20 md:w-32 pt-5 md:fixed md:top-5 md:left-[10%]"
+        className="my-8 lg:my-0 w-20 lg:w-32 pt-5 lg:fixed lg:top-5 lg:left-[10%]"
       />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>

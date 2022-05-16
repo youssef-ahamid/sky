@@ -21,13 +21,15 @@
 
   // Sections
   import Hero from '$lib/sections/Hero.svelte'
-  import Filterable from '$lib/sections/Filterable.svelte'
+  import Statistics from '$lib/sections/Statistics.svelte'
   import Testimonial from '$lib/sections/Testimonial.svelte'
-  import Contact from '$lib/sections/Contact.svelte'
 
   // Components
   import Project from '$lib/components/Project/Project.svelte'
-  import Seo from '$lib/components/SEO/SEO.svelte'
+  import List from '$lib/components/List/List.svelte'
+  import Triangles from '$lib/components/Triangles/Triangles.svelte'
+  import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
+  import Section from '$lib/components/Section/Section.svelte'
 
   // Data Handling & Stores
   import { activePage } from '$lib/stores'
@@ -36,15 +38,27 @@
 
 <Hero {...page.sections[0]} {path} />
 
-<Filterable
-  selected="All"
-  items={projects}
-  component={Project}
-  matchingKey="services"
-  matchInArray
-  secondaryMatchingKey="shortTitle"
-  title="Browse Projects"
-/>
+<Statistics {...page.sections[1]} />
 
-<Testimonial {...page.sections[1]} />
+<Section id="projects">
+  <List items={projects} let:prop={project} let:index>
+    <Animateonenterview
+      type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
+      delay={100 * (index % 3)}
+    >
+      <Project
+        {...project}
+        additionalImageData={{ type: 'custom', clip: Triangles }}
+        reverse={index % 2 === 1}
+        cta={{
+          link: `/projects/${project.slug}`,
+          label: 'read more',
+          icon: 'chevron_right',
+          shape: 'ghost',
+        }}
+      />
+    </Animateonenterview>
+  </List>
+</Section>
 
+<Testimonial {...page.sections[2]} />
