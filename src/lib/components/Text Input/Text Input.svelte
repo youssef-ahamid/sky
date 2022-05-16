@@ -99,7 +99,7 @@
     {#if !!cta.type && clean}
       <div
         transition:scale={{ duration: 300 }}
-        class="absolute top-1/2 -translate-y-1/2 right-4"
+        class="absolute top-1/2 -translate-y-1/2 right-1"
       >
         <Button {...cta} className={CTA.classes} on:click={submit} />
       </div>

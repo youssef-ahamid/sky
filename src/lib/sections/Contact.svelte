@@ -56,9 +56,9 @@
   <div
     class="flex flex-col lg:flex-row items-start lg:items-center justify-between"
   >
-    <div class="min-w-[50%]">
-      <h3 class={prehead.classes}>{preheader}</h3>
-      <h2 class={tit.classes}>{title}</h2>
+    <div class="min-w-[40%] md:max-w-[50%] my-5">
+      <h2 class="pb-1">{preheader}</h2>
+      <p>{title}</p>
     </div>
     <div class="flex justify-end w-full">
       <TextInput
@@ -66,7 +66,7 @@
         on:submit={mail}
         validateOnChange
         {...input}
-        className="my-4 mx-6 max-w-md ring-neutral-light"
+        className="my-4 mx-6 ring-neutral-light"
         on:change={() => (emailInput.cta.label = 'send')}
       />
     </div>

@@ -4,7 +4,7 @@ export let hero = options => {
   return [
     {
       classes:
-        'w-full flex items-center md:justify-between flex-wrap md:flex-nowrap mt-32 md:mt-0',
+        'w-full flex items-center md:justify-between flex-wrap md:flex-nowrap mt-12 md:mt-0',
     },
     { on: [options.fullHeight, true], classes: 'min-h-screen' },
     { on: [options.reverse, true], classes: '' },

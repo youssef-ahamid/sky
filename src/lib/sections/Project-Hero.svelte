@@ -11,7 +11,6 @@
   import Image from '$lib/components/Image/Image.svelte'
   import Earth from '$lib/icons/Earth.svelte'
   import Usd from '$lib/icons/usd.svelte'
-  import Establishment from '$lib/icons/establishment.svelte'
   import Triangles from '$lib/components/Triangles/Triangles.svelte'
 import List from '$lib/components/List/List.svelte'
 </script>
@@ -22,7 +21,7 @@ import List from '$lib/components/List/List.svelte'
   bg={background.url}
   noContain
 >
-  <Hero fullHeight className="text-secondary items-start md:pt-24">
+  <Hero fullHeight className="text-secondary items-start pt-24">
     <div slot="left" class="flex flex-col items-start space-y-2">
       <Animateonenterview className="text-primary">
         <Breadcrumb {path} />

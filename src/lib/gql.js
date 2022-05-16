@@ -59,8 +59,8 @@ export async function getServices() {
       }
     }
   `
-  const { projects } = await graphcms.request(query)
-  return projects
+  const { services } = await graphcms.request(query)
+  return services
 }
 
 export async function getFeaturedProjects() {
@@ -149,6 +149,7 @@ export async function getPage(slug) {
           fullHeight
           preheader
           title
+          description
           content {
             __typename
             ... on Button {
@@ -175,6 +176,10 @@ export async function getPage(slug) {
             ... on Statistic {
               number
               title
+            }
+            ... on Step {
+              title
+              text
             }
             ... on Testimonial {
               text
@@ -208,6 +213,7 @@ export async function getSection(id) {
         fullHeight
         preheader
         title
+        description
         content {
           __typename
           ... on Button {
@@ -234,6 +240,10 @@ export async function getSection(id) {
           ... on Statistic {
             number
             title
+          }
+          ... on Statistic {
+            title
+            text
           }
           ... on Testimonial {
             text

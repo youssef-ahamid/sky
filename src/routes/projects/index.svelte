@@ -56,6 +56,7 @@
           icon: 'chevron_right',
           shape: 'ghost',
         }}
+        shortAndSweet
       />
     </Animateonenterview>
   </List>

@@ -12,11 +12,13 @@
   export let services = []
   export let type = []
   export let reverse = false
+  export let shortAndSweet = false
 
   export let additionalImageData = {}
   export let cta = {}
 
-  if (!preheader) preheader = type.join('  ●  ')
+  if (!preheader && Array.isArray(type)) preheader = type.join('  ●  ')
+  else if (!!type && !Array.isArray(type)) preheader = type
 
   export let color = 'secondary'
 
@@ -45,7 +47,7 @@
       {preheader}
     </h3>
     <h2 class="uppercase">{title}</h2>
-    <p class="max-w-[64ch] mt-3 md:mt-6 line-clamp-4">{description}</p>
+    <p class="max-w-[64ch] mt-3 md:mt-6 {shortAndSweet? 'line-clamp-4': ''}">{description}</p>
     {#if !!cta.label}
       <Go
         to={cta.link}
