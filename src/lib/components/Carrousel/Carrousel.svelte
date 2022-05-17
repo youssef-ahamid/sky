@@ -20,47 +20,35 @@
   const dispatch = createEventDispatcher()
 
   /* methods */
+  export const select = num => {
+    currentStep = num
+    if (!carrouselItems[currentStep]) return
+  }
+
   export const next = () => {
     if (currentStep < items.length - numPreviewedEachStep) {
-      currentStep += numPreviewedEachStep
-      dispatch('next')
-    } else {
-      dispatch('finish')
-      if (loop) {
-        currentStep = 0
-        dispatch('next')
-      }
-    }
+      select(currentStep + numPreviewedEachStep)
+    } else if (loop) currentStep = 0
     clearInterval(autoplayInterval)
-    autoplayInterval = setInterval(next, 3000)
+    if (autoplay) autoplayInterval = setInterval(next, 3000)
   }
   export const prev = () => {
     if (currentStep < numPreviewedEachStep && loop) {
-      currentStep = items.length - numPreviewedEachStep
-      dispatch('prev')
+      select(items.length - numPreviewedEachStep)
     } else if (currentStep >= numPreviewedEachStep) {
-      currentStep -= numPreviewedEachStep
-      dispatch('prev')
-    }
-    else currentStep = 0
+      select(currentStep - numPreviewedEachStep)
+    } else select(0)
     clearInterval(autoplayInterval)
-    autoplayInterval = setInterval(next, 3000)
+    if (autoplay) autoplayInterval = setInterval(next, 3000)
   }
 
   if (autoplay) autoplayInterval = setInterval(next, 3000)
 
   let carrouselItems = []
-  export const select = num => {
-    currentStep = num
-    if (!carrouselItems[currentStep]) return
-    if (num == items.length - 1)
-      setTimeout(() => {
-        dispatch('complete')
-      }, 500)
-    else dispatch('rewatch')
-  }
+  
 
   $: select(currentStep)
+  
 
   /* styles */
   import { stylus } from '$lib/helpers'
@@ -83,10 +71,6 @@
   $: stepper = stylus(carrouselStepper(styleOptions))
   $: buttons = stylus(carrouselButtons(styleOptions))
   $: button = stylus(carrouselButton(styleOptions))
-
-  onMount(() => {
-    dispatch('rewatch')
-  })
 </script>
 
 <div

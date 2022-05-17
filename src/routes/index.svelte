@@ -109,21 +109,19 @@
     className="flex justify-center items-center flex-wrap mx-auto relative"
     let:item={client}
     let:previewed
-    numPreviewedEachStep={$mobile ? 3 : 6}
+    numPreviewedEachStep={$mobile ? 4 : 6}
     on:next={(trans =-800)}
     on:prev={(trans = 800)}
   >
-  {#if previewed}
-      {#key client.name}
-        <div
-          in:fly={{ x: trans, duration: 600, delay: 500 }}
-          out:fly={{ x: -trans, duration: 500 }}
-        >
-        <Animateonenterview className="m-3">
-          <Image {...client.logo} alt={`${client.name} logo`} styleOptions={{ type: 'logo' }} className="md:grayscale-[1000] md:hover:grayscale-0 transition duration-300 ease-out mx-6" />
-        </Animateonenterview>
-        </div>
-      {/key}
+    {#if previewed}
+      <div
+        in:fly={{ x: trans, duration: 600, delay: 500 }}
+        out:fly={{ x: -trans, duration: 500 }}
+      >
+      <Animateonenterview className="m-6">
+        <Image {...client.logo} alt={`${client.name} logo`} styleOptions={{ type: 'logo' }} className="md:grayscale-[1000] md:hover:grayscale-0 transition duration-300 ease-out mx-6" />
+      </Animateonenterview>
+      </div>
     {/if}
     </Carrousel>
   <div class="absolute bottom-10 right-0 grid grid-cols-2 gap-8 whitespace-pre text-secondary">
@@ -163,7 +161,7 @@ trust
           <p slot="description" class="font-normal line-clamp-3">{feature.description}</p>
           <Triangles />
           <div slot="cta">
-            <Go to="/projects/{slugify(feature.title)}">
+            <Go to="/projects/{feature.slug}">
               <Button
                 label="more"
                 type="primary"
