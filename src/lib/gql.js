@@ -1,8 +1,9 @@
 import { GraphQLClient } from "graphql-request";
 
-export const graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL);
+export const graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
 
 export async function getProjectPreviews() {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { projects } = await graphcms.request(`
     {
       projects {
@@ -28,6 +29,7 @@ export async function getProjectPreviews() {
 }
 
 export async function getClients() {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { clients } = await graphcms.request(`
     {
       clients(where: {logo: {}}) {
@@ -42,6 +44,7 @@ export async function getClients() {
 }
 
 export async function getServices() {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { services } = await graphcms.request(`
     {
       services {
@@ -59,6 +62,7 @@ export async function getServices() {
 }
 
 export async function getFeaturedProjects() {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { projects } = await graphcms.request(`
     {
       projects(where: {featured: true}) {
@@ -84,6 +88,7 @@ export async function getFeaturedProjects() {
 }
 
 export async function getProject(slug) {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { project } = await graphcms.request(`
     {
       project(where: {slug: "${slug}"}) {
@@ -124,6 +129,7 @@ export async function getProject(slug) {
 }
 
 export async function getPage(slug) {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { page } = await graphcms.request(`
     {
       page(where: {slug: "${slug}"}) {
@@ -217,6 +223,7 @@ export async function getPage(slug) {
 }
 
 export async function getSection(id) {
+  if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
   const { section } = await graphcms.request(`
     {
       section(where: {identifier: "${id}"}) {
