@@ -9,6 +9,9 @@
   export let description = ''
   export let clients = []
   export let image = {}
+
+  if(!image) image = {}
+  
   export let services = []
   export let type = []
   export let reverse = false
@@ -42,7 +45,7 @@
     <h3
       class={color == 'secondary'
         ? 'text-primary'
-        : 'text-neutral-light'}
+        : 'text-neutral-light' + ' uppercase'}
     >
       {preheader}
     </h3>
