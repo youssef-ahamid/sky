@@ -2,7 +2,7 @@
   import { getProjectPreviews, getPage } from '$lib/gql'
 
   export async function load({ url }) {
-    let page = await getPage(url.pathname.substring(1))
+    let page = await getPage('projects')
     let projects = await getProjectPreviews()
 
     return {
@@ -32,8 +32,8 @@
   import Section from '$lib/components/Section/Section.svelte'
 
   // Data Handling & Stores
-  import { activePage } from '$lib/stores'
-  $activePage = 'projects'
+  import { activePageSlug } from '$lib/stores'
+  $activePageSlug = 'projects'
 </script>
 
 <Hero {...page.sections[0]} {path} />

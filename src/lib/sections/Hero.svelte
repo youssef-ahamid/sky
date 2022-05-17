@@ -2,6 +2,7 @@
   import { getComponentData } from '$lib/helpers'
 
   export let fullHeight = false
+  export let color = 'neutral-light'
   export let background = {}
   export let path = '/'
   export let content = {}
@@ -17,6 +18,8 @@
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
   import Tween from '$lib/components/Tween/Tween.svelte'
   import Go from '$lib/components/Go/Go.svelte'
+  import Image from '$lib/components/Image/Image.svelte'
+  import Triangles from '$lib/components/Triangles/Triangles.svelte'
 
   let tweens = []
   let timeout
@@ -24,11 +27,15 @@
   const untweenAll = () => tweens.forEach(tween => tween.set(0))
 </script>
 
-<Section color="secondary" {fullHeight} bg={background.url}>
-  <Hero fullHeight className="text-white">
+<Section
+  color={color == 'secondary'? 'neutral-light': 'secondary' }
+  {fullHeight}
+  bg={!!background ? background.url : ''}
+>
+  <Hero fullHeight className="text-{color}">
     <div slot="left" class="flex flex-col items-start space-y-2">
       <Animateonenterview>
-        <Breadcrumb {path} />
+        <Breadcrumb {path} className="{color == 'secondary'? 'text-primary': 'text-neutral-light'}" />
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="200">
         <h1>{hero.title}</h1>
@@ -37,9 +44,19 @@
         <p>{hero.description}</p>
       </Animateonenterview>
       <Animateonenterview delay="1200">
-        <Go to={button.url} className="my-8">
-          <Button {...button} />
-        </Go>
+        {#if Array.isArray(button)}
+          <div class="flex space-x-2 md:space-x-8 items-center">
+            {#each button as btn}
+              <Go to={btn.url} className="my-8">
+                <Button {...btn} />
+              </Go>
+            {/each}
+          </div>
+        {:else}
+          <Go to={button.url} className="my-8">
+            <Button {...button} />
+          </Go>
+        {/if}
       </Animateonenterview>
     </div>
     {#if !!statistic && statistic.length > 0}
@@ -62,5 +79,16 @@
         {/each}
       </Animateonenterview>
     {/if}
+    <div slot="right">
+      {#if !!hero.image}
+        <Animateonenterview type="flyRight" delay="1500">
+          <Image
+            src={hero.image.url}
+            type="custom"
+            clip={Triangles}
+          />
+        </Animateonenterview>
+      {/if}
+    </div>
   </Hero>
 </Section>

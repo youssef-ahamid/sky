@@ -3,7 +3,8 @@
 
   export let descriptionText = ''
   export let title = ''
-  export let previewImage = {
+  export let previewImage 
+  if(!previewImage) previewImage = {
     url: site.mainImage
   }
 

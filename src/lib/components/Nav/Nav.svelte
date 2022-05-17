@@ -21,15 +21,15 @@
   import Go from '../Go/Go.svelte'
   import Image from '../Image/Image.svelte'
   import { activePage } from '$lib/stores'
+import Logo from '../Logo/Logo.svelte';
   $: classes = config({ active, ...styleOptions })
 </script>
 
-<div class="absolute top-0 left-0 right-0">
+<div class="relative h-8 -mt-8 pt-8">
   <Go to="/">
-    <Image
-      src="https://i.ibb.co/h261LhZ/sky-logo.png"
-      alt="Sky Fort for Trading and Contracting logo"
-      className="absolute left-[10%] lg:hidden top-10 w-24 lg:w-36 z-[997]"
+    <Logo
+      color={styleOptions.type == 'secondary'? 'primary': 'neutral-light'}
+      className="absolute left-[10%] lg:hidden w-24 top-20 lg:w-44 z-[997]"
     />
   </Go>
   <div class={classes.iconWrapper} on:click={toggle} id="menu-icon">
@@ -37,10 +37,9 @@
   </div>
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
-      <Image
-        src="https://i.ibb.co/h261LhZ/sky-logo.png"
-        alt="Sky Fort for Trading and Contracting logo"
-        className="my-8 lg:my-0 w-20 lg:w-32 pt-5 lg:fixed lg:top-5 lg:left-[10%]"
+      <Logo
+        color={styleOptions.type == 'secondary'? 'primary': 'neutral-light'}
+        className="my-8 lg:my-0 w-20 lg:w-44 pt-5 left-5 lg:fixed lg:top-5 lg:left-[10%]"
       />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>

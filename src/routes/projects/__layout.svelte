@@ -15,16 +15,13 @@
 
 <script>
   import Contact from '$lib/sections/Contact.svelte'
-  import Seo from '$lib/components/SEO/SEO.svelte'
 
-  import { activePage } from '$lib/stores'
+  import { activePageSlug } from '$lib/stores'
 
   export let page
 
-  $activePage = 'projects'
+  $activePageSlug = 'projects'
 </script>
 
-
-<Seo {...page.seo} />
 <slot />
 <Contact {...page.sections[3]} />

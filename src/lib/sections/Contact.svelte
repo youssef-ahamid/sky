@@ -50,6 +50,7 @@
 <Section
   color="secondary"
   className="bg-secondary text-neutral-light py-20"
+  id="contact"
   {fullHeight}
   bg={!!background ? background.url : ''}
 >

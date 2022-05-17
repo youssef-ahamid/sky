@@ -143,6 +143,7 @@ export async function getPage(slug) {
         }
         slug
         sections {
+          identifier
           background {
             url
           }
@@ -158,6 +159,26 @@ export async function getPage(slug) {
               shape
               type
               url
+            }
+            ... on Employee {
+              teamMember {
+                name
+                role
+                image {
+                  url
+                }
+              }
+            }
+            ... on WYSIWYG {
+              text {
+                html
+              }
+            }
+            ... on Award {
+              title
+              image {
+                url
+              }
             }
             ... on Hero {
               description
@@ -207,6 +228,7 @@ export async function getSection(id) {
   const query = gql`
     {
       section(where: {identifier: "${id}"}) {
+        identifier
         background {
           url
         }
@@ -244,6 +266,26 @@ export async function getSection(id) {
           ... on Step {
             title
             text
+          }
+          ... on Employee {
+            teamMember {
+              name
+              role
+              image {
+                url
+              }
+            }
+          }
+          ... on WYSIWYG {
+            text {
+              html
+            }
+          }
+          ... on Award {
+            title
+            image {
+              url
+            }
           }
           ... on Testimonial {
             text

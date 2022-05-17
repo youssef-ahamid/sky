@@ -1,15 +1,13 @@
 <script context="module">
-  import { getProjectPreviews, getSection, getClients } from '$lib/gql'
+  import { getProjectPreviews, getClients } from '$lib/gql'
 
   export async function load() {
     let projects = await getProjectPreviews()
-    let contact = await getSection('contact')
     let clients = await getClients()
 
     return {
       props: {
         projects,
-        contact,
         clients
       },
     }
@@ -18,7 +16,7 @@
 
 <script>
 
-  export let projects, contact, clients
+  export let projects, clients
 
   import Button from '$lib/components/Button/Button.svelte'
   import Hero from '$lib/components/Hero/Hero.svelte'
@@ -210,9 +208,6 @@ trust
     {/each}
   </div>
 </Section>
-
-
-<Contact {...contact} />
 
 <!-- 
 <Hero fullHeight>

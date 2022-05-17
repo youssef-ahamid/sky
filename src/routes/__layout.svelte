@@ -1,12 +1,46 @@
+<svelte:options accessors={true} />
+
 <script context="module">
   export const prerender = true
+  import { getPage, getSection } from '$lib/gql'
+
+  export async function load({ url }) {
+    let slug = url.pathname.substring(1)
+    let contact = await getSection('contact')
+    let page = await getPage(slug)
+
+    return {
+      props: {
+        currentPath: url.pathname,
+        page,
+        slug,
+        contact,
+      },
+    }
+  }
 </script>
 
+
+
 <script>
+  export let page, slug, currentPath, contact
+
+  if(!page) page = {
+    seo: {},
+    sections: []
+  }
+
+  
+
+  import Seo from '$lib/components/SEO/SEO.svelte'
+
+  import { activePageSlug, activeSection, mobile, activePage, path } from '$lib/stores'
+  $activePage = page
+  $path = currentPath
+  $activePageSlug = slug
+
   import Footer from '$lib/components/Footer/Footer.svelte';
   import Nav from '$lib/components/Nav/Nav.svelte'
-
-  import { activeSection, mobile } from '$lib/stores'
 
   let links = [
     {
@@ -40,10 +74,12 @@
 
   $: $mobile = innerWidth < 700
   import '$lib/styles/app.css'
+import Contact from '$lib/sections/Contact.svelte';
 </script>
 
 <svelte:window bind:innerWidth />
 
+<Seo {...page.seo} />
 <Nav
   {links}
   styleOptions={{
@@ -51,8 +87,8 @@
       $activeSection.color == 'secondary' ? 'primary' : 'secondary',
   }}
 />
-<slot />
-
+<slot sections={page.sections} />
+<Contact {...contact} />
 <Footer 
   {links} 
   content="some text for the logo can go in here for real"

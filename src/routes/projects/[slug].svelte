@@ -28,12 +28,11 @@
 
   // Data Handling & Stores
   let trans = 400
-  import { activePage } from '$lib/stores'
-  $activePage = 'projects'
+  import { activePageSlug } from '$lib/stores'
+  $activePageSlug = 'projects'
 </script>
 
 <Hero fullHeight {project} {path} />
-
 
 <div class="bg-neutral pt-12 md:pt-20">
   <div class="project-content">
@@ -43,32 +42,32 @@
     </Animateonenterview>
   </div>
   {#if project.images.length > 0}
-  <Carrousel
-    items={project.images}
-    loop
-    let:item={image}
-    let:previewed
-    className="min-h-[200px] md:min-h-[650px] bg-neutral mt-6"
-    numPreviewedEachStep={1}
-    on:next={(trans = -400)}
-    on:prev={(trans = 400)}
-  >
-    {#if previewed}
-      {#key image.url}
-        <div
-          in:fly={{ x: trans, delay: 400 }}
-          out:fly={{ x: -trans, duration: 300 }}
-          class:absolute={!previewed}
-        >
-          <Image
-            {...image}
-            alt={`${project.title} - Sky for Trading & Contracting`}
-            className="min-h-[600px]"
-            type="bottom-cover"
-          />
-        </div>
-      {/key}
-    {/if}
-  </Carrousel>
-{/if}
+    <Carrousel
+      items={project.images}
+      loop
+      let:item={image}
+      let:previewed
+      className="min-h-[200px] md:min-h-[650px] bg-neutral mt-6"
+      numPreviewedEachStep={1}
+      on:next={(trans = -400)}
+      on:prev={(trans = 400)}
+    >
+      {#if previewed}
+        {#key image.url}
+          <div
+            in:fly={{ x: trans, delay: 400 }}
+            out:fly={{ x: -trans, duration: 300 }}
+            class:absolute={!previewed}
+          >
+            <Image
+              {...image}
+              alt={`${project.title} - Sky for Trading & Contracting`}
+              className="min-h-[600px]"
+              type="bottom-cover"
+            />
+          </div>
+        {/key}
+      {/if}
+    </Carrousel>
+  {/if}
 </div>

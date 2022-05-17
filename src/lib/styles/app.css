@@ -104,7 +104,7 @@ html {
 }
 
 body {
-  @apply overflow-x-hidden w-[100vw] font-heading font-light text-lg md:text-2xl leading-snug;
+  @apply overflow-x-hidden max-w-[100vw] font-heading font-light text-lg md:text-2xl leading-snug;
 }
 
 
