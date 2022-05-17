@@ -1,11 +1,9 @@
-import { GraphQLClient, gql } from 'graphql-request'
+import { GraphQLClient } from "graphql-request";
 
-export const graphcms = new GraphQLClient(
-  import.meta.env.VITE_GRAPHCMS_URL
-)
+export const graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL);
 
 export async function getProjectPreviews() {
-  const query = gql`
+  const { projects } = await graphcms.request(`
     {
       projects {
         slug
@@ -25,13 +23,12 @@ export async function getProjectPreviews() {
         }
       }
     }
-  `
-  const { projects } = await graphcms.request(query)
-  return projects
+  `);
+  return projects;
 }
 
 export async function getClients() {
-  const query = gql`
+  const { clients } = await graphcms.request(`
     {
       clients(where: {logo: {}}) {
         logo {
@@ -40,13 +37,12 @@ export async function getClients() {
         name
       }
     }
-  `
-  const { clients } = await graphcms.request(query)
-  return clients
+  `);
+  return clients;
 }
 
 export async function getServices() {
-  const query = gql`
+  const { services } = await graphcms.request(`
     {
       services {
         title
@@ -58,13 +54,12 @@ export async function getServices() {
         description
       }
     }
-  `
-  const { services } = await graphcms.request(query)
-  return services
+  `);
+  return services;
 }
 
 export async function getFeaturedProjects() {
-  const query = gql`
+  const { projects } = await graphcms.request(`
     {
       projects(where: {featured: true}) {
         slug
@@ -84,13 +79,12 @@ export async function getFeaturedProjects() {
         }
       }
     }
-  `
-  const { projects } = await graphcms.request(query)
-  return projects
+  `);
+  return projects;
 }
 
 export async function getProject(slug) {
-  const query = gql`
+  const { project } = await graphcms.request(`
     {
       project(where: {slug: "${slug}"}) {
         slug
@@ -125,13 +119,12 @@ export async function getProject(slug) {
         }
       }
     }
-  `
-  const { project } = await graphcms.request(query)
-  return project
+  `);
+  return project;
 }
 
 export async function getPage(slug) {
-  const query = gql`
+  const { page } = await graphcms.request(`
     {
       page(where: {slug: "${slug}"}) {
         seo {
@@ -219,13 +212,12 @@ export async function getPage(slug) {
         }
       }
     }
-  `
-  const { page } = await graphcms.request(query)
-  return page
+  `);
+  return page;
 }
 
 export async function getSection(id) {
-  const query = gql`
+  const { section } = await graphcms.request(`
     {
       section(where: {identifier: "${id}"}) {
         identifier
@@ -303,8 +295,6 @@ export async function getSection(id) {
         }
       }
     }
-  `
-  const { section } = await graphcms.request(query)
-  return section
+  `);
+  return section;
 }
-
