@@ -23,9 +23,9 @@
   noContain
 >
   <div
-    class="flex flex-col lg:flex-row items-start lg:items-center justify-between p-4 md:p-8 max-w-[90%] md:max-w-[80%] mx-auto"
+    class="flex flex-col lg:flex-row items-start lg:items-center justify-between p-4 md:p-8 max-w-[98%] md:max-w-[80%] mx-auto pb-12"
   >
-    <Animateonenterview type="flyRight">
+    <Animateonenterview type="flyRight" className="min-w-[20rem]">
       <h3 class="text-primary">{preheader}</h3>
       <h2>{title}</h2>
     </Animateonenterview>
@@ -38,14 +38,16 @@
     class="flex flex-wrap flex-col md:flex-row justify-between items-start max-w-[90%] mx-auto md:my-20"
   >
     {#each steps as step, i}
-      <div class="my-3 md:my-6 md:w-52 relative">
-          <Animateonenterview delay={400 + 200 * i}>
-        <div class="flex items-center my-4">
-            <p class="text-primary text-4xl font-bold mr-3">0{i + 1}</p>
+      <div class="my-3 md:my-6 md:w-80 relative">
+        <Animateonenterview delay={400 + 200 * i}>
+          <div class="flex items-center my-4">
+            <p class="text-primary text-4xl font-bold mr-3">
+              0{i + 1}
+            </p>
             <p class="font-bold text-xl">{step.title}</p>
-        </div>
-        <p class="">{step.text}</p>
-    </Animateonenterview>
+          </div>
+          <p class="">{step.text}</p>
+        </Animateonenterview>
 
         {#if i < steps.length - 1}
           <Animateonenterview delay={400 + 200 * i}>
