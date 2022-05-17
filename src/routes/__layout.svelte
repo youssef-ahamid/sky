@@ -25,8 +25,6 @@
 <script>
   export let page, slug, currentPath, contact, footer
 
-  console.log(footer)
-
   if (!page)
     page = {
       seo: {},

@@ -34,7 +34,7 @@
 
 <div
   use:inView={{ bottom: 20 }}
-  style="{styles} transition-delay: {delay}ms"
+  style="{styles} {intersecting? `transition-delay: ${delay}ms`: ''}"
   on:enter={enter}
   on:exit={exit}
   class={`${wrapper.classes} ${className}`}

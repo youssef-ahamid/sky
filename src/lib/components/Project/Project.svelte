@@ -43,13 +43,13 @@
       : 'md:w-[70%] md:min-w-fit'} px-8"
   >
     <h3
-      class={color == 'secondary'
+      class="uppercase {color == 'secondary'
         ? 'text-primary'
-        : 'text-neutral-light' + ' uppercase'}
+        : 'text-neutral-light'}"
     >
       {preheader}
     </h3>
-    <h2 class="uppercase">{title}</h2>
+    <h2 class="capitalize">{title}</h2>
     <p class="max-w-[64ch] mt-3 md:mt-6 {shortAndSweet? 'line-clamp-4': ''}">{description}</p>
     {#if !!cta.label}
       <Go
