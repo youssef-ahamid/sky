@@ -12,7 +12,7 @@
   import Earth from '$lib/icons/Earth.svelte'
   import Usd from '$lib/icons/usd.svelte'
   import Triangles from '$lib/components/Triangles/Triangles.svelte'
-import List from '$lib/components/List/List.svelte'
+  import List from '$lib/components/List/List.svelte'
 </script>
 
 <Section
@@ -48,22 +48,26 @@ import List from '$lib/components/List/List.svelte'
           <Usd className="h-6 w-6 mr-2 mt-0.5 text-primary" />
           <p class="one-liner">{project.businessVolume}</p>
         </Animateonenterview>
-        
       </div>
-      <Animateonenterview
-        type="flyLeft"
-        delay="1000"
-      >
+      <Animateonenterview type="flyLeft" delay="1000">
         <h3 class="text-primary opacity-75 mt-4">Owner</h3>
         <p class="one-liner">{project.owner}</p>
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="1500">
         <h3 class="text-primary opacity-75 mt-4">Consultants</h3>
-        <List items={project.clients} let:prop={client} let:index className="flex flex-wrap items-center">
-          {#if !!client.logo && !!client.logo.url }
-          <Animateonenterview delay={1800 + index*100} type="flyUp">
-            <Image {...client.logo} type="logo" className="mr-10" />
-          </Animateonenterview>
+        <List
+          items={project.clients}
+          let:prop={client}
+          let:index
+          className="flex flex-wrap items-center"
+        >
+          {#if !!client.logo && !!client.logo.url}
+            <Animateonenterview
+              delay={1800 + index * 100}
+              type="flyUp"
+            >
+              <Image {...client.logo} type="logo" className="mr-10" />
+            </Animateonenterview>
           {/if}
         </List>
       </Animateonenterview>
@@ -72,13 +76,15 @@ import List from '$lib/components/List/List.svelte'
       </Animateonenterview>
     </div>
     <div slot="right">
-      <Animateonenterview type="flyRight" delay="1500">
-        <Image
-          src={project.image.url}
-          type="custom"
-          clip={Triangles}
-        />
-      </Animateonenterview>
+      {#if !!project.image}
+        <Animateonenterview type="flyRight" delay="1500">
+          <Image
+            src={project.image.url}
+            type="custom"
+            clip={Triangles}
+          />
+        </Animateonenterview>
+      {/if}
     </div>
   </Hero>
 </Section>
