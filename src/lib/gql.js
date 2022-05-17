@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 
-export const graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
+export let graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
 
 export async function getProjectPreviews() {
   if(!graphcms) graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL, { headers: {} });
