@@ -21,6 +21,7 @@
   import Hero from '$lib/sections/Project-Hero.svelte'
 
   // Components
+  import PageTransition from '$lib/components/Page Transition/Page Transition.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
   import Carrousel from '$lib/components/Carrousel/Carrousel.svelte'
   import Image from '$lib/components/Image/Image.svelte'
@@ -31,6 +32,10 @@
   import { activePageSlug } from '$lib/stores'
   $activePageSlug = 'projects'
 </script>
+
+<PageTransition>
+  {project.title}
+</PageTransition>
 
 <Hero fullHeight {project} {path} />
 

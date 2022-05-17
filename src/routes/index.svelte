@@ -32,9 +32,6 @@
 
   const features = projects
   let trans = 400
-  const aboutImage = {
-    src: 'https://i.ibb.co/MG9r206/Screen-Shot-2022-04-03-at-1-59-16-PM.png',
-  }
   
 
   const services = [
@@ -69,8 +66,8 @@
 
 
   import Triangles from '$lib/components/Triangles/Triangles.svelte';
-import { mobile } from '$lib/stores';
-import { fly } from 'svelte/transition';
+  import { mobile } from '$lib/stores';
+  import { fly } from 'svelte/transition';
 
   let Y, height
 </script>
@@ -206,77 +203,3 @@ trust
     {/each}
   </div>
 </Section>
-
-<!-- 
-<Hero fullHeight>
-  <div class="py-56 px-8 overflow-hidden md:overflow-visible text-center">
-    <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[60deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
-    </div>
-    <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[45deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
-    </div>
-    <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[25deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
-    </div>
-    <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[10deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative,</p>
-    </div>
-    <div class="relative inline-block group z-0 hover:z-50">
-      <div class="group-hover:opacity-100 pointer-events-none translate-y-18 absolute z-0 opacity-0 rotate-[0deg] transition duration-300 ease-out top-0 bottom-0 left-0 w-0 h-0 scale-150 border-l-[300px] border-b-[180px] border-t-[40px] border-b-transparent border-t-transparent border-l-secondary"></div>
-      <p class="body-lg font-bold text-primary mx-1 group-hover:text-neutral-light transition duration-300 ease-out z-10 relative">innovative</p>
-    </div>
-  </div>
-</Hero> -->
-
-<!-- <Section id="about">
-  <Hero className="py-16 md:py-36 overflow-hidden">
-    <Animateonenterview
-      slot="left"
-      type="flyLeft"
-      className="flex flex-col"
-    >
-      <h2>Who we are</h2>
-      <div class="md:w-[90%]">
-        Learn
-        <Button
-          type="primary"
-          label="more"
-          className="inline-block"
-        />
-        about our team & founders
-      </div>
-    </Animateonenterview>
-
-    <Animateonenterview slot="right" type="flyRight" className="scale-[125%]">
-      <Image {...aboutImage} />
-    </Animateonenterview>
-  </Hero>
-</Section> -->
-<!-- 
-<Section color="neutral-light" id="contact" noContain fullHeight bg="assets/bg/3.JPG" className="relative">
-  <div class="bg-neutral-light w-full md:w-1/2 absolute bottom-0 md:right-0 h-[50vh] md:h-screen flex flex-col items-center justify-center">
-    <h2 class="text-center text-neutral-dark pb-6 md:pb-16 whitespace-nowrap">Contact us</h2>
-    <div class="flex flex-col">
-      <Card className="bg-neutral-light ring-primary ring-2 max-w-fit rounded-[220px] my-2">
-          <div class="w-[90%] py-3 mx-auto flex flex-col items-center space-y-4 px-12">
-            <Copyable value="info@skyfortc.com" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
-              <EmailAttachment className="text-primary w-8 mx-1" />
-              <p>info@skyfortc.com</p>
-            </Copyable>
-            <Go to="tel:+201033923229" className="flex items-center w-full cursor-pointer hover:scale-105 transition duration-300">
-              <Phone className="text-primary w-8 mx-1" />
-              <p>01033923229</p>
-            </Go>
-          </div>
-      </Card>
-      <TextInput bind:this={emailInput} bind:value={emailCollect.value} {...emailCollect} on:submit={mail} on:change={() => emailInput.cta.label = 'send'} />
-      <p class="w-64 text-center mx-auto">and we'll send you a message!</p>
-    </div>
-  </div>
-</Section>
-   -->

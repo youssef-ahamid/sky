@@ -78,9 +78,14 @@
   $: $mobile = innerWidth < 700
   import '$lib/styles/app.css'
   import Contact from '$lib/sections/Contact.svelte'
+import PageTransition from '$lib/components/Page Transition/Page Transition.svelte';
 </script>
 
 <svelte:window bind:innerWidth />
+
+<PageTransition>
+  {slug}
+</PageTransition>
 
 <Seo {...page.seo} />
 <Nav
