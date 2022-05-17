@@ -20,7 +20,8 @@
   bind:this={awardsSection}
   let:get
   color="neutral-light"
-  className="bg-primary py-8 md:py-24"
+  className="py-8 md:py-24"
+  bg="primary"
 >
   <List
     items={awards}
@@ -28,7 +29,7 @@
     let:index
     className="md:absolute md:right-[10%] md:top-1/2 md:-translate-y-1/2 grid grid-cols-2 justify-center w-full md:w-1/4"
   >
-    <Animateonenterview type="flyUp" delay={1200 + 150 * index}>
+    <Animateonenterview type="flyUp" delay={500 + 150 * index}>
       <Image
         type="award"
         {...award.image}

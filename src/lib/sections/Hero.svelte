@@ -5,6 +5,7 @@
   export let color = 'neutral-light'
   export let background = {}
   export let path = '/'
+  export let preheader
   export let content = {}
 
   let hero = getComponentData(content, 'Hero')
@@ -35,7 +36,11 @@
   <Hero fullHeight className="text-{color}">
     <div slot="left" class="flex flex-col items-start space-y-2">
       <Animateonenterview>
-        <Breadcrumb {path} className="{color == 'secondary'? 'text-primary': 'text-neutral-light'}" />
+        {#if !!preheader }
+          <h3 class="text-{color == 'secondary'? 'primary': 'neutral-light' }">{preheader}</h3>
+        {:else}
+          <Breadcrumb {path} className="{color == 'secondary'? 'text-primary': 'text-neutral-light'}" />
+        {/if}
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="200">
         <h1>{hero.title}</h1>

@@ -1,10 +1,8 @@
 <script>
   /* props */
   export let items = [] // *, list items
-  if(!items || items.length == 0) {
-    console.log("items is undefined")
-    items = []
-  }
+  if(!items || items.length == 0) items = []
+  
   export let className = '' // *, custom wrapper classes
   export let styles = ''
 

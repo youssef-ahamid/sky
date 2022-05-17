@@ -8,6 +8,6 @@ import Hero from '$lib/sections/Hero.svelte'
 
 </script>
 
-<Hero {...page.sections[0]} path={$path} color="secondary" />
+<Hero {...page.sections[0]} path={$path} color="neutral-light" />
 <Story section={page.sections[1]} />
 <Awards section={page.sections[2]} />

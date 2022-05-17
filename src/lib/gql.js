@@ -162,6 +162,13 @@ export async function getPage(slug) {
                 }
               }
             }
+            ... on ContactInformation {
+              contact {
+                email
+                phoneNumber
+                address
+              }
+            }
             ... on WYSIWYG {
               text {
                 html
@@ -236,6 +243,13 @@ export async function getSection(id) {
             shape
             type
             url
+          }
+          ... on ContactInformation {
+            contact {
+              email
+              phoneNumber
+              address
+            }
           }
           ... on Hero {
             description

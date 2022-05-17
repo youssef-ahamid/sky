@@ -7,6 +7,7 @@
   export async function load({ url }) {
     let slug = url.pathname.substring(1)
     let contact = await getSection('contact')
+    let footer = await getSection('footer')
     let page = await getPage(slug)
 
     return {
@@ -15,13 +16,16 @@
         page,
         slug,
         contact,
+        footer
       },
     }
   }
 </script>
 
 <script>
-  export let page, slug, currentPath, contact
+  export let page, slug, currentPath, contact, footer
+
+  console.log(footer)
 
   if (!page)
     page = {
@@ -99,7 +103,7 @@ import PageTransition from '$lib/components/Page Transition/Page Transition.svel
 <Contact {...contact} />
 <Footer
   {links}
-  content="some text for the logo can go in here for real"
+  {...footer}
   copyright="copyright 2021 Sky for Trading & Contracting"
   address={{
     email: 'info@skyfortc.com',

@@ -29,8 +29,10 @@
     if (currentStep < items.length - numPreviewedEachStep) {
       select(currentStep + numPreviewedEachStep)
     } else if (loop) currentStep = 0
-    clearInterval(autoplayInterval)
-    if (autoplay) autoplayInterval = setInterval(next, 3000)
+    if (autoplay) {
+      clearInterval(autoplayInterval)
+      autoplayInterval = setInterval(next, 3000)
+    }
   }
   export const prev = () => {
     if (currentStep < numPreviewedEachStep && loop) {
@@ -38,18 +40,18 @@
     } else if (currentStep >= numPreviewedEachStep) {
       select(currentStep - numPreviewedEachStep)
     } else select(0)
-    clearInterval(autoplayInterval)
-    if (autoplay) autoplayInterval = setInterval(next, 3000)
+    if (autoplay) {
+      clearInterval(autoplayInterval)
+      if (autoplay) autoplayInterval = setInterval(next, 3000)
+    }
   }
 
   if (autoplay) autoplayInterval = setInterval(next, 3000)
 
   let carrouselItems = []
-  
 
   $: select(currentStep)
   
-
   /* styles */
   import { stylus } from '$lib/helpers'
   import {

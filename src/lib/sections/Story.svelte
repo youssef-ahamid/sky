@@ -14,7 +14,7 @@
   bind:this={story}
   className="mx-auto max-w-6xl pb-12"
 >
-  <Animateonenterview type="flyLeft" delay="1200">
+  <Animateonenterview type="flyLeft" delay="1200" className="richtext">
     {@html get('WYSIWYG').text.html}
   </Animateonenterview>
 </Section>

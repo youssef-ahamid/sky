@@ -63,6 +63,14 @@
     @apply whitespace-nowrap;
   }
 
+  .richtext p {
+    @apply pb-4
+  }
+
+  .richtext strong {
+    @apply font-medium
+  }
+
   .project-content {
     @apply max-w-[80%] mx-auto text-secondary;
   }

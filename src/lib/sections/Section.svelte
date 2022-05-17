@@ -11,6 +11,7 @@
   export let description = ''
   if (!description) description = ''
   export let color = ''
+  export let bg = ''
   export let identifier = ''
   export let fullHeight = false
   export let noContain = false
@@ -38,7 +39,7 @@
 
 <Section
   color={invert}
-  className="bg-{invert} text-{color} {className}"
+  className="bg-{bg} text-{color} {className}"
   {fullHeight}
   {noContain}
   id={identifier}
