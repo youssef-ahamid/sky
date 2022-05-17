@@ -1,7 +1,8 @@
 <svelte:options accessors={true} />
 
 <script context="module">
-  import { getPage, getSection } from '$lib/gql'
+  export const prerender = true
+  import { getPage, getSection, graphcms } from '$lib/gql'
 
   export async function load({ url }) {
     let slug = url.pathname.substring(1)
