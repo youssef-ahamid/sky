@@ -26,7 +26,7 @@
     </div>
   {:else if !!image}
     <div
-      class="w-full h-full group-hover:opacity-100 {active? 'opacity-100': 'opacity-0'} rounded-[50px] bg-gradient-to-t from-secondary z-20 absolute pointer-events-none transition duration-300 ease-out"
+      class="w-full h-full opacity-100 rounded-[50px] bg-gradient-to-t from-secondary z-20 absolute pointer-events-none transition duration-300 ease-out"
     />
     <Image {...image} className={classes.image} />
   {/if}
