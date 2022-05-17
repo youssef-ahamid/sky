@@ -68,9 +68,7 @@
   ]
 
 
-  import Card from '$lib/components/Card/Card.svelte';
   import Triangles from '$lib/components/Triangles/Triangles.svelte';
-import Contact from '$lib/sections/Contact.svelte';
 import { mobile } from '$lib/stores';
 import { fly } from 'svelte/transition';
 

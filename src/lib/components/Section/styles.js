@@ -16,7 +16,7 @@ export let content = options => {
   return [
     {
       on: [options.noContain, false],
-      classes: 'p-4 md:p-8 max-w-[90%] md:max-w-[80%] mx-auto',
+      classes: 'p-4 md:p-8 max-w-[98%] md:max-w-[80%] mx-auto',
     },
     {
       on: [options.noContain, true],

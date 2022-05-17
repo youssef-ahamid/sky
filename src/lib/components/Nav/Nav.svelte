@@ -39,7 +39,7 @@ import Logo from '../Logo/Logo.svelte';
     <Go to="/">
       <Logo
         color={styleOptions.type == 'secondary'? 'primary': 'neutral-light'}
-        className="my-8 lg:my-0 w-20 lg:w-44 pt-5 left-5 lg:fixed lg:top-5 lg:left-[10%]"
+        className="my-8 lg:my-0 w-20 lg:w-32 pt-5 left-5 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>

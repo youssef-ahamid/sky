@@ -6,6 +6,7 @@
 
   let element
   let intersecting = false
+  let noExit = false
 
   import { inView } from '$lib/actions'
 
@@ -18,6 +19,8 @@
   }
 
   const exit = () => {
+    if(noExit) return
+
     intersecting = false
     dispatch('exit')
   }
