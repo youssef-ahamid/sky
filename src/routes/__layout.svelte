@@ -20,26 +20,29 @@
   }
 </script>
 
-
-
 <script>
   export let page, slug, currentPath, contact
 
-  if(!page) page = {
-    seo: {},
-    sections: []
-  }
-
-  
+  if (!page)
+    page = {
+      seo: {},
+      sections: [],
+    }
 
   import Seo from '$lib/components/SEO/SEO.svelte'
 
-  import { activePageSlug, activeSection, mobile, activePage, path } from '$lib/stores'
+  import {
+    activePageSlug,
+    activeSection,
+    mobile,
+    activePage,
+    path,
+  } from '$lib/stores'
   $activePage = page
   $path = currentPath
   $activePageSlug = slug
 
-  import Footer from '$lib/components/Footer/Footer.svelte';
+  import Footer from '$lib/components/Footer/Footer.svelte'
   import Nav from '$lib/components/Nav/Nav.svelte'
 
   let links = [
@@ -74,7 +77,7 @@
 
   $: $mobile = innerWidth < 700
   import '$lib/styles/app.css'
-import Contact from '$lib/sections/Contact.svelte';
+  import Contact from '$lib/sections/Contact.svelte'
 </script>
 
 <svelte:window bind:innerWidth />
@@ -89,15 +92,16 @@ import Contact from '$lib/sections/Contact.svelte';
 />
 <slot sections={page.sections} />
 <Contact {...contact} />
-<Footer 
-  {links} 
+<Footer
+  {links}
   content="some text for the logo can go in here for real"
   copyright="copyright 2021 Sky for Trading & Contracting"
   address={{
-    email: "info@skyfortc.com",
-    phone: "+1 (844) 789-8787",
-    fullAddress: "Sky for Trading & Contracting, Inc.\n" +
-      "1201 N. Main Street, Suite #100\n" +
-      "Cleveland, OH 44115",
+    email: 'info@skyfortc.com',
+    phone: '+1 (844) 789-8787',
+    fullAddress:
+      'Sky for Trading & Contracting, Inc.\n' +
+      '1201 N. Main Street, Suite #100\n' +
+      'Cleveland, OH 44115',
   }}
 />
