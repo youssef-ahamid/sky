@@ -1,7 +1,6 @@
 <svelte:options accessors={true} />
 
 <script context="module">
-  export const prerender = true
   import { getPage, getSection } from '$lib/gql'
 
   export async function load({ url }) {
