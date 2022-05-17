@@ -1,7 +1,7 @@
 export const PersonWrapper = props => {
   return [
     {
-      classes: 'flex items-center justify-start space-x-2 mt-6',
+      classes: 'flex items-center justify-start space-x-2 mt-6 mb-2',
       styles: '',
       on: true, // default
     },

@@ -2,7 +2,6 @@
   /* props */
   export let avatar = {}
   export let logo = {}
-  if(!avatar) avatar = logo
   export let name = ''
   export let caption = ''
   export let role = ''
@@ -22,6 +21,8 @@
 <div class={`${wrapper.classes} ${className}`}>
   {#if !!avatar && (!!avatar.src || !!avatar.url) }
     <Image type="avatar" {...avatar} alt={name} />
+  {:else if !!logo && (!!logo.src || !!logo.url) }
+    <Image type="logo" size="sm" {...logo} alt={name} />
   {/if}
   <div class={textWrapper.classes}>
     <p class="body-sm one-liner font-bold">{name}</p>

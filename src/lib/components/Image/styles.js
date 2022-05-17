@@ -1,7 +1,7 @@
 export const imgWrapper = props => {
   return [
     {
-      classes: 'block relative group',
+      classes: 'block relative group overflow-visible',
       on: true,
     },
     { classes: 'p-3', styles: '', on: props.size == 'sm' },
