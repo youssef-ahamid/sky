@@ -38,7 +38,7 @@ import Animateonenterview from '$lib/components/Animate On Enter View/animate on
 
   <Carrousel
     items={testimonials}
-    className="h-[400px] md:h-[500px]"
+    className="h-[400px] md:h-[400px]"
     loop
     let:item={testimonial}
     let:previewed
@@ -48,11 +48,10 @@ import Animateonenterview from '$lib/components/Animate On Enter View/animate on
   >
     {#if previewed}
       {#key testimonial}
-        <Animateonenterview type="flyUp" delay="300" noExit className="mb-12">
+        <Animateonenterview type="flyUp" delay="300" noExit className="mb-6">
           <div
             in:fly={{ x: trans, delay: 400 }}
             out:fly={{ x: -trans, duration: 300 }}
-            class:absolute={!previewed}
           >
             <Testimonial {...testimonial} />
           </div>

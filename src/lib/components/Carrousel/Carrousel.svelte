@@ -20,16 +20,29 @@
   const dispatch = createEventDispatcher()
 
   /* methods */
+  let carrouselItems = []
   export const select = num => {
     currentStep = num
     if (!carrouselItems[currentStep]) return
+    if (num == items.length - 1)
+      setTimeout(() => {
+        dispatch('complete')
+      }, 500)
+    else dispatch('rewatch')
   }
 
   export const next = () => {
     if (currentStep < items.length - numPreviewedEachStep) {
       select(currentStep + numPreviewedEachStep)
-    } else if (loop) currentStep = 0
-    if (autoplay) {
+      dispatch('next')
+    } else {
+      dispatch('finish')
+      if (loop) {
+        select(0)
+        dispatch('next')
+      }
+    }
+    if(autoplay) {
       clearInterval(autoplayInterval)
       autoplayInterval = setInterval(next, 3000)
     }
@@ -37,21 +50,22 @@
   export const prev = () => {
     if (currentStep < numPreviewedEachStep && loop) {
       select(items.length - numPreviewedEachStep)
+      dispatch('prev')
     } else if (currentStep >= numPreviewedEachStep) {
       select(currentStep - numPreviewedEachStep)
-    } else select(0)
-    if (autoplay) {
+      dispatch('prev')
+    }
+    else select(0)
+    if(autoplay) {
       clearInterval(autoplayInterval)
-      if (autoplay) autoplayInterval = setInterval(next, 3000)
+      autoplayInterval = setInterval(next, 3000)
     }
   }
 
   if (autoplay) autoplayInterval = setInterval(next, 3000)
 
-  let carrouselItems = []
-
   $: select(currentStep)
-  
+
   /* styles */
   import { stylus } from '$lib/helpers'
   import {
@@ -73,6 +87,10 @@
   $: stepper = stylus(carrouselStepper(styleOptions))
   $: buttons = stylus(carrouselButtons(styleOptions))
   $: button = stylus(carrouselButton(styleOptions))
+
+  onMount(() => {
+    dispatch('rewatch')
+  })
 </script>
 
 <div
@@ -99,7 +117,7 @@
   </List>
   {#if !noControls}
     <div
-      class={`${controls.classes} absolute bottom-0 -translate-y-full -translate-x-1/2 left-1/2`}
+      class={`${controls.classes} absolute bottom-0 -translate-y-1/2 -translate-x-1/2 left-1/2`}
     >
       <Stepper
         direction="horizontal"
@@ -109,7 +127,6 @@
       />
       <div class={buttons.classes}>
         <Button
-          label=""
           icon="chevron_left"
           type="primary"
           reverse
@@ -117,7 +134,6 @@
           on:click={prev}
         />
         <Button
-          label=""
           icon="chevron_right"
           type="primary"
           shape="icon"

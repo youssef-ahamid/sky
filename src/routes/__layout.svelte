@@ -58,7 +58,7 @@
     },
     {
       to: '/about',
-      text: 'About us',
+      text: 'About',
     },
     {
       to: '/careers',

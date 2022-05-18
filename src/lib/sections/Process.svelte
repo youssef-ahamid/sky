@@ -52,7 +52,7 @@
         {#if i < steps.length - 1}
           <Animateonenterview delay={400 + 200 * i}>
             <RoundedArrow
-              className="hidden md:block w-52 absolute translate-x-1/2 text-primary 
+              className="hidden md:block w-52 absolute left-1/2 translate-x-1/2 text-primary 
               {i % 2 == 0
                 ? 'top-full translate-y-8'
                 : 'bottom-full -translate-y-8 rotate-180 scale-x-[-1]'}"
