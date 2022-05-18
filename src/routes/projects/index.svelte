@@ -21,7 +21,6 @@
 
   // Sections
   import Hero from '$lib/sections/Hero.svelte'
-  import Statistics from '$lib/sections/Statistics.svelte'
   import Testimonial from '$lib/sections/Testimonial.svelte'
 
   // Components
@@ -37,8 +36,6 @@
 </script>
 
 <Hero {...page.sections[0]} {path} />
-
-<Statistics {...page.sections[1]} />
 
 <Section id="projects">
   <List items={projects} let:prop={project} let:index>
@@ -62,4 +59,4 @@
   </List>
 </Section>
 
-<Testimonial {...page.sections[2]} />
+<Testimonial {...page.sections[1]} />
