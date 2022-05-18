@@ -54,7 +54,7 @@
         <h1>{hero.title}</h1>
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="500">
-        <p>{hero.description}</p>
+        <p class="font-medium">{hero.description}</p>
       </Animateonenterview>
       <Animateonenterview delay="1200">
         {#if Array.isArray(button)}
