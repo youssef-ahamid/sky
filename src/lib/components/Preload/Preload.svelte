@@ -1,7 +1,7 @@
 <script>
-
+    export let src
 </script>
 
-<div class="hidden">
-    <slot />
-</div>
+<svelte:head>
+    <link rel="preload" as="image" href={src} />
+</svelte:head>

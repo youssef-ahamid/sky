@@ -99,7 +99,7 @@
   </List>
   {#if !noControls}
     <div
-      class={`${controls.classes} absolute bottom-0 -translate-x-1/2 left-1/2`}
+      class={`${controls.classes} absolute bottom-0 -translate-y-full -translate-x-1/2 left-1/2`}
     >
       <Stepper
         direction="horizontal"

@@ -25,7 +25,7 @@
     <Image type="logo" size="sm" {...logo} alt={name} />
   {/if}
   <div class={textWrapper.classes}>
-    <p class="body-sm one-liner font-bold">{name}</p>
-    <p class="body-sm one-liner font-medium">{caption}</p>
+    <p class="body-sm md:one-liner font-bold">{name}</p>
+    <p class="body-sm md:one-liner font-medium">{caption}</p>
   </div>
 </div>

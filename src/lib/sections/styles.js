@@ -15,15 +15,25 @@ export const preheaderStyles = props => {
       styles: '',
       on: props.color == 'neutral-light', 
     },
+    {
+      classes: 'mx-auto text-center',
+      styles: '',
+      on: props.center,
+    },
   ]
 }
 
-export const titleStyles = props => {
+export const titleStyles = (props = {}) => {
   return [
     {
       classes: 'md:max-w-[50%] py-3',
       styles: '',
       on: true, // default
+    },
+    {
+      classes: 'mx-auto text-center',
+      styles: '',
+      on: props.center,
     },
   ]
 }
@@ -31,9 +41,14 @@ export const titleStyles = props => {
 export const descriptionStyles = props => {
   return [
     {
-      classes: 'md:max-w-[80%] py-1',
+      classes: 'max-w-[80%] md:max-w-[42ch] py-1',
       styles: '',
       on: true, // default
+    },
+    {
+      classes: 'mx-auto text-center',
+      styles: '',
+      on: props.center,
     },
   ]
 }

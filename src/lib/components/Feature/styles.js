@@ -40,7 +40,7 @@ export let right = options => {
 export let image = options => {
   return [
     {
-      classes: 'absolute inset-0 rounded-[50px] ring-primary ring-1 z-10 transition duration-500 w-full h-56 md:h-64 overflow-hidden object-contain object-center',
+      classes: 'absolute inset-0 rounded-[60px] ring-primary ring-1 z-10 transition duration-500 w-full h-56 md:h-64 overflow-hidden object-contain object-center',
     },
     {
       classes: '',
@@ -84,7 +84,7 @@ export let content = options => {
 export let otherImage = options => {
   return [
     {
-      classes: 'absolute transition duration-500 ease-out z-0 opacity-0 w-80 md:w-[400px] h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:delay-200 group-hover:delay-200 group-focus-within:z-10 group-hover:z-10 ',
+      classes: 'absolute transition duration-500 rounded-[60px] ease-out z-0 opacity-0 w-80 md:w-[400px] h-48 md:h-60 overflow-hidden object-contain object-center group-focus-within:delay-200 group-hover:delay-200 group-focus-within:z-10 group-hover:z-10 ',
     },
     {
       classes: 'delay-200 z-10',

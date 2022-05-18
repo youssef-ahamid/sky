@@ -21,6 +21,7 @@
   import Go from '$lib/components/Go/Go.svelte'
   import Image from '$lib/components/Image/Image.svelte'
   import Triangles from '$lib/components/Triangles/Triangles.svelte'
+  import Preload from '$lib/components/Preload/Preload.svelte'
 
   let tweens = []
   let timeout
@@ -28,12 +29,19 @@
   const untweenAll = () => tweens.forEach(tween => tween.set(0))
 </script>
 
+{#if !!background }
+  <Preload src={background.url} />
+{/if}
+{#if !!hero.image}
+  <Preload src={hero.image.url} />
+{/if}
+
 <Section
   color={color == 'secondary'? 'neutral-light': 'secondary' }
   {fullHeight}
   bg={!!background ? background.url : ''}
 >
-  <Hero fullHeight className="text-{color}">
+  <Hero {fullHeight} className="text-{color}">
     <div slot="left" class="flex flex-col items-start space-y-2">
       <Animateonenterview>
         {#if !!preheader }

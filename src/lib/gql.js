@@ -162,6 +162,49 @@ export async function getPage(slug) {
                 }
               }
             }
+            ... on ClientGroup {
+              clients {
+                name
+                role
+                type
+                avatar {
+                  url
+                }
+                logo {
+                  url
+                }
+              }
+            }
+            ... on ProjectGroup {
+              projects {
+                slug
+                title
+                description
+                image {
+                  url
+                }
+                clients {
+                  logo {
+                    url
+                  }
+                }
+                type
+                services {
+                  shortTitle
+                }
+              }
+            }
+            ... on ServiceGroup {
+              services {
+                title
+                type
+                shortTitle
+                image {
+                  url
+                }
+                description
+              }
+            }
             ... on ContactInformation {
               contact {
                 email
@@ -243,6 +286,49 @@ export async function getSection(id) {
             shape
             type
             url
+          }
+          ... on ProjectGroup {
+            projects {
+              slug
+              title
+              description
+              image {
+                url
+              }
+              clients {
+                logo {
+                  url
+                }
+              }
+              type
+              services {
+                shortTitle
+              }
+            }
+          }
+          ... on ClientGroup {
+            clients {
+              name
+              role
+              type
+              avatar {
+                url
+              }
+              logo {
+                url
+              }
+            }
+          }
+          ... on ServiceGroup {
+            services {
+              title
+              type
+              shortTitle
+              image {
+                url
+              }
+              description
+            }
           }
           ... on ContactInformation {
             contact {

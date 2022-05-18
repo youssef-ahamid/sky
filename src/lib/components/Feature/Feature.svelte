@@ -26,9 +26,9 @@
     </div>
   {:else if !!image}
     <div
-      class="w-full h-full opacity-100 rounded-[50px] bg-gradient-to-t from-secondary z-20 absolute pointer-events-none transition duration-300 ease-out"
+      class="w-full h-full opacity-100 rounded-2xl md:rounded-[60px] bg-gradient-to-t from-secondary z-20 absolute pointer-events-none transition duration-300 ease-out"
     />
-    <Image {...image} className={classes.image} />
+  <Image {...image} className={classes.image} type="feature" />
   {/if}
   <div class={classes.right} on:click>
     <slot />

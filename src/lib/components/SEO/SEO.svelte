@@ -8,7 +8,7 @@
     url: site.mainImage
   }
 
-  const pageTitle = `${site.title} | ${title}`
+  const pageTitle = `${site.title} ${title != '' && !!title? `| ${title}` : ''}`
 </script>
 
 <svelte:head>
@@ -19,7 +19,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={site.url} />
+  <meta property="og:url" content="<{site.url}>" />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={descriptionText} />
   <meta property="og:image" content={previewImage.url} />
@@ -28,6 +28,4 @@
     name="robots"
     content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
   />
-
-  <html lang={site.language} />
 </svelte:head>

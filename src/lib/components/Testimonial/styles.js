@@ -19,7 +19,7 @@ export const TestimonialWrapper = (props) => {
 export const Quote = (props) => {
   return [
     {
-      classes: "block max-w-[32ch] py-1 md:py-4",
+      classes: "block max-w-[300px] md:max-w-[42ch] py-1 md:py-4 text-sm md:text-base",
       styles: "",
       on: true, // default
     },

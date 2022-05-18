@@ -6,7 +6,6 @@
 
   export let preheader = ''
   export let title = ''
-  export let fullHeight = false
   export let background = {}
   export let content = {}
   export let testimonials = getComponentData(content, 'Testimonial')
@@ -19,6 +18,7 @@
   import Testimonial from '$lib/components/Testimonial/Testimonial.svelte'
   import { mobile } from '$lib/stores'
   import Steps from '$lib/icons/waves/steps.svelte'
+import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
 
   $: prehead = stylus(preheaderStyles({ color: 'primary' }))
   $: tit = stylus(titleStyles())
@@ -27,15 +27,18 @@
 <Section
   color="neutral"
   className="bg-neutral text-secondary py-12"
-  {fullHeight}
   bg={!!background ? background.url : ''}
 >
-  <div class="md:max-w-[70%]" />
-  <h3 class={prehead.classes}>{preheader}</h3>
-  <h2 class={tit.classes}>{title}</h2>
+  <Animateonenterview type="flyLeft" delay="100">
+    <h3 class={prehead.classes}>{preheader}</h3>
+  </Animateonenterview>
+  <Animateonenterview type="flyLeft" delay="300">
+    <h2 class={tit.classes}>{title}</h2>
+  </Animateonenterview>
 
   <Carrousel
     items={testimonials}
+    className="h-[400px] md:h-[500px]"
     loop
     let:item={testimonial}
     let:previewed
@@ -45,13 +48,15 @@
   >
     {#if previewed}
       {#key testimonial}
-        <div
-          in:fly={{ x: trans, delay: 400 }}
-          out:fly={{ x: -trans, duration: 300 }}
-          class:absolute={!previewed}
-        >
-          <Testimonial {...testimonial} />
-        </div>
+        <Animateonenterview type="flyUp" delay="300" noExit className="mb-12">
+          <div
+            in:fly={{ x: trans, delay: 400 }}
+            out:fly={{ x: -trans, duration: 300 }}
+            class:absolute={!previewed}
+          >
+            <Testimonial {...testimonial} />
+          </div>
+        </Animateonenterview>
       {/key}
     {/if}
   </Carrousel>

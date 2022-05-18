@@ -3,10 +3,10 @@
   export let delay = 0
   export let className = ''
   export let styles = ''
+  export let noExit = false
 
   let element
   let intersecting = false
-  let noExit = false
 
   import { inView } from '$lib/actions'
 

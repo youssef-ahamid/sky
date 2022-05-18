@@ -50,7 +50,7 @@
 </script>
 
 <Section
-  color="secondary"
+  color="neutral-light"
   className="bg-secondary text-neutral-light py-20"
   id="contact"
   {fullHeight}
