@@ -30,8 +30,13 @@
   // Data Handling & Stores
   let trans = 400
   import { activePageSlug } from '$lib/stores'
+  import Preload from '$lib/components/Preload/Preload.svelte'
   $activePageSlug = 'projects'
 </script>
+
+{#each project.images as img}
+  <Preload src={img.url} />
+{/each}
 
 <PageTransition>
   {project.title}
@@ -53,23 +58,23 @@
       loop
       let:item={image}
       let:previewed
-      className="min-h-[200px] md:min-h-[650px] bg-neutral mt-6"
+      className="min-h-[200px] md:min-h-[500px] bg-neutral mt-6"
       numPreviewedEachStep={1}
-      on:next={(trans = -400)}
-      on:prev={(trans = 400)}
+      on:next={() => {trans = Math.abs(trans)}}
+      on:prev={() => {trans = -Math.abs(trans)}}
     >
       {#if previewed}
         {#key image.url}
           <div
-            in:fly={{ x: trans, delay: 400 }}
-            out:fly={{ x: -trans, duration: 300 }}
+            in:fly={{ x: trans, delay: 600 }}
+            out:fly={{ x: -trans, duration: 600 }}
             class:absolute={!previewed}
           >
             <Image
               {...image}
               alt={`${project.title} - Sky for Trading & Contracting`}
-              className="min-h-[600px]"
-              type="bottom-cover"
+              className="w-full max-w-xl h-auto"
+              type="custom"
             />
           </div>
         {/key}
