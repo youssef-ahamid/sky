@@ -41,6 +41,7 @@
 
 <div class="bg-neutral pt-12 md:pt-20">
   <div class="project-content">
+    <p>{project.description}</p>
     <Animateonenterview>
       <h2 class="my-4">Scope of Work</h2>
       {@html project.scope.html}
