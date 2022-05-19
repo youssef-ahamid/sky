@@ -73,3 +73,29 @@ export const getComponentData = (components, component) => {
   let data = components.filter(c => c.__typename == component)
   return data.length > 1 ? data : data[0]
 }
+
+export const timeSince = (timestamp, maxDepth = "seconds") => {
+  var date = new Date(timestamp)
+  var seconds = Math.floor((new Date() - date) / 1000)
+  var interval = Math.floor(seconds / 31536000)
+  if (interval > 1 || maxDepth == "years") {
+    return interval + ' years ago'
+  }
+  interval = Math.floor(seconds / 2592000)
+  if (interval > 1 || maxDepth == "months") {
+    return interval + ' months ago'
+  }
+  interval = Math.floor(seconds / 86400)
+  if (interval > 1 || maxDepth == "days") {
+    return interval + ' days ago'
+  }
+  interval = Math.floor(seconds / 3600)
+  if (interval > 1 || maxDepth == "hours") {
+    return interval + ' hours ago'
+  }
+  interval = Math.floor(seconds / 60)
+  if (interval > 1 || maxDepth == "minutes") {
+    return interval + ' minutes ago'
+  }
+  return Math.floor(seconds) + ' seconds ago'
+}

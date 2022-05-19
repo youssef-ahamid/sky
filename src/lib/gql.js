@@ -155,6 +155,28 @@ const queries = {
     }
   `,
 }
+export async function getJob(slug) {
+  const { job } = await graphcms.request(`
+    {
+      job(where: {slug: "${slug}"}) {
+        brief
+        info {
+          html
+        }
+        location
+        title
+        updatedAt
+        notify {
+          contact {
+            email
+          }
+        }
+      }
+    }
+  `);
+  return job;
+
+}
 export async function getProjectPreviews() {
   const { projects } = await graphcms.request(`
     {

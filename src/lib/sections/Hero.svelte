@@ -8,9 +8,10 @@
   export let preheader
   export let content = {}
 
-  let hero = getComponentData(content, 'Hero')
-  let button = getComponentData(content, 'Button')
-  let statistic = getComponentData(content, 'Statistic')
+  export let hero = {}, button = {}, statistic = {}
+  if(!hero) hero = getComponentData(content, 'Hero')
+  if(!button) button = getComponentData(content, 'Button')
+  if(!statistic) statistic = getComponentData(content, 'Statistic')
 
   import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte'
   import Button from '$lib/components/Button/Button.svelte'
@@ -51,10 +52,14 @@
         {/if}
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="200">
-        <h1>{hero.title}</h1>
+        {#if !!hero.title }
+        <h1 class="max-w-[90%] md:max-w-[75%]">{hero.title}</h1>
+        {/if}
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="500">
+        {#if !!hero.description }
         <p class="font-medium">{hero.description}</p>
+        {/if}
       </Animateonenterview>
       <Animateonenterview delay="1200">
         {#if Array.isArray(button)}
@@ -65,12 +70,13 @@
               </Go>
             {/each}
           </div>
-        {:else}
+        {:else if !!button.url}
           <Go to={button.url} className="my-8">
             <Button {...button} />
           </Go>
         {/if}
       </Animateonenterview>
+      <slot {color} />
     </div>
     {#if !!statistic && statistic.length > 0}
       <Animateonenterview

@@ -51,6 +51,7 @@
       }}
     />
   {/each}
+  <slot />
   {#if !!button}
     <Button
       on:click={submit}
