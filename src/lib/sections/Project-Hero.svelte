@@ -21,7 +21,7 @@
   bg={background.url}
   noContain
 >
-  <Hero fullHeight className="text-secondary items-start pt-24">
+  <Hero fullHeight className="text-secondary items-start pt-32">
     <div slot="left" class="flex flex-col items-start space-y-2">
       <Animateonenterview className="text-primary">
         <Breadcrumb {path} />
