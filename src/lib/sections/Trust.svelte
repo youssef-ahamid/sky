@@ -29,7 +29,7 @@
   <List
     items={clients}
     let:index
-    className="grid grid-cols-2 md:grid-cols-5 mx-auto relative py-5"
+    className="grid grid-cols-2 md:grid-cols-5 mx-auto relative py-5 items-center"
     let:prop={client}
   >
     <Animateonenterview type="flyUp" delay={100} className="m-4">

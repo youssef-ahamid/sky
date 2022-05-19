@@ -44,10 +44,13 @@
   import { preheaderStyles, titleStyles } from './styles'
   import TextInput from '$lib/components/Text Input/Text Input.svelte'
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
+import Preload from '$lib/components/Preload/Preload.svelte'
 
   $: prehead = stylus(preheaderStyles({ color: 'neutral-light' }))
   $: tit = stylus(titleStyles())
 </script>
+
+<Preload src={'assets/illustrations/building.png'} />
 
 <Section
   color="neutral-light"
@@ -59,15 +62,15 @@
   <div
     class="flex flex-col lg:flex-row items-start lg:items-center justify-between"
   >
-    <div class="min-w-[40%] md:max-w-[50%] my-5">
+    <div class="min-w-[40%] md:max-w-[50%] my-5 z-10">
       <Animateonenterview type="flyLeft" delay="300">
         <h2 class="pb-1">{preheader}</h2>
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="500">
-        <p>{title}</p>
+        <p class="font-bold">{title}</p>
       </Animateonenterview>
     </div>
-    <div class="flex justify-start md:justify-end w-full">
+    <div class="flex justify-start md:justify-end w-full z-10">
       <Animateonenterview type="flyRight" delay="800">
         <TextInput
           bind:this={emailInput}
@@ -79,5 +82,6 @@
         />
       </Animateonenterview>
     </div>
+    <img src="assets/illustrations/building.png" class="absolute md:translate-y-24 bottom-0 md:bottom-auto md:top-0 left-0 right-0 z-[1]" alt="Sky for trading and contracting">
   </div>
 </Section>

@@ -5,8 +5,9 @@
   import FeaturedProjects from '$lib/sections/Featured-Projects.svelte'
   import FeaturedServices from '$lib/sections/Featured-Services.svelte'
 
-  import { activePage } from '$lib/stores'
+  import { activePage, activeSection } from '$lib/stores'
   let sections = $activePage.sections
+  $activeSection.color = 'secondary'
 </script>
 
 <Hero {...sections[0]} />
