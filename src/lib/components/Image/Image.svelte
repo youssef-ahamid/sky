@@ -13,12 +13,15 @@
 
   /* styles */
   import { stylus } from '$lib/helpers'
+  import Preload from '../Preload/Preload.svelte'
   import { imgWrapper, imgOverlay, img } from './styles'
 
   $: wrapper = stylus(imgWrapper({ type, ...styleOptions }))
   $: overlay = stylus(imgOverlay({ type, src, ...styleOptions }))
   $: image = stylus(img({ type, ...styleOptions }))
 </script>
+
+<Preload {src} />
 
 <div class={`${wrapper.classes} ${className}`} style={wrapper.styles}>
   <!-- svelte-ignore component-name-lowercase -->

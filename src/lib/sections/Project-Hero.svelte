@@ -54,24 +54,26 @@
         <h3 class="text-primary opacity-75 mt-4">Owner</h3>
         <p class="one-liner">{project.owner}</p>
       </Animateonenterview>
-      <Animateonenterview type="flyLeft" delay="1500">
-        <h3 class="text-primary opacity-75 mt-4">Consultants</h3>
-        <List
-          items={project.clients}
-          let:prop={client}
-          let:index
-          className="flex flex-wrap items-center"
-        >
-          {#if !!client.logo && !!client.logo.url}
-            <Animateonenterview
-              delay={1800 + index * 100}
-              type="flyUp"
-            >
-              <Image {...client.logo} type="logo" className="mr-10" />
-            </Animateonenterview>
-          {/if}
-        </List>
-      </Animateonenterview>
+      {#if !!project.clients && project.clients.length > 0}
+        <Animateonenterview type="flyLeft" delay="1500">
+          <h3 class="text-primary opacity-75 mt-4">Consultants</h3>
+          <List
+            items={project.clients}
+            let:prop={client}
+            let:index
+            className="flex flex-wrap items-center"
+          >
+            {#if !!client.logo && !!client.logo.url}
+              <Animateonenterview
+                delay={1800 + index * 100}
+                type="flyUp"
+              >
+                <Image {...client.logo} type="logo" className="mr-10" />
+              </Animateonenterview>
+            {/if}
+          </List>
+        </Animateonenterview>
+      {/if}
       <Animateonenterview type="flyLeft" delay="800">
         <slot />
       </Animateonenterview>

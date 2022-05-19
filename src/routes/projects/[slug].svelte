@@ -44,9 +44,17 @@
 
 <Hero fullHeight {project} {path} />
 
+
 <div class="bg-neutral pt-12 md:pt-20">
+  <div class="max-w-[80%] text-secondary mx-auto">
+    <p class="mb-6">{project.description}</p>
+    <div class="max-w-xl mx-auto p-6">
+      {#if !!project.table }
+        <Image src={project.table.url} />
+      {/if}
+    </div>
+  </div>
   <div class="project-content">
-    <p>{project.description}</p>
     <Animateonenterview>
       <h2 class="my-4">Scope of Work</h2>
       {@html project.scope.html}
@@ -77,7 +85,7 @@
             <Image
               {...image}
               alt={`${project.title} - Sky for Trading & Contracting`}
-              className="w-full max-w-xl h-auto"
+              className="w-full max-w-xl h-auto my-6"
               type="custom"
             />
           </div>

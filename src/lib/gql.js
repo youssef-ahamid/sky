@@ -295,6 +295,9 @@ export async function getProject(slug) {
             url
           }
         }
+        table {
+          url
+        }
       }
     }
   `)
