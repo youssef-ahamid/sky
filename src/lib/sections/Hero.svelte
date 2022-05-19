@@ -6,11 +6,14 @@
   export let background = {}
   export let path = '/'
   export let preheader
+  export let title = ''
+  export let description = ''
   export let content = {}
-
-  export let hero = {}, button = {}, statistic = {}
-  if(!hero) hero = getComponentData(content, 'Hero')
-  if(!button) button = getComponentData(content, 'Button')
+  export let hero = {}
+  export let button = {}
+  export let statistic = {}
+  if(!hero || !hero.title) hero = getComponentData(content, 'Hero')
+  button = getComponentData(content, 'Button')
   if(!statistic) statistic = getComponentData(content, 'Statistic')
 
   import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte'
@@ -52,9 +55,7 @@
         {/if}
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="200">
-        {#if !!hero.title }
-        <h1 class="max-w-[90%] md:max-w-[75%]">{hero.title}</h1>
-        {/if}
+        <h1 class="">{hero.title}</h1>
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="500">
         {#if !!hero.description }
@@ -70,7 +71,7 @@
               </Go>
             {/each}
           </div>
-        {:else if !!button.url}
+        {:else if !!button && !!button.url}
           <Go to={button.url} className="my-8">
             <Button {...button} />
           </Go>

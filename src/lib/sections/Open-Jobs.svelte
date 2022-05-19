@@ -12,7 +12,6 @@ import { slugify } from '$lib/helpers';
 
   export let data = {}
   let jobs = data.content[0].jobs
-  console.log(jobs)
 </script>
 
 <Section

@@ -40,7 +40,6 @@
     email.click()
   }
   const submit = e => {
-    console.log(e)
   }
 </script>
 

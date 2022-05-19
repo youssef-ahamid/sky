@@ -70,6 +70,8 @@ export const slugify = text => {
 }
 
 export const getComponentData = (components, component) => {
+  console.log(components)
+  if(components.length == 0 || !Array.isArray(components)) return null
   let data = components.filter(c => c.__typename == component)
   return data.length > 1 ? data : data[0]
 }
