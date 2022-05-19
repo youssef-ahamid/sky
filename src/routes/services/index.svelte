@@ -17,12 +17,12 @@
 
 <script>
   export let services, page, path
-  
+
   import Hero from '$lib/sections/Hero.svelte'
 
   import Process from '$lib/sections/Process.svelte'
   import Services from '$lib/sections/Services.svelte'
-  
+
   import { activePageSlug } from '$lib/stores'
   $activePageSlug = 'services'
 </script>

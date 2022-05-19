@@ -1,11 +1,14 @@
 <script>
-  import { getComponentData } from '$lib/helpers';
-  
+  import { getComponentData } from '$lib/helpers'
+
   /* props */
   export let links = []
   export let content
 
-  let contactInformation = getComponentData(content, 'ContactInformation').contact
+  let contactInformation = getComponentData(
+    content,
+    'ContactInformation'
+  ).contact
 
   export let copyright =
     'Copyright forever and ever by Samurai Software House'
@@ -15,20 +18,25 @@
   import List from '$lib/components/List/List.svelte'
   import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
   import Go from '$lib/components/Go/Go.svelte'
- 
+
   /* styles */
   import { config } from './styles'
   import Copyable from '../Copyable/Copyable.svelte'
   import Image from '../Image/Image.svelte'
-import Animateonenterview from '../Animate On Enter View/animate on enter view.svelte';
+  import Animateonenterview from '../Animate On Enter View/animate on enter view.svelte'
   $: classes = config()
 </script>
 
 <Section id="footer" noContain className="bg-neutral">
   <footer class={`${classes.footer} ${className}`}>
     <nav class={classes.links}>
-      <List items={links} let:prop={link} className={classes.list} let:index>
-        <Animateonenterview type="flyUp" delay={100*index}>
+      <List
+        items={links}
+        let:prop={link}
+        className={classes.list}
+        let:index
+      >
+        <Animateonenterview type="flyUp" delay={100 * index}>
           <NavLink {...link} className={classes.link} />
         </Animateonenterview>
       </List>

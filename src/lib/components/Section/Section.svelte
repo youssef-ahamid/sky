@@ -3,13 +3,13 @@
   export let title = ''
   export let id = title
   export let cta = null
-  export let color = ""
+  export let color = ''
   export let bg = ''
   export let gradient = ''
   export let noContain = false
   export let fullHeight = false
 
-  import { activeSection } from '$lib/stores';
+  import { activeSection } from '$lib/stores'
   import { inView } from '$lib/actions'
 
   import { createEventDispatcher } from 'svelte/internal'
@@ -17,7 +17,7 @@
 
   const enter = () => {
     dispatch('enter')
-    if (color != "") $activeSection = { color, id, title }
+    if (color != '') $activeSection = { color, id, title }
   }
 
   import Title from '$lib/components/Title/Title.svelte'
@@ -33,7 +33,15 @@
 
 <svelte:window bind:innerHeight={height} />
 
-<section use:inView={{ bottom: height }} on:enter={enter} class={`${classes.section} ${className}`} {id} style="{`background-image: ${gradient? `${gradient},`: ''} url(${bg});`}">
+<section
+  use:inView={{ bottom: height }}
+  on:enter={enter}
+  class={`${classes.section} ${className}`}
+  {id}
+  style={`background-image: ${
+    gradient ? `${gradient},` : ''
+  } url(${bg});`}
+>
   <Title line={title.length > 0}>{title}</Title>
   <div class={classes.content}>
     <slot />

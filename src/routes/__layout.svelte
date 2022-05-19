@@ -16,7 +16,7 @@
         page,
         slug,
         contact,
-        footer
+        footer,
       },
     }
   }
@@ -25,7 +25,8 @@
 <script>
   export let page, slug, currentPath, contact, footer
 
-  if (!page) page = {
+  if (!page)
+    page = {
       seo: {},
       sections: [],
     }
@@ -80,7 +81,7 @@
   $: $mobile = innerWidth < 700
   import '$lib/styles/app.css'
   import Contact from '$lib/sections/Contact.svelte'
-import PageTransition from '$lib/components/Page Transition/Page Transition.svelte';
+  import PageTransition from '$lib/components/Page Transition/Page Transition.svelte'
 </script>
 
 <svelte:window bind:innerWidth />

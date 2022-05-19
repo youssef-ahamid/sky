@@ -19,9 +19,9 @@
 </script>
 
 <div class={`${wrapper.classes} ${className}`}>
-  {#if !!avatar && (!!avatar.src || !!avatar.url) }
+  {#if !!avatar && (!!avatar.src || !!avatar.url)}
     <Image type="avatar" {...avatar} alt={name} />
-  {:else if !!logo && (!!logo.src || !!logo.url) }
+  {:else if !!logo && (!!logo.src || !!logo.url)}
     <Image type="logo" size="sm" {...logo} alt={name} />
   {/if}
   <div class={textWrapper.classes}>

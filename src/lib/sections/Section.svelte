@@ -40,7 +40,9 @@
 
 <Section
   color={invert}
-  className="bg-{bg} text-{color} {className} {center? 'text-center': 'text-left'}"
+  className="bg-{bg} text-{color} {className} {center
+    ? 'text-center'
+    : 'text-left'}"
   {fullHeight}
   {noContain}
   id={identifier}
@@ -52,7 +54,11 @@
     </Animateonenterview>
   {/if}
   {#if !!title}
-    <Animateonenterview noExit type={center? 'flyUp' : 'flyLeft'} delay="500">
+    <Animateonenterview
+      noExit
+      type={center ? 'flyUp' : 'flyLeft'}
+      delay="500"
+    >
       <h2 class={tit.classes} class:mx-auto={center}>{title}</h2>
     </Animateonenterview>
   {/if}

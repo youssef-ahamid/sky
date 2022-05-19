@@ -8,12 +8,12 @@ export const preheaderStyles = props => {
     {
       classes: `text-primary`,
       styles: '',
-      on: props.color != 'neutral-light', 
+      on: props.color != 'neutral-light',
     },
     {
       classes: `text-neutral-light`,
       styles: '',
-      on: props.color == 'neutral-light', 
+      on: props.color == 'neutral-light',
     },
     {
       classes: 'mx-auto text-center',

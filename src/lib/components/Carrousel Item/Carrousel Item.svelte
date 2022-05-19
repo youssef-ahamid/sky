@@ -65,7 +65,7 @@
     </div>
 
     <h2>{title}</h2>
-    {#if !!text }
+    {#if !!text}
       <p>{text}</p>
     {/if}
 

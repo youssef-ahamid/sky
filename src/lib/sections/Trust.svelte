@@ -45,8 +45,9 @@
     class="absolute bottom-10 right-0 grid grid-cols-2 gap-8 whitespace-pre text-secondary text-left"
   >
     <Animateonenterview type="flyRight">
-      <p>
-        <span class="font-bold">SKY</span> for Trading<br />& Contracting
+      <p class="whitespace-nowrap">
+        <span class="font-bold">SKY</span> for Trading<br />&
+        Contracting
       </p>
     </Animateonenterview>
     <Animateonenterview type="flyLeft">

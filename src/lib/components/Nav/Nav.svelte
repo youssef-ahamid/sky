@@ -21,14 +21,16 @@
   import Go from '../Go/Go.svelte'
   import Image from '../Image/Image.svelte'
   import { activePageSlug } from '$lib/stores'
-import Logo from '../Logo/Logo.svelte';
+  import Logo from '../Logo/Logo.svelte'
   $: classes = config({ active, ...styleOptions })
 </script>
 
 <div class="relative h-8 -mt-8 pt-8">
   <Go to="/">
     <Logo
-      color={styleOptions.type == 'secondary'? 'primary': 'neutral-light'}
+      color={styleOptions.type == 'secondary'
+        ? 'primary'
+        : 'neutral-light'}
       className="absolute left-[10%] lg:hidden w-24 top-20 lg:w-44 z-[997]"
     />
   </Go>
@@ -38,7 +40,9 @@ import Logo from '../Logo/Logo.svelte';
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
       <Logo
-        color={styleOptions.type == 'secondary'? 'primary': 'neutral-light'}
+        color={styleOptions.type == 'secondary'
+          ? 'primary'
+          : 'neutral-light'}
         className="my-8 lg:my-0 w-20 lg:w-32 pt-5 left-5 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>

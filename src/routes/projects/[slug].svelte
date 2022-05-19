@@ -60,8 +60,12 @@
       let:previewed
       className="min-h-[200px] md:min-h-[500px] bg-neutral mt-6"
       numPreviewedEachStep={1}
-      on:next={() => {trans = Math.abs(trans)}}
-      on:prev={() => {trans = -Math.abs(trans)}}
+      on:next={() => {
+        trans = Math.abs(trans)
+      }}
+      on:prev={() => {
+        trans = -Math.abs(trans)
+      }}
     >
       {#if previewed}
         {#key image.url}

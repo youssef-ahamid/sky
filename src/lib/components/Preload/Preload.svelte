@@ -1,7 +1,7 @@
 <script>
-    export let src
+  export let src
 </script>
 
 <svelte:head>
-    <link rel="preload" as="image" href={src} />
+  <link rel="preload" as="image" href={src} />
 </svelte:head>

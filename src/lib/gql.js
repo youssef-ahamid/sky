@@ -1,6 +1,8 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient } from 'graphql-request'
 
-export const graphcms = new GraphQLClient(import.meta.env.VITE_GRAPHCMS_URL);
+export const graphcms = new GraphQLClient(
+  import.meta.env.VITE_GRAPHCMS_URL
+)
 const queries = {
   section: `
     identifier
@@ -173,9 +175,8 @@ export async function getJob(slug) {
         }
       }
     }
-  `);
-  return job;
-
+  `)
+  return job
 }
 export async function getProjectPreviews() {
   const { projects } = await graphcms.request(`
@@ -198,8 +199,8 @@ export async function getProjectPreviews() {
         }
       }
     }
-  `);
-  return projects;
+  `)
+  return projects
 }
 
 export async function getClients() {
@@ -212,8 +213,8 @@ export async function getClients() {
         name
       }
     }
-  `);
-  return clients;
+  `)
+  return clients
 }
 
 export async function getServices() {
@@ -229,8 +230,8 @@ export async function getServices() {
         description
       }
     }
-  `);
-  return services;
+  `)
+  return services
 }
 
 export async function getFeaturedProjects() {
@@ -254,8 +255,8 @@ export async function getFeaturedProjects() {
         }
       }
     }
-  `);
-  return projects;
+  `)
+  return projects
 }
 
 export async function getProject(slug) {
@@ -294,8 +295,8 @@ export async function getProject(slug) {
         }
       }
     }
-  `);
-  return project;
+  `)
+  return project
 }
 
 export async function getPage(slug) {
@@ -315,8 +316,8 @@ export async function getPage(slug) {
         }
       }
     }
-  `);
-  return page;
+  `)
+  return page
 }
 
 export async function getSection(id) {
@@ -326,6 +327,6 @@ export async function getSection(id) {
         ${queries.section}
       }
     }
-  `);
-  return section;
+  `)
+  return section
 }

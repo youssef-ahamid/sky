@@ -1,7 +1,7 @@
 <script>
   export let className = ''
   export let width = 144.61
-  export let height = 166.27 
+  export let height = 166.27
   export let strokeWidth = 0.5
   export let stroke = '#1D70B8'
 </script>

@@ -23,7 +23,7 @@
     name: path.substring(lastPos, path.length),
     link: path,
   })
-  
+
   if (path == '/' || path == '') routes = []
 </script>
 

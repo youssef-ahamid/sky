@@ -18,7 +18,7 @@
   import Testimonial from '$lib/components/Testimonial/Testimonial.svelte'
   import { mobile } from '$lib/stores'
   import Steps from '$lib/icons/waves/steps.svelte'
-import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
+  import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
 
   $: prehead = stylus(preheaderStyles({ color: 'primary' }))
   $: tit = stylus(titleStyles())
@@ -43,12 +43,21 @@ import Animateonenterview from '$lib/components/Animate On Enter View/animate on
     let:item={testimonial}
     let:previewed
     numPreviewedEachStep={$mobile ? 1 : 2}
-    on:next={() => {trans =-400}}
-    on:prev={() => {trans = 400}}
+    on:next={() => {
+      trans = -400
+    }}
+    on:prev={() => {
+      trans = 400
+    }}
   >
     {#if previewed}
       {#key testimonial}
-        <Animateonenterview type="flyUp" delay="300" noExit className="mb-6">
+        <Animateonenterview
+          type="flyUp"
+          delay="300"
+          noExit
+          className="mb-6"
+        >
           <div
             in:fly={{ x: trans, delay: 400 }}
             out:fly={{ x: -trans, duration: 300 }}

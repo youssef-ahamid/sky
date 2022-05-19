@@ -70,32 +70,33 @@ export const slugify = text => {
 }
 
 export const getComponentData = (components, component) => {
-  if(components.length == 0 || !Array.isArray(components)) return null
+  if (components.length == 0 || !Array.isArray(components))
+    return null
   let data = components.filter(c => c.__typename == component)
   return data.length > 1 ? data : data[0]
 }
 
-export const timeSince = (timestamp, maxDepth = "seconds") => {
+export const timeSince = (timestamp, maxDepth = 'seconds') => {
   var date = new Date(timestamp)
   var seconds = Math.floor((new Date() - date) / 1000)
   var interval = Math.floor(seconds / 31536000)
-  if (interval > 1 || maxDepth == "years") {
+  if (interval > 1 || maxDepth == 'years') {
     return interval + ' years ago'
   }
   interval = Math.floor(seconds / 2592000)
-  if (interval > 1 || maxDepth == "months") {
+  if (interval > 1 || maxDepth == 'months') {
     return interval + ' months ago'
   }
   interval = Math.floor(seconds / 86400)
-  if (interval > 1 || maxDepth == "days") {
+  if (interval > 1 || maxDepth == 'days') {
     return interval + ' days ago'
   }
   interval = Math.floor(seconds / 3600)
-  if (interval > 1 || maxDepth == "hours") {
+  if (interval > 1 || maxDepth == 'hours') {
     return interval + ' hours ago'
   }
   interval = Math.floor(seconds / 60)
-  if (interval > 1 || maxDepth == "minutes") {
+  if (interval > 1 || maxDepth == 'minutes') {
     return interval + ' minutes ago'
   }
   return Math.floor(seconds) + ' seconds ago'

@@ -15,8 +15,7 @@ export let hero = options => {
 export let cta = options => {
   return [
     {
-      classes:
-        '',
+      classes: '',
     },
   ]
 }
@@ -27,7 +26,8 @@ export let logoInner = ''
 export let logoOuter = ''
 
 export let left = 'px-6 py-4 md:py-0 md:px-12 relative md:max-w-[80%]'
-export let right = 'px-6 py-4 md:py-0 md:px-12 relative -mt-12 md:mt-0 md:max-w-[50%] mx-auto'
+export let right =
+  'px-6 py-4 md:py-0 md:px-12 relative -mt-12 md:mt-0 md:max-w-[50%] mx-auto'
 
 let options
 export const config = props => {
@@ -40,6 +40,6 @@ export const config = props => {
     logo,
     logoInner,
     logoOuter,
-    logoWrapper
+    logoWrapper,
   }
 }

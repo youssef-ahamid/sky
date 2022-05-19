@@ -1,7 +1,7 @@
 <script>
   import Animateonenterview from '$lib/components/Animate On Enter View/animate on enter view.svelte'
-import Button from '$lib/components/Button/Button.svelte'
-import Go from '$lib/components/Go/Go.svelte'
+  import Button from '$lib/components/Button/Button.svelte'
+  import Go from '$lib/components/Go/Go.svelte'
 
   import Section from '$lib/sections/Section.svelte'
 
@@ -58,7 +58,15 @@ import Go from '$lib/components/Go/Go.svelte'
       </Animateonenterview>
     {/each}
   </div>
-  <Go to="/services" className="w-full flex justify-center text-primary pb-8">
-    <Button label="view all services" type="primary" shape="ghost" icon="chevron_right" />
+  <Go
+    to="/services"
+    className="w-full flex justify-center text-primary pb-8"
+  >
+    <Button
+      label="view all services"
+      type="primary"
+      shape="ghost"
+      icon="chevron_right"
+    />
   </Go>
 </Section>

@@ -8,13 +8,11 @@ export let iconWrapper = options => {
     },
     {
       on: [options.active, true],
-      classes:
-        'shadow-none',
+      classes: 'shadow-none',
     },
     {
       on: [options.active, false],
-      classes:
-        'shadow-lg',
+      classes: 'shadow-lg',
     },
     {
       on: [options.type, 'primary'],
@@ -34,13 +32,11 @@ export let icon = options => {
     },
     {
       on: [options.active, true],
-      classes:
-        'rotate-[270deg] scale-90',
+      classes: 'rotate-[270deg] scale-90',
     },
     {
       on: [options.active, false],
-      classes:
-        'scale-75',
+      classes: 'scale-75',
     },
   ]
 }
@@ -64,7 +60,8 @@ export let inactive = options => {
 export let link = options => {
   return [
     {
-      classes: 'm-2 capitalize text-base lg:text-xl font-medium lg:font-normal max-w-fit lg:max-w-full',
+      classes:
+        'm-2 capitalize text-base lg:text-xl font-medium lg:font-normal max-w-fit lg:max-w-full',
     },
     {
       on: [options.type, 'primary'],
@@ -80,7 +77,8 @@ export let link = options => {
 export let links = options => {
   return [
     {
-      classes: 'lg:max-w-[90%] w-full mx-auto flex flex-col lg:flex-row justify-end py-12 lg:py-4 lg:px-2',
+      classes:
+        'lg:max-w-[90%] w-full mx-auto flex flex-col lg:flex-row justify-end py-12 lg:py-4 lg:px-2',
     },
   ]
 }
@@ -88,12 +86,12 @@ export let links = options => {
 export let nav = options => {
   return [
     {
-  classes: 'fixed lg:flex lg:justify-end lg:bg-transparent ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:relative lg:translate-x-0 lg:right-0 w-full p-4 z-[998]',
+      classes:
+        'fixed lg:flex lg:justify-end lg:bg-transparent ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:relative lg:translate-x-0 lg:right-0 w-full p-4 z-[998]',
     },
     {
       on: [options.active, true],
-      classes:
-        'translate-x-0',
+      classes: 'translate-x-0',
     },
     {
       on: [options.active, false],

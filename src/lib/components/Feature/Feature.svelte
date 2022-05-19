@@ -1,5 +1,6 @@
 <script>
   import Image from '$lib/components/Image/Image.svelte'
+  import Preload from '../Preload/Preload.svelte'
 
   /* props */
   export let title = ''
@@ -13,6 +14,8 @@
   import { config } from './styles'
   $: classes = config({ reverse, active })
 </script>
+
+<Preload src={image.url} />
 
 <button
   class={`${classes.feature} ${className}`}
@@ -28,7 +31,7 @@
     <div
       class="w-full h-full opacity-100 rounded-2xl md:rounded-[60px] bg-gradient-to-t from-secondary z-20 absolute pointer-events-none transition duration-300 ease-out"
     />
-  <Image {...image} className={classes.image} type="feature" />
+    <Image {...image} className={classes.image} type="feature" />
   {/if}
   <div class={classes.right} on:click>
     <slot />

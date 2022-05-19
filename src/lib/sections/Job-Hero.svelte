@@ -6,11 +6,10 @@
   import Hero from '$lib/sections/Hero.svelte'
   import { timeSince } from '$lib/helpers'
   import { path } from '$lib/stores'
-import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte'
 
   const dispatch = createEventDispatcher()
   export const apply = e => dispatch('apply', e)
-  
 
   export let job
 </script>

@@ -3,12 +3,15 @@
 
   export let descriptionText = ''
   export let title = ''
-  export let previewImage 
-  if(!previewImage) previewImage = {
-    url: site.mainImage
-  }
+  export let previewImage
+  if (!previewImage)
+    previewImage = {
+      url: site.mainImage,
+    }
 
-  const pageTitle = `${site.title} ${title != '' && !!title? `| ${title}` : ''}`
+  const pageTitle = `${site.title} ${
+    title != '' && !!title ? `| ${title}` : ''
+  }`
 </script>
 
 <svelte:head>

@@ -2,6 +2,7 @@
   import Button from '../Button/Button.svelte'
   import Go from '../Go/Go.svelte'
   import Image from '../Image/Image.svelte'
+  import Preload from '../Preload/Preload.svelte'
 
   export let className = ''
   export let preheader = ''
@@ -10,8 +11,8 @@
   export let clients = []
   export let image = {}
 
-  if(!image) image = {}
-  
+  if (!image) image = {}
+
   export let services = []
   export let type = []
   export let reverse = false
@@ -20,7 +21,8 @@
   export let additionalImageData = {}
   export let cta = {}
 
-  if (!preheader && Array.isArray(type)) preheader = type.join('  ●  ')
+  if (!preheader && Array.isArray(type))
+    preheader = type.join('  ●  ')
   else if (!!type && !Array.isArray(type)) preheader = type
 
   export let color = 'secondary'
@@ -35,7 +37,9 @@
 </script>
 
 <div
-  class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-between text-{color} {className} {reverse? 'flex-row-reverse': ''}"
+  class="my-6 md:my-20 w-full flex flex-wrap lg:flex-nowrap items-center justify-between text-{color} {className} {reverse
+    ? 'flex-row-reverse'
+    : ''}"
 >
   <div
     class="w-full min-w-fit {image.url || image.src
@@ -50,7 +54,13 @@
       {preheader}
     </h3>
     <h2 class="capitalize">{title}</h2>
-    <p class="max-w-[64ch] mt-3 md:mt-6 {shortAndSweet? 'line-clamp-4': ''}">{description}</p>
+    <p
+      class="max-w-[64ch] mt-3 md:mt-6 {shortAndSweet
+        ? 'line-clamp-4'
+        : ''}"
+    >
+      {description}
+    </p>
     {#if !!cta.label}
       <Go
         to={cta.link}
@@ -64,6 +74,7 @@
   </div>
 
   {#if !!image.url || !!image.src}
+    <Preload src={image.url || image.src} />
     <div class="w-full md:w-[47%]" {title}>
       <Go to={cta.link}>
         <Image {...image} {...additionalImageData} />

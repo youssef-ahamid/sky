@@ -10,7 +10,7 @@
   export let styleOptions = {}
 
   import { resolve } from '$lib/icons'
-  
+
   /* styles */
   import { stylus } from '$lib/helpers'
   import { button, buttonLabel, buttonIcon } from './styles'

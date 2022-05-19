@@ -12,9 +12,9 @@
   export let hero = {}
   export let button = {}
   export let statistic = {}
-  if(!hero || !hero.title) hero = getComponentData(content, 'Hero')
+  if (!hero || !hero.title) hero = getComponentData(content, 'Hero')
   button = getComponentData(content, 'Button')
-  if(!statistic) statistic = getComponentData(content, 'Statistic')
+  if (!statistic) statistic = getComponentData(content, 'Statistic')
 
   import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte'
   import Button from '$lib/components/Button/Button.svelte'
@@ -33,7 +33,7 @@
   const untweenAll = () => tweens.forEach(tween => tween.set(0))
 </script>
 
-{#if !!background }
+{#if !!background}
   <Preload src={background.url} />
 {/if}
 {#if !!hero.image}
@@ -41,25 +41,36 @@
 {/if}
 
 <Section
-  color={color == 'secondary'? 'neutral-light': 'secondary' }
+  color={color == 'secondary' ? 'neutral-light' : 'secondary'}
   {fullHeight}
   bg={!!background ? background.url : ''}
 >
   <Hero {fullHeight} className="text-{color}">
     <div slot="left" class="flex flex-col items-start space-y-2">
       <Animateonenterview>
-        {#if !!preheader }
-          <h3 class="text-{color == 'secondary'? 'primary': 'neutral-light' }">{preheader}</h3>
+        {#if !!preheader}
+          <h3
+            class="text-{color == 'secondary'
+              ? 'primary'
+              : 'neutral-light'}"
+          >
+            {preheader}
+          </h3>
         {:else}
-          <Breadcrumb {path} className="{color == 'secondary'? 'text-primary': 'text-neutral-light'}" />
+          <Breadcrumb
+            {path}
+            className={color == 'secondary'
+              ? 'text-primary'
+              : 'text-neutral-light'}
+          />
         {/if}
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="200">
         <h1 class="">{hero.title}</h1>
       </Animateonenterview>
       <Animateonenterview type="flyLeft" delay="500">
-        {#if !!hero.description }
-        <p class="font-medium">{hero.description}</p>
+        {#if !!hero.description}
+          <p class="font-medium">{hero.description}</p>
         {/if}
       </Animateonenterview>
       <Animateonenterview delay="1200">

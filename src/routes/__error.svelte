@@ -25,13 +25,11 @@
     <br />
     <p>{error.message}</p>
     <br />
-    <Go to="/" className="text-primary m-3 flex justify-center w-full"
-      >
-      <Button
-        shape="ghost"
-        type="primary"
-        label="back to home"
-      />
+    <Go
+      to="/"
+      className="text-primary m-3 flex justify-center w-full"
+    >
+      <Button shape="ghost" type="primary" label="back to home" />
     </Go>
   </div>
 </div>

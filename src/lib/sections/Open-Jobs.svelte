@@ -5,8 +5,8 @@
   import Image from '$lib/components/Image/Image.svelte'
   import List from '$lib/components/List/List.svelte'
   import Person from '$lib/components/Person/Person.svelte'
-import Title from '$lib/components/Title/Title.svelte';
-import { slugify } from '$lib/helpers';
+  import Title from '$lib/components/Title/Title.svelte'
+  import { slugify } from '$lib/helpers'
 
   import Section from '$lib/sections/Section.svelte'
 
@@ -28,12 +28,17 @@ import { slugify } from '$lib/helpers';
     let:prop={job}
     let:index
   >
-    <div class="text-left max-w-[360%] text-primary rounded-3xl p-6 shadow-lg">
-        <Go to="/careers/{job.slug}">
-      <h3 class="">{job.title}</h3>
-    </Go>
+    <div
+      class="text-left max-w-[360%] text-primary rounded-3xl p-6 shadow-lg"
+    >
+      <Go to="/careers/{job.slug}">
+        <h3 class="">{job.title}</h3>
+      </Go>
       <p class="md:w-56 text-secondary pb-4 pt-1">{job.brief}</p>
-      <Go to="/careers/{job.slug}" className="w-full flex justify-end">
+      <Go
+        to="/careers/{job.slug}"
+        className="w-full flex justify-end"
+      >
         <Button label="view job" shape="ghost" icon="chevron_right" />
       </Go>
     </div>

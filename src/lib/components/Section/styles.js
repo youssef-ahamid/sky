@@ -3,7 +3,8 @@ import { resolve } from '$lib/helpers'
 export let section = options => {
   return [
     {
-      classes: 'relative overflow-hidden bg-cover bg-center bg-no-repeat',
+      classes:
+        'relative overflow-hidden bg-cover bg-center bg-no-repeat',
     },
     {
       on: [options.fullHeight, true],

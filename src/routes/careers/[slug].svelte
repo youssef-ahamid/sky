@@ -39,15 +39,19 @@
   const apply = () => {
     email.click()
   }
-  const submit = e => {
-  }
+  const submit = e => {}
 </script>
 
 <PageTransition>
   {job.title}
 </PageTransition>
 
-<a href="mailto:info@skyfortc.com?subject=Apply%20For%20the%20Role%20of%20{job.title}" bind:this={email} class="hidden" target="_blank">...</a>
+<a
+  href="mailto:info@skyfortc.com?subject=Apply%20For%20the%20Role%20of%20{job.title}"
+  bind:this={email}
+  class="hidden"
+  target="_blank">...</a
+>
 
 <!-- <Modal bind:this={modal}>
   <h2>

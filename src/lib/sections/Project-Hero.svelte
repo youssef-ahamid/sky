@@ -13,6 +13,7 @@
   import Usd from '$lib/icons/usd.svelte'
   import Triangles from '$lib/components/Triangles/Triangles.svelte'
   import List from '$lib/components/List/List.svelte'
+  import Preload from '$lib/components/Preload/Preload.svelte'
 </script>
 
 <Section
@@ -77,6 +78,7 @@
     </div>
     <div slot="right">
       {#if !!project.image}
+        <Preload src={project.image.url} />
         <Animateonenterview type="flyRight" delay="1500">
           <Image
             src={project.image.url}

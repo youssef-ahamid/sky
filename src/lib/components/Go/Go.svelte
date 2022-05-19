@@ -9,7 +9,8 @@
   import { config } from './styles'
   let classes = config()
 </script>
-{#if !!download }
+
+{#if !!download}
   <a
     on:click
     {download}

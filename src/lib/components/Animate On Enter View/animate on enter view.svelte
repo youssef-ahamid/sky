@@ -19,7 +19,7 @@
   }
 
   const exit = () => {
-    if(noExit) return
+    if (noExit) return
 
     intersecting = false
     dispatch('exit')
@@ -34,7 +34,9 @@
 
 <div
   use:inView={{ bottom: 20 }}
-  style="{styles} {intersecting? `transition-delay: ${delay}ms`: ''}"
+  style="{styles} {intersecting
+    ? `transition-delay: ${delay}ms`
+    : ''}"
   on:enter={enter}
   on:exit={exit}
   class={`${wrapper.classes} ${className}`}

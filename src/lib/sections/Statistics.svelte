@@ -26,7 +26,9 @@
     <h2>{title}</h2>
   </div>
   {#if !!statistics && statistics.length > 0}
-    <div class="flex flex-wrap justify-center items-start space-x-6 my-4 w-full">
+    <div
+      class="flex flex-wrap justify-center items-start space-x-6 my-4 w-full"
+    >
       {#each statistics as stat, i}
         <Animateonenterview
           type="flyUp"

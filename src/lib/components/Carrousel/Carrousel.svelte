@@ -42,7 +42,7 @@
         dispatch('next')
       }
     }
-    if(autoplay) {
+    if (autoplay) {
       clearInterval(autoplayInterval)
       autoplayInterval = setInterval(next, 3000)
     }
@@ -54,9 +54,8 @@
     } else if (currentStep >= numPreviewedEachStep) {
       select(currentStep - numPreviewedEachStep)
       dispatch('prev')
-    }
-    else select(0)
-    if(autoplay) {
+    } else select(0)
+    if (autoplay) {
       clearInterval(autoplayInterval)
       autoplayInterval = setInterval(next, 3000)
     }

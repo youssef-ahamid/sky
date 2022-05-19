@@ -35,8 +35,15 @@
           </p>
           <Triangles />
           <div slot="cta">
-            <Go to="/projects/{project.slug}" className="w-full flex justify-end">
-              <Button type="ghost" icon="chevron_right" className="translate-x-6" />
+            <Go
+              to="/projects/{project.slug}"
+              className="w-full flex justify-end"
+            >
+              <Button
+                type="ghost"
+                icon="chevron_right"
+                className="translate-x-6"
+              />
             </Go>
           </div>
         </Feature>

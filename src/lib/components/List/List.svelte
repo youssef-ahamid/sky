@@ -1,8 +1,8 @@
 <script>
   /* props */
   export let items = [] // *, list items
-  if(!items || items.length == 0) items = []
-  
+  if (!items || items.length == 0) items = []
+
   export let className = '' // *, custom wrapper classes
   export let styles = ''
 
@@ -11,11 +11,7 @@
   let classes = config()
 </script>
 
-<ul
-  class={`${classes.list} + ${className}`}
-  style={styles}
-  on:scroll
->
+<ul class={`${classes.list} + ${className}`} style={styles} on:scroll>
   {#each items as item, i}
     <li class={classes.listItem}>
       <slot prop={item} index={i} />

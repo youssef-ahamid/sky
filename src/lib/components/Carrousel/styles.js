@@ -5,10 +5,10 @@ export const carrouselWrapper = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
@@ -16,14 +16,15 @@ export const carrouselWrapper = props => {
 export const carrousel = props => {
   return [
     {
-      classes: 'flex flex-wrap md:flex-nowrap min-h-[150px] md:min-h-[180px] items-center md:items-end justify-center w-full overflow-hidden',
+      classes:
+        'flex flex-wrap md:flex-nowrap min-h-[150px] md:min-h-[180px] items-center md:items-end justify-center w-full overflow-hidden',
       styles: ``,
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
@@ -35,10 +36,10 @@ export const carrouselItem = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
@@ -50,10 +51,10 @@ export const carrouselControls = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
@@ -65,10 +66,10 @@ export const carrouselStepper = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
@@ -80,10 +81,10 @@ export const carrouselButtons = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
@@ -95,11 +96,10 @@ export const carrouselButton = props => {
       styles: '',
       on: true, // default
     },
-    { 
-      classes: '', 
-      styles: '', 
-      on: props.type == 'primary' 
+    {
+      classes: '',
+      styles: '',
+      on: props.type == 'primary',
     },
   ]
 }
-

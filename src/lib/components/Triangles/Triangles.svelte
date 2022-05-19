@@ -1,5 +1,5 @@
 <script>
-import Triangle from "$lib/icons/shape/triangle.svelte"
+  import Triangle from '$lib/icons/shape/triangle.svelte'
 </script>
 
 <div class="overflow-visible hidden lg:block">

@@ -10,7 +10,8 @@ export const PersonWrapper = props => {
 export const TextWrapper = props => {
   return [
     {
-      classes: 'hover:text-primary transition duration-300 ease-out px-3',
+      classes:
+        'hover:text-primary transition duration-300 ease-out px-3',
       styles: '',
       on: true, // default
     },
