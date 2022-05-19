@@ -43,8 +43,8 @@ import Animateonenterview from '$lib/components/Animate On Enter View/animate on
     let:item={testimonial}
     let:previewed
     numPreviewedEachStep={$mobile ? 1 : 2}
-    on:next={(trans =-400)}
-    on:prev={(trans = 400)}
+    on:next={() => {trans =-400}}
+    on:prev={() => {trans = 400}}
   >
     {#if previewed}
       {#key testimonial}
