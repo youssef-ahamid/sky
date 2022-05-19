@@ -8,6 +8,8 @@
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
 
+  if (!styleOptions.type) styleOptions.type = 'neutral-light'
+
   import List from '$lib/components/List/List.svelte'
   import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
 
