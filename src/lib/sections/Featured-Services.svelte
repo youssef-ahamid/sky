@@ -52,7 +52,7 @@
           <p
             class="m-4 opacity-0 absolute top-0 bottom-0 overflow-visible z-[5] text-neutral-light group-hover:translate-y-[110%] group-hover:opacity-100 group-focus-visible:translate-y-[120%] group-focus-visible:opacity-100 transition duration-500 ease-out body-sm"
           >
-            {service.description}
+            {service.oneLiner}
           </p>
         </div>
       </Animateonenterview>

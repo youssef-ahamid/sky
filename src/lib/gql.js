@@ -72,6 +72,7 @@ const queries = {
             url
           }
           description
+          oneLiner
         }
       }
       ... on EmployeeQuote {
@@ -228,6 +229,7 @@ export async function getServices() {
           url
         }
         description
+        oneLiner
       }
     }
   `)
