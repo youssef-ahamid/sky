@@ -5,21 +5,34 @@
 
   import Section from '$lib/components/Section/Section.svelte'
   import Triangles from '$lib/components/Triangles/Triangles.svelte'
+  import Geometry from '$lib/icons/geometry/Triangles.svelte'
 
   export let services = []
 </script>
 
-<Section id="services">
-  <List items={services} let:prop={service} let:index>
-    <Animateonenterview
-      type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
-      delay={100 * (index % 3)}
+<div class="relative">
+  {#each services as service, i}
+    <div
+      class="absolute w-8 md:w-12 text-primary {i % 2 === 0
+        ? '-left-2'
+        : '-right-2 -scale-x-100'}"
+      style="top: {10 + 25 * i}rem"
     >
-      <Project
-        {...service}
-        additionalImageData={{ type: 'custom' }}
-        reverse={index % 2 === 1}
-      />
-    </Animateonenterview>
-  </List>
-</Section>
+      <Geometry active />
+    </div>
+  {/each}
+  <Section id="services">
+    <List items={services} let:prop={service} let:index>
+      <Animateonenterview
+        type={index % 2 === 0 ? 'flyLeft' : 'flyRight'}
+        delay={100 * (index % 3)}
+      >
+        <Project
+          {...service}
+          additionalImageData={{ type: 'custom' }}
+          reverse={index % 2 === 1}
+        />
+      </Animateonenterview>
+    </List>
+  </Section>
+</div>
