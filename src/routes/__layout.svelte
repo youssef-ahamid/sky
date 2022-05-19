@@ -25,8 +25,7 @@
 <script>
   export let page, slug, currentPath, contact, footer
 
-  if (!page)
-    page = {
+  if (!page) page = {
       seo: {},
       sections: [],
     }
@@ -65,8 +64,9 @@
       text: 'Careers',
     },
     {
-      to: '/ac-units',
+      to: 'https://www.odoo.com/app/ecommerce',
       text: 'AC Units',
+      redirect: true,
     },
     {
       to: 'Sky_Company_Portfolio.pdf',

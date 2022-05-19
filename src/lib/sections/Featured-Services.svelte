@@ -7,7 +7,6 @@ import Go from '$lib/components/Go/Go.svelte'
 
   export let data = {}
   let services = data.content[0].services
-  console.log(services)
 </script>
 
 <Section
