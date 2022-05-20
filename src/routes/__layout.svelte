@@ -70,7 +70,7 @@
       redirect: true,
     },
     {
-      to: 'Sky_Company_Portfolio.pdf',
+      to: 'SkyCompanyPortfolio.pdf',
       text: 'Company profile',
       download: 'SKY for Trading & Contracting - Company Profile',
     },
