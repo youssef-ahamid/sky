@@ -29,7 +29,7 @@
     })
   )
   $: bIcon = stylus(
-    buttonIcon({ type, active, shape, reverse, ...styleOptions })
+    buttonIcon({ type, active, shape, reverse, icon, ...styleOptions })
   )
 </script>
 

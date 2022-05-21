@@ -8,24 +8,33 @@
   export let className = '' // *, custom wrapper classes
   export let styleOptions = {}
 
+  let y, h
+  $: showToTop = y > h * 2
+
+  export const toTop = () => {
+    window.scrollTo(0, 0)
+  }
+
   if (!styleOptions.type) styleOptions.type = 'neutral-light'
 
   import List from '$lib/components/List/List.svelte'
   import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
-
-  import { clickOutside } from '$lib/actions'
+  import Go from '../Go/Go.svelte'
+  import { activePageSlug } from '$lib/stores'
+  import Logo from '../Logo/Logo.svelte'
+  import Button from '../Button/Button.svelte'
 
   let active = false
   const toggle = () => (active = !active)
 
   /* styles */
   import { config } from './styles'
-  import Go from '../Go/Go.svelte'
-  import Image from '../Image/Image.svelte'
-  import { activePageSlug } from '$lib/stores'
-  import Logo from '../Logo/Logo.svelte'
+  import { scale } from 'svelte/transition'
+  import { elasticOut } from 'svelte/easing'
   $: classes = config({ active, ...styleOptions })
 </script>
+
+<svelte:window bind:scrollY={y} bind:innerHeight={h} />
 
 <div class="relative h-8 -mt-8 pt-8">
   <Go to="/">
@@ -62,4 +71,18 @@
       />
     </List>
   </nav>
+
+  {#if showToTop}
+    <div
+      transition:scale={{ duration: 800, easing: elasticOut }}
+      class="fixed bottom-5 right-5 z-[997]"
+    >
+      <Button
+        on:click={toTop}
+        icon="chevron_up"
+        shape="icon"
+        type="primary"
+      />
+    </div>
+  {/if}
 </div>
