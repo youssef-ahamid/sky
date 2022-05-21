@@ -23,13 +23,13 @@
   id="trust"
   {...data}
   center
-  className="py-16"
+  className="pt-16 pb-20"
   noContain
 >
   <List
     items={clients}
     let:index
-    className="grid grid-cols-2 md:grid-cols-5 mx-auto relative py-5 items-center"
+    className="grid grid-cols-2 md:grid-cols-5 mx-auto relative py-5 items-center justify-center md:justify-start"
     let:prop={client}
   >
     <Animateonenterview type="flyUp" delay={100} className="m-4">
@@ -45,13 +45,16 @@
     class="absolute bottom-10 right-0 grid grid-cols-2 gap-8 whitespace-pre text-secondary text-left"
   >
     <Animateonenterview type="flyRight">
-      <p class="whitespace-nowrap">
-        <span class="font-bold">SKY</span> for Trading<br />&
-        Contracting
+      <p class="whitespace-pre-line leading-none">
+        <span class="font-bold">SKY</span> for Trading
+        & Contracting
       </p>
     </Animateonenterview>
     <Animateonenterview type="flyLeft">
-      <p class="font-bold">Building<br />trust</p>
+      <p class="font-bold whitespace-pre-line leading-none">
+        Building
+        trust
+    </p>
     </Animateonenterview>
   </div>
 </Section>

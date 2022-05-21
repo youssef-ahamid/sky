@@ -41,8 +41,8 @@
   {#each projects as project, i}
     <div
       class="absolute w-8 md:w-12 text-primary {i % 2 === 0
-        ? '-left-2'
-        : '-right-2 -scale-x-100'}"
+        ? 'left-0 md:-left-2'
+        : 'right-0 md:-right-2 -scale-x-100'}"
       style="top: {10 + 25 * i}rem"
     >
       <Geometry active />

@@ -82,6 +82,6 @@ import Preload from '$lib/components/Preload/Preload.svelte'
         />
       </Animateonenterview>
     </div>
-    <img src="assets/illustrations/building.png" class="absolute md:translate-y-24 bottom-0 md:bottom-auto md:top-0 left-0 right-0 z-[1]" alt="Sky for trading and contracting">
+    <img src="/assets/illustrations/building.png" class="absolute md:translate-y-24 bottom-0 md:bottom-auto md:top-0 left-0 right-0 z-[1]" alt="Sky for trading and contracting">
   </div>
 </Section>
