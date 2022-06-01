@@ -87,7 +87,7 @@ export let nav = options => {
   return [
     {
       classes:
-        'fixed lg:flex lg:justify-end lg:bg-transparent ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:relative lg:translate-x-0 lg:right-0 w-full p-4 z-[998]',
+        'fixed lg:flex lg:justify-end lg:bg-white ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:bottom-auto lg:translate-x-0 lg:right-0 w-full p-4 z-[998]',
     },
     {
       on: [options.active, true],

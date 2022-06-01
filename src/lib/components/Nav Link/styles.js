@@ -2,7 +2,7 @@ export const navLinkWrapper = props => {
   return [
     {
       classes:
-        'rounded-3xl group px-2 md:px-4 py-1 transition duration-300 ease-out hover:scale-105',
+        'rounded-3xl group text-current px-2 md:px-4 py-1 transition duration-300 ease-out hover:scale-105',
       styles: '',
       on: true, // default
     },
@@ -13,9 +13,14 @@ export const navLinkWrapper = props => {
       on: props.type == 'primary',
     },
     {
-      classes: 'bg-primary text-neutral-light',
+      classes: 'bg-primary text-neutral-light lg:text-neutral-light',
       styles: '',
       on: props.active,
+    },
+    {
+      classes: 'lg:text-primary',
+      styles: '',
+      on: !props.active,
     },
     {
       classes: '',

@@ -49,8 +49,7 @@
 <a
   href="mailto:info@skyfortc.com?subject=Apply%20For%20the%20Role%20of%20{job.title}"
   bind:this={email}
-  class="hidden"
-  target="_blank">...</a
+  class="hidden">...</a
 >
 
 <!-- <Modal bind:this={modal}>

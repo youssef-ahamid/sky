@@ -20,7 +20,7 @@
   import List from '$lib/components/List/List.svelte'
   import NavLink from '$lib/components/Nav Link/Nav Link.svelte'
   import Go from '../Go/Go.svelte'
-  import { activePageSlug } from '$lib/stores'
+  import { activePageSlug, mobile } from '$lib/stores'
   import Logo from '../Logo/Logo.svelte'
   import Button from '../Button/Button.svelte'
 
@@ -51,9 +51,9 @@
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
       <Logo
-        color={styleOptions.type == 'secondary'
+        color={$mobile? styleOptions.type == 'secondary'
           ? 'primary'
-          : 'neutral-light'}
+          : 'neutral-light': 'primary'}
         className="my-8 lg:my-0 w-20 lg:w-32 pt-5 left-5 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>
