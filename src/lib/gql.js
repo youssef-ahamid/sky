@@ -44,6 +44,17 @@ const queries = {
           }
         }
       }
+      ... on Product {
+        cooling
+        heating
+        image {
+          url
+        }
+        title
+        specs {
+          url
+        }
+      }
       ... on ProjectGroup {
         projects {
           slug

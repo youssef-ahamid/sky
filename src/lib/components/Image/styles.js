@@ -53,7 +53,7 @@ export const img = props => {
     },
     {
       classes:
-        'rounded-2xl my-6 md:my-auto md:rounded-[80px] ring-1 ring-primary hover:ring-offset-4 hover:scale-105 min-h-[16rem] max-h-[22rem]',
+        'rounded-2xl my-6 md:my-auto md:rounded-[80px] object-cover object-center ring-1 ring-primary hover:ring-offset-4 hover:scale-105 min-h-[16rem] max-h-[22rem]',
       styles: '',
       on: props.type == 'custom',
     },
