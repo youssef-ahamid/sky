@@ -72,8 +72,8 @@
           text: 'Carrier Products',
         },
         {
-          to: '/ac-units/refrigiration',
-          text: 'Refrigiration Products',
+          to: '/ac-units/refrigeration',
+          text: 'Refrigeration Systems',
         },
       ],
     },

@@ -30,7 +30,7 @@
     <Animateonenterview
       type="flyLeft"
       delay="1200"
-      className="richtext"
+      className="richtext story"
     >
       {@html get('WYSIWYG').text.html}
     </Animateonenterview>

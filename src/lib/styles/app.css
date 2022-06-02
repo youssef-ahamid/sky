@@ -101,6 +101,26 @@
     @apply w-[40%];
   }
 
+  .story .title {
+    @apply flex items-end mx-auto
+  }
+
+  .story .title img {
+    @apply w-12 md:w-20 mx-2
+  }
+
+  .story .title h3 {
+    @apply font-bold 
+  }
+
+  .story .quote {
+    @apply flex items-start space-x-20 justify-between
+  }
+
+  .story .quote img {
+    @apply max-w-[40%] rounded-full
+  }
+
   .slide-underline {
     @apply relative before:absolute before:w-full before:scale-x-0 hover:before:scale-x-100 before:h-px before:bg-current before:top-full before:origin-left before:transition before:duration-300 before:ease-out
   }
