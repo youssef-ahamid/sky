@@ -100,6 +100,10 @@
   .project-content img.half {
     @apply w-[40%];
   }
+
+  .slide-underline {
+    @apply relative before:absolute before:w-full before:scale-x-0 hover:before:scale-x-100 before:h-px before:bg-current before:top-full before:origin-left before:transition before:duration-300 before:ease-out
+  }
 }
 
 /* base */

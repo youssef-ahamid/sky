@@ -1,9 +1,14 @@
+
+<script>
+  export let className = ''
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   x="0px"
   y="0px"
   viewBox="0 0 172 172"
-  class="fill-current w-full h-auto"
+  class={`transition duration-300 ease-out w-full h-auto ${className}`}
 >
   <g
     fill="none"

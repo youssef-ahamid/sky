@@ -65,9 +65,17 @@
       text: 'Careers',
     },
     {
-      to: 'https://www.odoo.com/app/ecommerce',
       text: 'AC Units',
-      redirect: true,
+      links: [
+        {
+          to: '/ac-units/carrier',
+          text: 'Carrier Products',
+        },
+        {
+          to: '/ac-units/refrigiration',
+          text: 'Refrigiration Products',
+        },
+      ],
     },
     {
       to: 'SkyCompanyPortfolio.pdf',
