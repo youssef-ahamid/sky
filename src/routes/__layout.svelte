@@ -65,14 +65,14 @@
       text: 'Careers',
     },
     {
-      text: 'AC Units',
+      text: 'Miraco Products',
       links: [
         {
-          to: '/ac-units/carrier',
+          to: '/miraco-products/carrier',
           text: 'Carrier Products',
         },
         {
-          to: '/ac-units/refrigeration',
+          to: '/miraco-products/refrigeration',
           text: 'Refrigeration Systems',
         },
       ],

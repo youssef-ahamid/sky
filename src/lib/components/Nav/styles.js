@@ -61,7 +61,7 @@ export let link = options => {
   return [
     {
       classes:
-        'm-2 capitalize text-base lg:text-xl font-medium lg:font-normal max-w-fit lg:max-w-full',
+        'm-2 capitalize text-base lg:text-lg font-medium lg:font-normal max-w-fit lg:max-w-full',
     },
     {
       on: [options.type, 'primary'],

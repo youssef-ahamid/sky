@@ -54,7 +54,7 @@
         color={$mobile? styleOptions.type == 'secondary'
           ? 'primary'
           : 'neutral-light': 'primary'}
-        className="my-8 lg:my-0 w-20 lg:w-28 pt-5 left-5 lg:fixed lg:top-4 lg:left-[5%]"
+        className="my-8 lg:my-0 w-20 pt-5 left-5 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>
