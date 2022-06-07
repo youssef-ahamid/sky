@@ -79,7 +79,7 @@ export let nav = options => {
   return [
     {
       classes:
-        'fixed lg:absolute lg:mt-8 lg:flex lg:justify-end lg:bg-white ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:bottom-auto lg:translate-x-0 lg:right-0 w-full p-4 z-[998] text-neutral-light bg-secondary',
+        'fixed lg:absolute lg:mt-8 lg:flex lg:justify-end lg:bg-white ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:bottom-auto lg:translate-x-0 lg:right-0 w-full p-4 z-[998] bg-neutral-light',
     },
     {
       on: [options.active, true],
@@ -89,6 +89,7 @@ export let nav = options => {
       on: [options.active, false],
       classes: '-translate-x-full',
     },
+    
   ]
 }
 

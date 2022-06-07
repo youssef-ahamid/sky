@@ -2,7 +2,7 @@ export const navLinkWrapper = props => {
   return [
     {
       classes:
-        'rounded-3xl group text-current px-2 space-x-4 md:px-4 py-1 transition duration-300 ease-out origin-center hover:scale-105 active:scale-95 flex items-center justify-between relative',
+        'rounded-3xl group px-2 space-x-4 md:px-4 py-1 transition duration-300 ease-out origin-center hover:scale-105 active:scale-95 flex items-center justify-between relative',
       styles: '',
       on: true, // default
     },
@@ -13,12 +13,12 @@ export const navLinkWrapper = props => {
       on: props.type == 'primary' && !props.sublink,
     },
     {
-      classes: 'bg-primary text-neutral-light lg:text-neutral-light',
+      classes: 'bg-primary text-neutral-light',
       styles: '',
       on: props.active,
     },
     {
-      classes: 'lg:text-primary',
+      classes: 'text-primary',
       styles: '',
       on: !props.active,
     },

@@ -37,23 +37,13 @@
 <svelte:window bind:scrollY={y} bind:innerHeight={h} />
 
 <div class="relative h-8 -mt-8 pt-8">
-  <Go to="/">
-    <Logo
-      color={styleOptions.type == 'secondary'
-        ? 'primary'
-        : 'neutral-light'}
-      className="absolute left-[10%] lg:hidden w-24 top-20 lg:w-44 z-[997]"
-    />
-  </Go>
   <div class={classes.iconWrapper} on:click={toggle} id="menu-icon">
     <svelte:component this={icon} className={classes.icon} {active} />
   </div>
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
       <Logo
-        color={!$mobile 
-          ? 'primary'
-          : 'neutral-light'}
+        color={'primary'}
         className="my-8 lg:my-0 w-20 pt-5 left-8 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>
