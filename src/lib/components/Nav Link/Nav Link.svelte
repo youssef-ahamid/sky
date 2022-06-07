@@ -4,6 +4,7 @@
   export let text = ''
   export let download = false
   export let redirect = false
+  export let noList = false
   export let active = false
   export let sublinkOpen = false
   export let activeSub = 0
@@ -47,12 +48,14 @@
   <p class={`${wrapper.classes} ${className}`}>
     {text}
     <slot />
-    {#if links.length > 0}
-      <Chevron
-        className="{sublinkOpen
-          ? '-rotate-90'
-          : 'rotate-90'} text-current w-7 ml-2"
-      />
+    {#if links.length > 0 && !noList}
+      <span class="chevron">
+        <Chevron
+          className="{sublinkOpen
+            ? '-rotate-90'
+            : 'rotate-90'} text-current w-7 ml-2"
+        />
+      </span>
     {/if}
   </p>
 

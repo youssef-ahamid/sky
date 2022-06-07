@@ -37,7 +37,7 @@
         let:index
       >
         <Animateonenterview type="flyUp" delay={100 * index}>
-          <NavLink {...link} className={classes.link} />
+          <NavLink {...link} noList className={classes.link} />
         </Animateonenterview>
       </List>
       <div class="flex flex-wrap">

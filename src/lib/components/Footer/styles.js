@@ -1,8 +1,8 @@
 export let footer = 'w-full py-24 relative'
 export let list =
-  'w-full lg:max-w-[70%] px-8 pt-5 grid grid-cols-2 lg:grid-cols-3 items-start my-6'
+  'w-full lg:max-w-[70%] px-8 pt-5 grid grid-cols-2 lg:grid-cols-3 items-start my-6 z-[999]'
 export let links =
-  'w-full flex flex-col md:flex-row items-start justify-between px-6'
+  'w-full flex flex-col md:flex-row items-start justify-between px-6 '
 export let socials =
   'w-[90%] md:w-[95%] mx-auto flex justify-center md:justify-start items-center pt-12'
 export let socialLink =
