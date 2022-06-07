@@ -51,7 +51,7 @@
       <Chevron
         className="{sublinkOpen
           ? '-rotate-90'
-          : 'rotate-90'} group-hover:text-neutral-light text-primary w-7 ml-2"
+          : 'rotate-90'} text-current w-7 ml-2"
       />
     {/if}
   </p>

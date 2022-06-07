@@ -16,7 +16,7 @@
   {#if !!image}
     <Image className="w-80 md:w-96 h-80 md:h-96 p-4" type="custom" styleOptions={{ padding: 20 }} src={image.url} />
   {/if}
-  <div class="px-1">
+  <div class="px-1 py-5 md:py-1">
     <h2 class="text-neutral-dark max-w-xs">{title}</h2>
     <div class="flex py-1 space-x-4 md:space-x-6">
       {#if heating}

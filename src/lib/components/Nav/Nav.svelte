@@ -51,10 +51,10 @@
   <nav class={`${classes.nav} ${className}`}>
     <Go to="/">
       <Logo
-        color={$mobile? styleOptions.type == 'secondary'
+        color={!$mobile 
           ? 'primary'
-          : 'neutral-light': 'primary'}
-        className="my-8 lg:my-0 w-20 pt-5 left-5 lg:fixed lg:top-4 lg:left-[5%]"
+          : 'neutral-light'}
+        className="my-8 lg:my-0 w-20 pt-5 left-8 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>

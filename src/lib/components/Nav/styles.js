@@ -63,14 +63,6 @@ export let link = options => {
       classes:
         'm-2 capitalize text-base lg:text-lg font-medium lg:font-normal max-w-fit lg:max-w-full',
     },
-    {
-      on: [options.type, 'primary'],
-      classes: 'text-neutral-light',
-    },
-    {
-      on: [options.type, 'secondary'],
-      classes: 'text-primary',
-    },
   ]
 }
 
@@ -87,7 +79,7 @@ export let nav = options => {
   return [
     {
       classes:
-        'fixed lg:absolute lg:mt-8 lg:flex lg:justify-end lg:bg-white ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:bottom-auto lg:translate-x-0 lg:right-0 w-full p-4 z-[998]',
+        'fixed lg:absolute lg:mt-8 lg:flex lg:justify-end lg:bg-white ring ring-primary -ml-1 lg:ml-0 lg:ring-transparent transition duration-500 ease-out top-0 left-0 bottom-0 lg:bottom-auto lg:translate-x-0 lg:right-0 w-full p-4 z-[998] text-neutral-light bg-secondary',
     },
     {
       on: [options.active, true],
@@ -96,14 +88,6 @@ export let nav = options => {
     {
       on: [options.active, false],
       classes: '-translate-x-full',
-    },
-    {
-      on: [options.type, 'primary'],
-      classes: 'text-neutral-light bg-secondary',
-    },
-    {
-      on: [options.type, 'secondary'],
-      classes: 'text-primary bg-white',
     },
   ]
 }

@@ -114,11 +114,11 @@
   }
 
   .story .quote {
-    @apply flex items-start space-x-20 justify-between
+    @apply flex flex-col justify-center md:flex-row items-start md:space-x-20 md:justify-between flex-wrap md:flex-nowrap pb-12
   }
 
   .story .quote img {
-    @apply max-w-[40%] rounded-full
+    @apply max-w-[90%] mx-auto md:max-w-[40%] rounded-full
   }
 
   .slide-underline {

@@ -112,12 +112,4 @@
   {links}
   {...footer}
   copyright="copyright 2021 Sky for Trading & Contracting"
-  address={{
-    email: 'info@skyfortc.com',
-    phone: '+1 (844) 789-8787',
-    fullAddress:
-      'Sky for Trading & Contracting, Inc.\n' +
-      '1201 N. Main Street, Suite #100\n' +
-      'Cleveland, OH 44115',
-  }}
 />
