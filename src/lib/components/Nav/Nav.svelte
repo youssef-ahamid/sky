@@ -44,7 +44,7 @@
     <Go to="/">
       <Logo
         color={'primary'}
-        className="my-8 lg:my-0 w-20 pt-5 left-8 lg:fixed lg:top-4 lg:left-[5%]"
+        className="my-8 lg:my-0 w-20 lg:w-28 pt-5 left-8 lg:fixed lg:top-4 lg:left-[5%]"
       />
     </Go>
     <List items={links} let:prop={item} className={classes.links}>
